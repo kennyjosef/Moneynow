@@ -90,6 +90,7 @@ form input{
 }
 a{
     text-decoration: none;
+    color:purple;
 }
 .remember{
     display: flex;
@@ -112,10 +113,10 @@ a{
 @media screen and (max-width:768px) {
     .container{
         flex-direction: column;
-        width: 100%;
         margin-top: 0px;
         padding-bottom: 0px;
         box-shadow: none;
+        padding-bottom: 20px;
     }
     .item1, .item2{
         width: 80%;
@@ -125,8 +126,8 @@ a{
         width: 100%;
         margin-bottom: 40px;
     }
-    .logo{
-        margin-top: 0px;
+    .logo img{
+        margin-top: 10px;
     }
     form input{
         width: 100%;
