@@ -18,12 +18,16 @@ const Login = () => {
             <form action="">
                 <div>
                     <p> Email</p>
-                    <input type="email" name="email" id="email" placeholder='xyz@gmail.com' />
+                    <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder='xyz@gmail.com' 
+                    />
                 </div>
                 <div>
                     <p>Password</p>
                     <input type="password" name="password" id="password" placeholder='Minimum of 8 characters' />
-                    <i class="fa fa-eye" aria-hidden="true"></i>
                 </div>
                 <div className={classes.remember}>
                     <input type="checkbox" name="" id="" />

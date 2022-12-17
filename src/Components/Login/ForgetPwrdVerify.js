@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../Logo/Logo'
-import classes from './Forget.module.css'
+import classes from './ForgetPwrdVerify.module.css'
 // import classes from "../SignUp/SignUp1.module.css"
 const ForgetPwrdVerify = () => {
   return (

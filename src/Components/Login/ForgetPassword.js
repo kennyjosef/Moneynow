@@ -2,7 +2,7 @@
  import Logo from '../Logo/Logo'
 import { Link } from 'react-router-dom'
  import Button from '../Button/Button'
- import classes from './Forget.module.css'
+ import classes from './ForgetPassword.module.css'
  
  const ForgetPassword = () => {
    return (
@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
             </div>
             <div className={classes.login}>
                 <h3>Forgot Password</h3>
-                <p>Rest Password to gain access to your account</p>
+                <p>Reset Password to gain access to your account</p>
             </div>
             <form action="">
                 <div>

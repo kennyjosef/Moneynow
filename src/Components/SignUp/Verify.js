@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../Logo/Logo'
-import classes from './SignUp1.module.css'
+import classes from './Verify.module.css'
 
 const Verify = () => {
   return (

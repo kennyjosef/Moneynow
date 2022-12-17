@@ -1,8 +1,9 @@
 import React from 'react'
 import Button from '../Button/Button'
 import Logo from '../Logo/Logo'
+import Logo4 from '../../Assets/details.jpg'
 import { Link } from 'react-router-dom'
-import classes from '../SignUp/Password.module.css'
+import classes from './NewPassword.module.css'
 
 const NewPassword = () => {
   return (
@@ -32,6 +33,7 @@ const NewPassword = () => {
         </form>
       </div>
       <div className={classes.item2}>
+        <img src={Logo4} alt="details" />
 
       </div>
     </div>

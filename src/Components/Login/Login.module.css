@@ -8,7 +8,7 @@
 }
 
 .item1 button{
-    background-color: purple;
+    background-color: rgb(220, 19, 220);
     width: 427px;
     height: 46px;
     border-radius: 8px;
@@ -78,7 +78,7 @@ form input{
 }
 
 .item2{
-    background-image: url(../../Assets/women.jpeg);
+    background-image: url(../../Assets/welcome.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     border-top-right-radius: 8px;
