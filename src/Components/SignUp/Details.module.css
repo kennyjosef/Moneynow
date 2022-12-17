@@ -11,7 +11,7 @@
 }
 
 .item1 button{
-    background-color: rgb(220, 19, 220);
+    background-color:  rgb(238, 88, 238);
     width: 427px;
     height: 46px;
     border-radius: 8px;
@@ -75,7 +75,7 @@ form input{
 }
 a{
     text-decoration: none;
-    color: rgb(220, 19, 220);
+    color:  rgb(238, 88, 238);
 }
 
 .item2{

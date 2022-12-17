@@ -39,10 +39,10 @@ const Login = () => {
                     </Link>
                 </div>
             </form>
-                <Link to="/forget/1">
-                    <p>Forget Password?</p>
-                </Link>
                 <div className={classes.para}>
+                    <Link to="/forget/1">
+                        <p>Forget Password?</p>
+                    </Link>
                     <p>New to MoneyNow? 
                         <Link to="signup">
                             <span> Sign Up</span> 

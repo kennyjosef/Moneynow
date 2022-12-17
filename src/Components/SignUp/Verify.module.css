@@ -8,7 +8,7 @@
 }
 
 .item1 button{
-    background-color: purple;
+    background-color:  rgb(238, 88, 238);
     width: 427px;
     height: 46px;
     border-radius: 8px;
@@ -79,7 +79,7 @@ form input{
 }
 a{
     text-decoration: none;
-    color: purple;
+    color:  rgb(238, 88, 238);
 }
 
 .item2{

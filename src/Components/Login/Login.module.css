@@ -8,7 +8,7 @@
 }
 
 .item1 button{
-    background-color: rgb(220, 19, 220);
+    background-color:  rgb(238, 88, 238);
     width: 427px;
     height: 46px;
     border-radius: 8px;
@@ -23,10 +23,10 @@
     margin-bottom: 30px;
     cursor: pointer;
 }
-.logo img{
+/* .logo img{
     margin-top: 30px;
     width: 180px;
-}
+} */
 
 
 .container{
@@ -84,6 +84,7 @@ form input{
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
+
 .para span{
     cursor: pointer;
     font-weight: 500;
