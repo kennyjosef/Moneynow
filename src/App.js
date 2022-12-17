@@ -1,0 +1,33 @@
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import ForgetPassword from "./Components/Login/ForgetPassword";
+import ForgetPwrdVerify from "./Components/Login/ForgetPwrdVerify";
+import ForgetSucces from "./Components/Login/ForgetSucces";
+import Login from "./Components/Login/Login";
+import NewPassword from "./Components/Login/NewPassword";
+import BVN from "./Components/SignUp/BVN";
+import Details from "./Components/SignUp/Details";
+import Password from "./Components/SignUp/Password";
+import SignUp1 from "./Components/SignUp/SignUp1";
+import Verify from "./Components/SignUp/Verify";
+function App() {
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="signup" element={<SignUp1/>}/>
+        <Route path="verify" element={<Verify/>}/>
+        <Route path= "details" element={<Details/>}/>
+        <Route path="password" element={<Password/>}/>
+        <Route path="bvn" element={<BVN/>}/>
+        <Route path="forget/1" element={<ForgetPassword/>}/>
+        <Route path= 'forget/2' element={<ForgetPwrdVerify/>}/>
+        <Route path= "forget/3" element={<NewPassword/>}/>
+        <Route path= "forget/4" element={<ForgetSucces/>}/>
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+

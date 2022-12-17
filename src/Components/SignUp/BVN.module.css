@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Public Sans', sans-serif;
+}
+
+.item1 button{
+    background-color: purple;
+    width: 427px;
+    height: 46px;
+    border-radius: 8px;
+    border: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+.logo img{
+    margin-top: 30px;
+    width: 180px;
+}
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 80px;
+    text-align: center;
+    box-shadow: 1px 0.5px 4px gray;
+    border-radius: 8px;
+}
+.item1, .item2{
+    width: 50%;
+}
+.login{
+    /* border: 1px solid red; */
+}
+.login h3{
+    /* padding-top: 30px; */
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 61px;
+    color: #000000;
+}
+.login p{
+    /* padding-bottom: 60px; */
+}
+.item1{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+form div p{
+    /* padding-bottom: 50px; */
+}
+form input{
+    width: 427px;
+    height: 46px;
+    border: 1px solid #070807;
+    border-radius: 5px;
+    color: black;
+    padding-left: 15px;
+    font-size: 16px;
+    outline: none;
+}
+
+.item2{
+    background-image: url(../../Assets/women.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+@media screen and (max-width:768px) {
+    .container{
+        flex-direction: column;
+        width: 100%;
+        margin-top: 0px;
+        padding-bottom: 0px;
+        box-shadow: none;
+    }
+    .item1, .item2{
+        width: 80%;
+        margin: auto;
+    }
+    .item1 button{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    form input{
+        width: 100%;
+    }
+    .item2{
+        display: none;
+    }
+    .login h3{
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 51px;
+    }
+}
