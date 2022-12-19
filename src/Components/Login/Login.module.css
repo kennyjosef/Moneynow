@@ -23,10 +23,6 @@
     margin-bottom: 30px;
     cursor: pointer;
 }
-/* .logo img{
-    margin-top: 30px;
-    width: 180px;
-} */
 
 
 .container{
@@ -91,7 +87,7 @@ form input{
 }
 a{
     text-decoration: none;
-    color:purple;
+    color:rgb(238, 88, 238);
 }
 .remember{
     display: flex;
@@ -109,6 +105,10 @@ a{
     font-size: 15px;
     text-align: center;
     padding-top: 10px;
+}
+input.input-error,
+select.input-error{
+    border-color: red;
 }
 
 @media screen and (max-width:768px) {

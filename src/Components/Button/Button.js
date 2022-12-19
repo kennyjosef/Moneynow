@@ -3,7 +3,8 @@ import React from 'react'
 const Button = ({name}) => {
   return (
     <div>
-         <button >{name}</button>
+      
+         <button type='submit'>{name}</button>
     </div>
   )
 }

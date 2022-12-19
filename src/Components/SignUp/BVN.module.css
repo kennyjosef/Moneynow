@@ -63,9 +63,7 @@
     justify-content: space-around;
     margin-bottom: 30px;
 }
-form div p{
-    /* padding-bottom: 50px; */
-}
+
 form input{
     width: 427px;
     height: 46px;

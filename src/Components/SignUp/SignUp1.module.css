@@ -103,6 +103,14 @@ a{
     border: 1px solid black;
     margin-left: 10px;
 }
+.error{
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    width: 427px;
+    margin: auto;
+    padding-top: 5px;
+}
 @media screen and (max-width:768px) {
     .container{
         flex-direction: column;
@@ -120,6 +128,9 @@ a{
         margin-bottom: 40px;
     }
     form input{
+        width: 100%;
+    }
+    .error{
         width: 100%;
     }
     .item2{
