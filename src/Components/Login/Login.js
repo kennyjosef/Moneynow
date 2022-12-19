@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Logo from '../Logo/Logo'
 import {useFormik} from 'formik'
 import Button from '../Button/Button'
@@ -17,6 +17,7 @@ const Login = () => {
     //     let fetchLoginApi = async ()=>{
     //         let res = await fetch(`${baseURL}?id=${apiKey}`)
     //         let data= await res.json()
+    //         data
             
     //     }
 
@@ -30,7 +31,8 @@ const Login = () => {
         validationSchema:loginSchema,
         onSubmit
         });
-        console.log(errors);
+        console.log(errors)
+        console.log("data", values.email, values.password)
   return (
     <div className={classes.container}>
       <div className={classes.item1}>
@@ -54,6 +56,7 @@ const Login = () => {
                     className={errors.email?"input-error":""}
                     placeholder='xyz@gmail.com' 
                     />
+                    <p className={classes.error}>{errors.email}</p>
                 </div>
                 <div>
                     <p>Password</p>
@@ -66,6 +69,7 @@ const Login = () => {
                     onBlur={handleBlur}
                     className={errors.password?"input-error":""}
                     placeholder='Minimum of 8 characters' />
+                    <p className={classes.error}>{errors.password}</p>
                 </div>
                 <div className={classes.remember}>
                     <input type="checkbox" name="" id="" />

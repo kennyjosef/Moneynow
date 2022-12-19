@@ -106,9 +106,13 @@ a{
     text-align: center;
     padding-top: 10px;
 }
-input.input-error,
-select.input-error{
-    border-color: red;
+.error{
+    width: 427px;
+    margin: auto;
+    text-align: left;
+    font-size: 12px;
+    padding: 0px;
+    color: red;
 }
 
 @media screen and (max-width:768px) {
@@ -147,5 +151,8 @@ select.input-error{
         font-weight: 700;
         font-size: 30px;
         line-height: 51px;
+    }
+    .error{
+        width: 100%;
     }
 }

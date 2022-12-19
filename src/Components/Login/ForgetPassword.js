@@ -7,6 +7,7 @@ import { useFormik} from 'formik'
 import { basicSchema } from '../Schema/Schema'
  
 const onSubmit=()=>{
+    
     console.log("submitted")
 }
  const ForgetPassword = () => {
@@ -18,8 +19,7 @@ const onSubmit=()=>{
         validationSchema: basicSchema,
         onSubmit
     });
-// console.log(errors);
-// console.log(values)
+    console.log(errors);
 
    return (
      <div className={classes.container}>
@@ -41,8 +41,8 @@ const onSubmit=()=>{
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={errors.email ? "input-error" : null}
                     placeholder='xyz@gmail.com' />
+                    <p className={classes.error}>{errors.email}</p>
                     
                 </div>
                 <div>

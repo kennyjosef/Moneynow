@@ -1,30 +1,26 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
 import classes from './SignUp1.module.css'
 import Logo from '../Logo/Logo'
+import { useFormik} from 'formik'
+import { basicSchema } from '../Schema/Schema'
+
+
+const onSubmit=()=>{
+    console.log("submitted")
+}
 
 const SignUp1 = () => {
-    const [email, setEmail]= useState("")
-    const [message, setMessage]= useState("")
-
-    function handleEmail(e){
-        setEmail(e.target.value)
-    }
-    const validateEmail =(e)=>{
-        e.preventDefault()
-        const regExp= /^[a-zA-Z0-9._]+@[a-z]+\.[a-z]{2,6}$/
-        if(regExp.test(email)){
-            setMessage("")
-        }else if (email===""){
-            setMessage("Please enter your email")
-        }else if(!regExp.test(email)){
-            setMessage("Email is not valid")
-        }else{
-            setMessage("")
-        }
-    }
-   
+    const {values, errors, handleBlur, handleChange, handleSubmit,} = useFormik({
+        initialValues:{
+            email:""
+        },
+        validationSchema: basicSchema,
+        onSubmit
+    });
+    console.log(errors);
+    console.log("data", values)
   return (
     <div className={classes.container}>
         <div className={classes.item1}>
@@ -36,16 +32,19 @@ const SignUp1 = () => {
                     <h3>Welcome Back!</h3>
                     <p>To create an account, enter your e-mail</p>
                 </div>
-                <form action="" onSubmit={validateEmail}>
+                <form action="" onSubmit={handleSubmit}>
                     <p>Email</p>
                     <input 
+                    className={errors.email ? "errorMessage": ""} 
                     type="email" 
                     name="email" 
                     id="email" 
-                    value={email}
-                    onChange={handleEmail}
-                    placeholder='xzy@gmail.com' />
-                    <p className={classes.error}>{message}</p>
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder='xzy@gmail.com'
+                    />
+                    <p className={classes.error}>{errors.email}</p>
                     {/* <Link to="/verify"> */}
                         <Button name="Proceed"/>
                     {/* </Link> */}

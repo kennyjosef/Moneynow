@@ -7,6 +7,6 @@ export const loginSchema= yup.object().shape({
     .required("Required"),
     password:yup
     .string()
-    .min(5)
+    .min(8)
     .required("Required"),
 })

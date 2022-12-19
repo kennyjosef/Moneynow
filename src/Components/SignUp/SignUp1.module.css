@@ -109,7 +109,7 @@ a{
     text-align: left;
     width: 427px;
     margin: auto;
-    padding-top: 5px;
+    padding: 0px;
 }
 @media screen and (max-width:768px) {
     .container{
