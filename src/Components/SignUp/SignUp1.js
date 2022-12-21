@@ -1,27 +1,41 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
 import classes from './SignUp1.module.css'
 import Logo from '../Logo/Logo'
 import { useFormik} from 'formik'
 import { basicSchema } from '../Schema/Schema'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+// import Spinner from '../Spinner/Spinner'
 
-
-const onSubmit=()=>{
-    console.log("submitted")
-}
 
 const SignUp1 = () => {
+    const [loginSpin, setLoginSpin] = useState(false)
+    const navigate = useNavigate()
     const {values, errors, handleBlur, handleChange, handleSubmit,} = useFormik({
         initialValues:{
             email:""
         },
         validationSchema: basicSchema,
-        onSubmit
+        onSubmit: (values)=>{
+            axios.post("https://moneynow.onrender.com/api/signup",values)
+            .then(res=>{
+                console.log(res)
+                // if(res.data.message=== true){
+                    navigate("/verify")
+                // }
+            })
+            
+            .catch(error=>{
+                console.log(error.message)
+            })
+        }
     });
     console.log(errors);
     console.log("data", values)
   return (
+    // loginSpin ? <Spinner /> : <>
     <div className={classes.container}>
         <div className={classes.item1}>
             <div className={classes.logo}>
@@ -29,7 +43,7 @@ const SignUp1 = () => {
             </div>
             <div>
                 <div className={classes.login}>
-                    <h3>Welcome Back!</h3>
+                    <h3>Welcome</h3>
                     <p>To create an account, enter your e-mail</p>
                 </div>
                 <form action="" onSubmit={handleSubmit}>

@@ -1,11 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from '../Logo/Logo'
 import classes from './Details.module.css'
 import  './Details.module.css'
 import Button from '../Button/Button'
-import { Link } from 'react-router-dom'
+import axios from "axios"
+import { detailsSchema } from '../Schema/DetailsSchema'
+import { useFormik } from 'formik'
+import { useNavigate } from 'react-router-dom'
 
-const Details = () => {
+const url ='https://moneynow.onrender.com/api/nameSignUp';
+const Details = () => { 
+    const navigate= useNavigate()
+    const {values, errors, handleBlur, handleChange, handleSubmit} = useFormik({
+        initialValues:{
+            firstName:"",
+            lastName:"",
+            phoneNumber:"",
+            refer: "",
+
+        },
+        validationSchema: detailsSchema,
+        onSubmit:(values)=>{
+            axios.put("https://moneynow.onrender.com/api/nameSignUp?id=639b9e5ce2ea19656ef00cf9", values)
+            .then(res=>{
+                console.log(res)
+                navigate("/password")
+
+            })
+            .catch(error=>{
+                console.log(error.message)
+            })
+
+        }
+        
+    })
+    console.log(errors)
+    console.log("values", values)
   return (
     <div className={classes.container}>
         <div className={classes.item1}>
@@ -16,41 +46,58 @@ const Details = () => {
                 <h3>Enter Name</h3>
                 <p>Kindly Provide Your Name </p>
             </div>
-            <form action="" className={classes.details}>
+            <form action="" className={classes.details} onSubmit={handleSubmit}>
                 <div>
-                    <p> FisrtName</p>
+                    <p className={classes.detailsP}> FisrtName</p>
                     <input 
                     type="text" 
                     name="firstName" 
                     id="firstName" 
+                    value={values.firstName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder='Enter your First Name' />
+                    <p className={classes.error}>{errors.firstName}</p>
                 </div>
                 <div>
-                    <p>Last Name</p>
+                    <p className={classes.detailsP}>Last Name</p>
                     <input 
                     type="text" 
                     name="lastName" 
                     id="lastName" 
+                    value={values.lastName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder='Enter your Last Name'/>
+                    <p className={classes.error}>{errors.lastName}</p>
                 </div>
                 <div>
-                    <p>Phone Number</p>
+                    <p className={classes.detailsP}>Phone Number</p>
                     <input 
                     type="tel" 
-                    name="tel" 
-                    id="tel" />
+                    name="phoneNumber" 
+                    id="PhoneNumber" 
+                    value={values.phoneNumber}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    />
+                    <p className={classes.error}>{errors.phoneNumber}</p>
                 </div>
                 <div>
-                    <p>Referral ID (Optional)</p>
+                    <p className={classes.detailsP}>Referral ID (Optional)</p>
                     <input 
                     type="text" 
-                    name="referral" id="referral" 
-                    placeholder='jw34r' />
+                    name="refer" 
+                    id="refer" 
+                    placeholder='jw34r'
+                    value={values.refer}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    />
+                    <p className={classes.error}>{errors.refer}</p>
                 </div>
                 <div>
-                    <Link to="/password">
-                        <Button name="Proceed"/>
-                    </Link>
+                        <Button  name="Proceed"/>
                 </div>
             </form>
 

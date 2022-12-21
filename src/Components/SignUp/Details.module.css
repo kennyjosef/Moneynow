@@ -56,7 +56,7 @@
     justify-content: space-around;
     margin-bottom: 30px;
 }
-.details p{
+.detailsP{
     padding:15px 0px 0px 0px;
     text-align: left;
     width: 427px;
@@ -80,6 +80,15 @@
 a{
     text-decoration: none;
     color:  rgb(238, 88, 238);
+}
+.error{
+    width: 427px;
+    margin: auto;
+    text-align: left;
+    font-size: 12px;
+    padding: 0px;
+    color: red;
+    padding-top: 0px;
 }
 
 .item2{
@@ -121,4 +130,5 @@ a{
         font-size: 30px;
         line-height: 51px;
     }
+    .error{width: 100%;}
 }

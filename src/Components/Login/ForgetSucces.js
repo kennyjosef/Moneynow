@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '../Button/Button'
 import Logo from '../Logo/Logo'
 import { Link } from 'react-router-dom'
-import classes from './Login.module.css'
+import classes from './ForgetSucc.module.css'
 
 const ForgetSucces = () => {
   return (

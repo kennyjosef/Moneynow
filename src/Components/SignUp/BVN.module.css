@@ -82,6 +82,14 @@ form input{
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
+.error{
+    width: 427px;
+    margin: auto;
+    text-align: left;
+    font-size: 12px;
+    padding: 0px;
+    color: red;
+}
 
 @media screen and (max-width:768px) {
     .container{
@@ -110,5 +118,8 @@ form input{
         font-weight: 700;
         font-size: 30px;
         line-height: 51px;
+    }
+    .error{
+        width: 100%;
     }
 }

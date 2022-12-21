@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useFormik } from 'formik'
 import React from 'react'
 // import { Link } from 'react-router-dom'
@@ -8,21 +9,29 @@ import classes from './BVN.module.css'
 // import { useNavigate } from 'react-router-dom'
 
 
-const onSubmit=()=>{
-    console.log("submitted")
-}
+// const onSubmit=()=>{
+//     console.log("submitted")
+// }
 const BVN = () => {
     // const navigate = useNavigate();
     // navigate("/")
-    const {values, errors , handleSubmit, handleChange, handleBlur}= useFormik({
+    const formik= useFormik({
         initialValues:{
             bvn:""
         },
         validationSchema: bvnSchema,
-        onSubmit
+        onSubmit:(values)=>{
+            axios.put("https://moneynow.onrender.com/api/bvnSignUp?id=639b9e5ce2ea19656ef00cf9", values)
+            .then(res=>{
+                console.log(res)
+            })
+            .catch(error=>{
+                console.log(error.message)
+            })
+        }
         
     });
-    console.log(errors)
+    // console.log(formik.errors)
   return (
     <div className={classes.container}>
         <div className={classes.item1} >
@@ -33,17 +42,18 @@ const BVN = () => {
                 <h3>BVN</h3>
                 <p>Kindly Provide Your Bank Verification Number</p>
             </div>
-            <form action="" onSubmit={handleSubmit}>
+            <form action="" onSubmit={formik.handleSubmit}>
                 <div>
                     <p>Enter your Bank Verification Number</p>
                     <input 
-                    type="number" 
+                    type="text" 
                     name="bvn" 
                     id="bvn" 
-                    value={values.bvn}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
+                    value={formik.values.bvn}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     />
+                    <p className={classes.error}>{formik.errors.bvn}</p>
                     <p className={classes.dial}>Dial *565*0# on your mobile phone to get your BVN</p>
                 </div>
                 <div>

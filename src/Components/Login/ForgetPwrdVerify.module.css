@@ -9,7 +9,7 @@
 
 .item1 button{
     background-color:  rgb(238, 88, 238);
-    width: 427px;
+    width: 150px;
     height: 46px;
     border-radius: 8px;
     border: none;
@@ -23,15 +23,12 @@
     margin-bottom: 30px;
     cursor: pointer;
 }
-
-
-
 .container{
     display: flex;
     justify-content: center;
     width: 80%;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 60px;
     text-align: center;
     box-shadow: 1px 0.5px 4px gray;
     border-radius: 8px;
@@ -48,7 +45,7 @@
     color: #000000;
 }
 .login p{
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
 }
 .item1{
     background-color: white;
@@ -79,26 +76,25 @@ a{
     color:  rgb(238, 88, 238);
 }
 
-.item2{
-    background-image: url(../../Assets/verify.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+.item2 img{
+    max-width: 100%;
 }
 
 .otpSpan{
     margin: 20px 0px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
 }
-.otp span{
+.otpSpan input{
     width: 40px;
     height: 40px;
     border-radius: 10px;
     border: 1px solid black;
     margin-left: 10px;
+    padding-left: 10px;
+    font-size: 16px;
 }
 @media screen and (max-width:768px) {
     .container{
@@ -113,7 +109,8 @@ a{
         margin: auto;
     }
     .item1 button{
-        width: 100%;
+        width: 50%;
+        margin-top: 50px;
         margin-bottom: 40px;
     }
     form input{
@@ -121,6 +118,9 @@ a{
     }
     .item2{
         display: none;
+    }
+    .otp p{
+        padding: 20px 0px;
     }
     .login h3{
         font-weight: 700;

@@ -1,23 +1,30 @@
- import React from 'react' 
 import { useFormik} from 'formik'
+import React, { useState } from 'react' 
  import Logo from '../Logo/Logo'
-// import { Link } from 'react-router-dom'
  import Button from '../Button/Button'
  import classes from './ForgetPassword.module.css'
 import { basicSchema } from '../Schema/Schema'
- 
-const onSubmit=()=>{
-    
-    console.log("submitted")
-}
- const ForgetPassword = () => {
-    
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
+
+const ForgetPassword = () => {
+    const navigate = useNavigate()
     const {values, errors, handleBlur, handleChange, handleSubmit,} = useFormik({
         initialValues:{
             email:""
         },
         validationSchema: basicSchema,
-        onSubmit
+        onSubmit:(values)=>{
+            axios.put('https://moneynow.onrender.com/api/forgotpassword', values)
+            .then(res=>{
+                console.log(res)
+                navigate('/passwordverify')
+            })
+            .catch(error=>{
+                console.log(error.message)
+            })
+        }
     });
     console.log(errors);
 
@@ -46,9 +53,7 @@ const onSubmit=()=>{
                     
                 </div>
                 <div>
-                    {/* <Link to="/forget/2"> */}
                         <Button name="Reset"/>
-                    {/* </Link> */}
                 </div>
             </form>
 

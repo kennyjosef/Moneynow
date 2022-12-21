@@ -74,7 +74,7 @@ form input{
 }
 
 .item2{
-    background-image: url(../../Assets/welcome.jpg);
+    background-image: url(../../Assets/welcome.png);
     background-size: cover;
     background-repeat: no-repeat;
     border-top-right-radius: 8px;

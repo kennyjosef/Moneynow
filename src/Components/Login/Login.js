@@ -5,34 +5,27 @@ import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
 import classes from './Login.module.css'
 import { loginSchema } from '../Schema/LoginSchema'
+import axios from 'axios'
 
-
-const onSubmit=()=>{
-    console.log("submit")
-}
 const Login = () => {
-    // let apiKey="639b9e5ce2ea19656ef00cf9"
-    // let baseURL="https://moneynow.onrender.com/api/login"
-    // useEffect(()=>{
-    //     let fetchLoginApi = async ()=>{
-    //         let res = await fetch(`${baseURL}?id=${apiKey}`)
-    //         let data= await res.json()
-    //         data
-            
-    //     }
-
-    //     fetchLoginApi()
-    // })
-   const {values, errors, handleBlur, handleChange, handleSubmit,} = useFormik({
-        initialValues:{
-            email:"",
-            password: "",
-        },
-        validationSchema:loginSchema,
-        onSubmit
-        });
-        console.log(errors)
-        console.log("data", values.email, values.password)
+const formik= useFormik({
+    initialValues:{
+        email: "",
+        password: "",
+    },
+    validationSchema:loginSchema,
+    onSubmit: (values )=>{
+        axios.post("https://moneynow.onrender.com/api/login", values)
+        .then(res=>{ 
+            console.log(res)
+        })
+        .catch(error=>{
+            console.log(error.response)
+        })
+    }
+})
+console.log(formik.errors)
+console.log("vaules", formik.values.email, formik.values.password)
   return (
     <div className={classes.container}>
       <div className={classes.item1}>
@@ -43,20 +36,19 @@ const Login = () => {
                 <h3>Welcome Back!</h3>
                 <p>To gain access into your account, you have to login</p>
             </div>
-            <form action=""onSubmit= {handleSubmit}>
+            <form action="" onClick={formik.handleSubmit}>
                 <div>
                     <p> Email</p>
                     <input 
                     type="email" 
                     name="email" 
                     id="email" 
-                    value={values.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.email?"input-error":""}
-                    placeholder='xyz@gmail.com' 
+                    placeholder='Type your e-mail' 
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     />
-                    <p className={classes.error}>{errors.email}</p>
+                    <p className={classes.error}>{formik.errors.email}</p>
                 </div>
                 <div>
                     <p>Password</p>
@@ -64,12 +56,12 @@ const Login = () => {
                     type="password" 
                     name="password" 
                     id="password" 
-                    value={values.password}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={errors.password?"input-error":""}
-                    placeholder='Minimum of 8 characters' />
-                    <p className={classes.error}>{errors.password}</p>
+                    placeholder='Minimum of 8 characters' 
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    />
+                    <p className={classes.error}>{formik.errors.password}</p>
                 </div>
                 <div className={classes.remember}>
                     <input type="checkbox" name="" id="" />
@@ -77,12 +69,12 @@ const Login = () => {
                 </div>
                 <div>
                     {/* <Link to="/dasboard"> */}
-                        <Button name="Proceed"/>
+                        <Button   name="Proceed"/>
                     {/* </Link> */}
                 </div>
             </form>
                 <div className={classes.para}>
-                    <Link to="/forget/1">
+                    <Link to="/forgetpassword">
                         <p>Forget Password?</p>
                     </Link>
                     <p>New to MoneyNow? 

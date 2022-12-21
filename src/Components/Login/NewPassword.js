@@ -1,8 +1,7 @@
 import React from 'react'
 import Button from '../Button/Button'
 import Logo from '../Logo/Logo'
-import Logo4 from '../../Assets/details.jpg'
-// import { Link } from 'react-router-dom'
+import Logo4 from '../../Assets/details.png'
 import classes from './NewPassword.module.css'
 import { useFormik} from 'formik'
 import { passwordSchema } from '../Schema/PasswordSchema'
@@ -16,8 +15,9 @@ const NewPassword = () => {
       password:"",
       confirmPassword: ""
     },
-    validationSchema : passwordSchema,
-    onSubmit
+    
+        validationSchema : passwordSchema,
+          onSubmit
     
   });
   console.log('password', values)
@@ -53,7 +53,7 @@ const NewPassword = () => {
             name="confrimPassword" 
             id="confrimPassword" 
             placeholder='Minimum of 8 characters'
-            value={values.confirm}
+            value={values.confirmPassword}
             onChange={handleChange}
             onBlur={handleBlur} 
             />

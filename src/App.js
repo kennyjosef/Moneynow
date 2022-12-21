@@ -20,10 +20,10 @@ function App() {
         <Route path= "details" element={<Details/>}/>
         <Route path="password" element={<Password/>}/>
         <Route path="bvn" element={<BVN/>}/>
-        <Route path="forget/1" element={<ForgetPassword/>}/>
-        <Route path= 'forget/2' element={<ForgetPwrdVerify/>}/>
-        <Route path= "forget/3" element={<NewPassword/>}/>
-        <Route path= "forget/4" element={<ForgetSucces/>}/>
+        <Route path="forgetpassword" element={<ForgetPassword/>}/>
+        <Route path= 'passwordverify' element={<ForgetPwrdVerify/>}/>
+        <Route path= "createnew" element={<NewPassword/>}/>
+        <Route path= "passwordset" element={<ForgetSucces/>}/>
       </Routes>
     </div>
   );
