@@ -30,19 +30,17 @@
     justify-content: center;
     width: 80%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 90px;
+    padding: 30px 0px;
     text-align: center;
     box-shadow: 1px 0.5px 4px gray;
     border-radius: 8px;
 }
 .item1, .item2{
     width: 50%;
-    /* padding-bottom: 200px; */
 }
 .item1{
-    padding-bottom: 160px;
     display: flex;
-    /* border: 1px solid red; */
 }
 .login h3{
     padding-top: 30px;
@@ -52,9 +50,7 @@
     line-height: 61px;
     color: #000000;
 }
-.login p{
-    /* padding-bottom: 60px; */
-}
+
 .login  :nth-child(2){
     padding-bottom: 10px;
 }
@@ -63,7 +59,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-bottom: 30px;
+}
+
+.mark img{
+    width: 150px;
 }
 form p{
     padding-bottom: 10px;
@@ -79,12 +78,8 @@ form input{
     outline: none;
 }
 
-.item2{
-    background-image: url(../../Assets/success.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+.item2 img{
+    max-width: 100%;
 }
 
 .para span{
@@ -139,7 +134,7 @@ a{
         margin-bottom: 40px;
     }
     .logo img{
-        /* margin-top: 10px; */
+        margin-top: 10px;
     }
     form div input{
         /* border: 1px solid red; */

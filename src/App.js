@@ -10,9 +10,11 @@ import Details from "./Components/SignUp/Details";
 import Password from "./Components/SignUp/Password";
 import SignUp1 from "./Components/SignUp/SignUp1";
 import Verify from "./Components/SignUp/Verify";
+
 function App() {
   return (
     <div className="App">
+      
       <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path="signup" element={<SignUp1/>}/>

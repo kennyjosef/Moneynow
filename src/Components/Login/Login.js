@@ -38,7 +38,7 @@ console.log("vaules", formik.values.email, formik.values.password)
             </div>
             <form action="" onClick={formik.handleSubmit}>
                 <div>
-                    <p> Email</p>
+                    <p className={classes.heading}> Email</p>
                     <input 
                     type="email" 
                     name="email" 
@@ -51,7 +51,7 @@ console.log("vaules", formik.values.email, formik.values.password)
                     <p className={classes.error}>{formik.errors.email}</p>
                 </div>
                 <div>
-                    <p>Password</p>
+                    <p className={classes.heading}>Password</p>
                     <input 
                     type="password" 
                     name="password" 
@@ -64,7 +64,7 @@ console.log("vaules", formik.values.email, formik.values.password)
                     <p className={classes.error}>{formik.errors.password}</p>
                 </div>
                 <div className={classes.remember}>
-                    <input type="checkbox" name="" id="" />
+                    <input type="checkbox" name="" id=""className={classes.check} />
                     <p>Remember me</p>
                 </div>
                 <div>

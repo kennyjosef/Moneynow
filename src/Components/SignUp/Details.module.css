@@ -91,12 +91,8 @@ a{
     padding-top: 0px;
 }
 
-.item2{
-    background-image: url(../../Assets/password.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+.item2 img{
+    max-width: 100%;
 }
 
 @media screen and (max-width:768px) {

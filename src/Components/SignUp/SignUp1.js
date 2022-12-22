@@ -3,11 +3,11 @@ import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
 import classes from './SignUp1.module.css'
 import Logo from '../Logo/Logo'
+import Logo2 from '../../Assets/welcome.png'
 import { useFormik} from 'formik'
 import { basicSchema } from '../Schema/Schema'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-// import Spinner from '../Spinner/Spinner'
 
 
 const SignUp1 = () => {
@@ -22,9 +22,7 @@ const SignUp1 = () => {
             axios.post("https://moneynow.onrender.com/api/signup",values)
             .then(res=>{
                 console.log(res)
-                // if(res.data.message=== true){
                     navigate("/verify")
-                // }
             })
             
             .catch(error=>{
@@ -35,19 +33,19 @@ const SignUp1 = () => {
     console.log(errors);
     console.log("data", values)
   return (
-    // loginSpin ? <Spinner /> : <>
     <div className={classes.container}>
         <div className={classes.item1}>
             <div className={classes.logo}>
                 <Logo/>
             </div>
             <div>
+
                 <div className={classes.login}>
-                    <h3>Welcome</h3>
+                    <h3>Welcome!</h3>
                     <p>To create an account, enter your e-mail</p>
                 </div>
                 <form action="" onSubmit={handleSubmit}>
-                    <p>Email</p>
+                    <p className={classes.heading}>Email</p>
                     <input 
                     className={errors.email ? "errorMessage": ""} 
                     type="email" 
@@ -75,6 +73,7 @@ const SignUp1 = () => {
 
         </div>
         <div className={classes.item2}>
+            <img src={Logo2} alt="welcome" />
 
         </div>
     </div>

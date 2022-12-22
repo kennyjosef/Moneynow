@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Logo from '../Logo/Logo'
+import Logo5 from '../../Assets/password.jpg'
 import classes from './Details.module.css'
 import  './Details.module.css'
 import Button from '../Button/Button'
@@ -80,6 +81,7 @@ const Details = () => {
                     value={values.phoneNumber}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    placeholder="Type your Phone Number"
                     />
                     <p className={classes.error}>{errors.phoneNumber}</p>
                 </div>
@@ -102,7 +104,9 @@ const Details = () => {
             </form>
 
         </div>
-        <div className={classes.item2}></div>
+        <div className={classes.item2}>
+            <img src={Logo5} alt="picture" />
+        </div>
     </div>
   )
 }

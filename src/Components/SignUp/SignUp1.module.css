@@ -20,12 +20,12 @@
     text-align: center;
     color: #FFFFFF;
     margin-top: 20px;
-    margin-bottom: 30px;
     cursor: pointer;
+    margin-bottom: 90px;
 }
 .logo img{
-    margin-top: 30px;
     width: 180px;
+    margin-bottom: 30px;
 }
 
 
@@ -34,7 +34,7 @@
     justify-content: center;
     width: 80%;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 40px;
     text-align: center;
     box-shadow: 1px 0.5px 4px gray;
     border-radius: 8px;
@@ -42,8 +42,10 @@
 .item1, .item2{
     width: 50%;
 }
+.login{
+}
 .login h3{
-    padding-top: 30px;
+    padding-bottom: 10px;
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
@@ -57,8 +59,6 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    margin-bottom: 30px;
 }
 form p{
     padding-bottom: 10px;
@@ -83,26 +83,12 @@ a{
 }
 
 .item2{
-    background-image: url(../../Assets/welcome.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+  
+}
+.item2 img{
+    max-width: 100%;
 }
 
-.otpSpan{
-    margin: 20px 0px;
-    display: flex;
-    justify-content: center;
-
-}
-.otp span{
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid black;
-    margin-left: 10px;
-}
 .error{
     color: red;
     font-size: 12px;
@@ -110,6 +96,14 @@ a{
     width: 427px;
     margin: auto;
     padding: 0px;
+}
+.heading{
+    width: 427px;
+    margin: auto;
+    text-align: left;
+    padding: 0px;
+    padding-top: 10px;
+
 }
 @media screen and (max-width:768px) {
     .container{
@@ -130,7 +124,7 @@ a{
     form input{
         width: 100%;
     }
-    .error{
+    .error, .heading{
         width: 100%;
     }
     .item2{

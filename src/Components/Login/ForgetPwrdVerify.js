@@ -3,8 +3,10 @@ import Logo from '../Logo/Logo'
 import Logo4 from '../../Assets/verify.png'
 import classes from './ForgetPwrdVerify.module.css'
 import Button from '../Button/Button'
-// import classes from "../SignUp/SignUp1.module.css"
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 const ForgetPwrdVerify = () => {
+    const navigate= useNavigate()
     const[otp, setOtp]=useState(new Array(4).fill(""))
     const handleChange=(element, index)=>{
         if(isNaN(element.value))return false;
@@ -13,6 +15,25 @@ const ForgetPwrdVerify = () => {
             element.nextSibling.focus();
         }
     }
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+        axios.post('https://moneynow.onrender.com/api/otp', {otp:otp.join("")})
+        .then(response=>{
+            console.log(response)
+            if(!response){
+                return alert("Invalid otp provided")
+            }else{
+                navigate('/createnew')
+            }
+        })
+        .catch(error=>{
+            console.log(error)
+            console.log(error.message)
+            alert(error.response.data.message)
+        })
+    }
+    console.log("otp is", otp.join(""))
+
   return (
     <div className={classes.container}>
         <div className={classes.item1}>
@@ -25,7 +46,7 @@ const ForgetPwrdVerify = () => {
             </div>
             <div className={classes.otp}>
                 <p>Enter OTP</p>
-                <form action="" className={classes.otpSpan}>
+                <form action="" onSubmit={handleSubmit}className={classes.otpSpan}>
                     <div>
                         {
                             otp.map((data, index)=>{

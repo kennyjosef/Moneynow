@@ -59,9 +59,7 @@
     justify-content: space-around;
     margin-bottom: 30px;
 }
-form p{
-    padding-bottom: 10px;
-}
+
 form input{
     width: 427px;
     height: 46px;
@@ -114,6 +112,17 @@ a{
     padding: 0px;
     color: red;
 }
+.check{
+    border-color: rgb(238, 88, 238);
+}
+.heading{
+    width: 427px;
+    margin: auto;
+    text-align: left;
+    padding: 0px;
+    padding-top: 10px;
+
+}
 
 @media screen and (max-width:768px) {
     .container{
@@ -153,6 +162,9 @@ a{
         line-height: 51px;
     }
     .error{
+        width: 100%;
+    }
+    .heading{
         width: 100%;
     }
 }
