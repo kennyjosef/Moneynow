@@ -10,6 +10,7 @@ import Details from "./Components/SignUp/Details";
 import Password from "./Components/SignUp/Password";
 import SignUp1 from "./Components/SignUp/SignUp1";
 import Verify from "./Components/SignUp/Verify";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path= 'passwordverify' element={<ForgetPwrdVerify/>}/>
         <Route path= "createnew" element={<NewPassword/>}/>
         <Route path= "passwordset" element={<ForgetSucces/>}/>
+        <Route path="dashboard" element={<Dashboard/>}/>
       </Routes>
     </div>
   );

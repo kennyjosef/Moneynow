@@ -40,7 +40,7 @@ const ForgetPassword = () => {
             </div>
             <form action="" onSubmit={handleSubmit} className={classes.form}>
                 <div>
-                    <p> Email</p>
+                    <p className={classes.heading}> Email</p>
                     <input 
                     type="email" 
                     name="email" 

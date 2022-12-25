@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../Button/Button'
 import Logo from '../Logo/Logo'
 import Logo5 from '../../Assets/details.png'
 import classes from './Password.module.css'
 import axios from 'axios'
 
-
+let id =localStorage.getItem("id");
 const Password = () => {
-  const initialValues = {password: "", confrimPassword: ""}
+  const navigate= useNavigate()
+  const initialValues = {password: "", confirmPassword: ""}
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors , setFormErrors]= useState({})
+    const [isSubmit, setIstSubmit] = useState (false)
     const handleChange= (e)=>{
         const {name, value} =e.target
         setFormValues(preValue=>{
@@ -21,9 +23,11 @@ const Password = () => {
     const handleSubmit=(e)=>{
         e.preventDefault()
         setFormErrors(validate(formValues))
-        axios.put("https://moneynow.onrender.com/api/passwordSignUp?id=639b9e5ce2ea19656ef00cf9", formValues)
+        setIstSubmit(true)
+        axios.put(`https://moneynow.onrender.com/api/passwordSignUp?id=${ localStorage.getItem("id")}`, formValues)
         .then(res=>{
           console.log(res)
+          navigate('/bvn')
         })
         .catch(error=>{
           console.log(error)
@@ -35,13 +39,13 @@ const Password = () => {
         if(values.password===""){
           errors.password="Password is required"
         }
-        else if(values.password.length < 4){
-          errors.password="Password must be more than 4 characters"
+        else if(values.password.length < 8){
+          errors.password="Password should contain characters 8 or more"
         }else if(values.password.length > 10){
           errors.password="Password cannot be greater than ten characters"
         }
-        if(String(values.confrimPassword)!==String(values.password)){
-          errors.confrimPassword="Passowrd did not match"
+        if(String(values.confirmPassword)!==String(values.password)){
+          errors.confirmPassword="Passowrd did not match"
         }
         return errors
     }
@@ -54,7 +58,7 @@ const Password = () => {
         </div>
         <div className={classes.login}>
           <h3>Create Password</h3>
-          <p>Add Security to Your Account</p>
+          <p>Add Security to Your Accountme</p>
         </div>
         
         <form action=''  onSubmit={handleSubmit}>
@@ -63,7 +67,6 @@ const Password = () => {
             <input 
             type="password" 
             name="password" 
-            // id="password" 
             value={formValues.password}
             onChange={handleChange}
             placeholder='Minimum of 8 characters'/>
@@ -72,18 +75,15 @@ const Password = () => {
             <p className={classes.heading}>Confirm Password</p>
           <div>
             <input 
-            // id="confrimPassword" 
             type="text" 
-            name="confrimPassword" 
-            value={formValues.confrimPassword}
+            name="confirmPassword" 
+            value={formValues.confirmPassword}
             onChange={handleChange}
             placeholder='Confirm your Password'/>
-             <p className={classes.error}>{formErrors.confrimPassword}</p>
+             <p className={classes.error}>{formErrors.confirmPassword}</p>
           </div>
           <div>
-            {/* <Link to="/bvn"> */}
               <Button name="Proceed"/>
-            {/* </Link> */}
           </div>
         </form>
       </div>

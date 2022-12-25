@@ -18,20 +18,24 @@ const SignUp1 = () => {
             email:""
         },
         validationSchema: basicSchema,
-        onSubmit: (values)=>{
+        onSubmit: ()=>{
             axios.post("https://moneynow.onrender.com/api/signup",values)
             .then(res=>{
+                localStorage.setItem("email", res.data.saveNewUser.email)
                 console.log(res)
                     navigate("/verify")
             })
             
             .catch(error=>{
                 console.log(error.message)
+                
             })
         }
     });
     console.log(errors);
     console.log("data", values)
+    const userEmail= localStorage.getItem("email")
+    console.log(userEmail)
   return (
     <div className={classes.container}>
         <div className={classes.item1}>

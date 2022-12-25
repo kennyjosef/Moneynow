@@ -6,14 +6,16 @@ import Button from '../Button/Button'
 import Logo from '../Logo/Logo'
 import { bvnSchema } from '../Schema/BvnSchema'
 import classes from './BVN.module.css'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 // const onSubmit=()=>{
 //     console.log("submitted")
 // }
+let id =localStorage.getItem("id");
 const BVN = () => {
-    // const navigate = useNavigate();
+
+    const navigate = useNavigate();
     // navigate("/")
     const formik= useFormik({
         initialValues:{
@@ -21,9 +23,10 @@ const BVN = () => {
         },
         validationSchema: bvnSchema,
         onSubmit:(values)=>{
-            axios.put("https://moneynow.onrender.com/api/bvnSignUp?id=639b9e5ce2ea19656ef00cf9", values)
+            axios.put(`https://moneynow.onrender.com/api/bvnSignUp?id=${localStorage.getItem("id")}`, values)
             .then(res=>{
                 console.log(res)
+                navigate('/')
             })
             .catch(error=>{
                 console.log(error.message)

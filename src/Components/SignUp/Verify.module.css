@@ -50,8 +50,10 @@
     line-height: 61px;
     color: #000000;
 }
-.login p{
-    /* padding-bottom: 60px; */
+.login span, .resend span{
+    color:  rgb(238, 88, 238);
+    font-weight: 600;
+    cursor: pointer;
 }
 .item1{
     background-color: white;

@@ -20,6 +20,8 @@ const ForgetPwrdVerify = () => {
         axios.post('https://moneynow.onrender.com/api/otp', {otp:otp.join("")})
         .then(response=>{
             console.log(response)
+            let userId=""
+            userId=response.data.checkExistingUser._id
             if(!response){
                 return alert("Invalid otp provided")
             }else{

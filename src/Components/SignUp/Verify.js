@@ -4,25 +4,23 @@ import Logo4 from '../../Assets/verify.png'
 import classes from './Verify.module.css'
 import Button from '../Button/Button'
 import axios from 'axios'
-import { useFormik } from 'formik'
 import { useNavigate } from 'react-router-dom'
-
 const Verify = () => {
     const navigate= useNavigate()
     const[otp, setOtp]=useState(new Array(4).fill(""))
     const handleChange=(element, index)=>{
         if(isNaN(element.value))return false;
-        // console.log(element.value)
         setOtp([...otp.map((d, idx)=>(idx===index)? element.value:d)]);
         if(element.nextSibling){
             element.nextSibling.focus();
         }
     }
-    
+     
     const handleSubmit =(e)=>{
         e.preventDefault()
         axios.post('https://moneynow.onrender.com/api/otp', {otp: otp.join("")})
         .then(response=>{
+            localStorage.setItem( "id", response.data.checkExistingUser._id)
             console.log(response)
             if(!response){
                 return alert("Invalid OTP provided")
@@ -32,11 +30,13 @@ const Verify = () => {
         })
         .catch(error=>{
             console.log(error.message)
-            alert(error.response.data.message)
-
         })
     }
     console.log("otp is", otp.join(""))
+    
+    localStorage.getItem("id")
+    const result=localStorage.getItem("id")
+    console.log(result)
     return (
     <div className={classes.container}>
         <div className={classes.item1}>
@@ -45,7 +45,7 @@ const Verify = () => {
             </div>
             <div className={classes.login}>
                 <h3>Verify E-mail</h3>
-                <p>Enter OTP sent to xyz@gmail.com</p>
+                <p>Enter OTP sent to <span>{localStorage.getItem("email")}</span></p>
             </div>
             <div className={classes.otp}>
                 <p>Enter OTP</p>
@@ -70,8 +70,8 @@ const Verify = () => {
                     <Button name="Verify"/>
                 </form>
             </div>
-            <div>
-                <p>Didn’t receive code? Resend code</p>
+            <div className={classes.resend}>
+                <p>Didn’t receive code? <span>Resend code</span></p>
             </div>
         </div>
         <div className={classes.item2}>

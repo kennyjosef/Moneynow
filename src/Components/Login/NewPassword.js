@@ -7,48 +7,43 @@ import axios from 'axios'
 
 
 const NewPassword = () => {
-  const initialValues = {password: "", confrimPassword: ""}
-    const [formValues, setFormValues] = useState(initialValues);
-    const [formErrors , setFormErrors]= useState({})
-    // const [isSubmit, setIstSubmit] = useState (false)
-    const handleChange= (e)=>{
-        const {name, value} =e.target
-        // setFormValues({...formValues, [name]:value})
-        //console.log(formValues)
-        setFormValues(preValue=>{
-          return{...preValue, [name]:value}
-        })
-      }
-      console.log(formValues)
-      console.log(formErrors)
-      const handleSubmit=(e)=>{
-        e.preventDefault()
-        setFormErrors(validate(formValues))
-        // setIstSubmit(true)
-        // axios.put("https://moneynow.onrender.com/api/resetpassword?id=639b9e5ce2ea19656ef00cf9", formValues)
-        // .then(res=>{
-        //   console.log(res)
-        // })
-        // .catch(error=>{
-        //   console.log(error)
-        // })
-        
-    }
-    const validate = (values)=>{
-      const errors ={};
-      if(values.password===""){
-        errors.password="Password is required"
-      }
-      else if(values.password.length < 4){
-        errors.password="Password must be more than 4 characters"
-      }else if(values.password.length > 10){
-        errors.password="Password cannot be greater than ten characters"
-      }
-      if(String(values.confrimPassword)!==String(values.password)){
-        errors.confrimPassword="Passowrd did not match"
-      }
-      return errors
+  const initialValues= {password:"", confirmPassword:""}
+  const [formValues, setFormValues]= useState(initialValues)
+  const [formErrors , setFormErrors]= useState({})
+  const handleInputChange=(e)=>{
+    const {name, value}=e.target
+    setFormValues(preInput=>{
+      return{...preInput,[name]:value}
+    })
   }
+  console.log(formValues)
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+    setFormErrors(validate(formValues))
+    axios.put("https://moneynow.onrender.com/api/resetpassword?id=639b9e5ce2ea19656ef00cf9", formValues)
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+}
+const validate = (values)=>{
+  const errors ={};
+  if(values.password===""){
+    errors.password="Password is required"
+  }
+  else if(values.password.length < 8){
+    errors.password="Password should contain 8 characters or more"
+  }else if(values.password.length > 10){
+    errors.password="Password cannot be greater than ten characters"
+  }
+  if(String(values.confirmPassword)!==String(values.password)){
+    errors.confirmPassword="Passowrd did not match"
+  }
+  return errors
+}
+
   return (
     <div className={classes.container}>
        <div className={classes.item1}>
@@ -59,16 +54,15 @@ const NewPassword = () => {
           <h3>Create New Password</h3>
           <p>Kindly Create a New Password for Your Account</p>
         </div>
-        <form action=""  onSubmit={handleSubmit} >
+        <form action="" onSubmit={handleSubmit}>
           <div>
             <p className={classes.heading}>Password</p>
             <input 
             type="password" 
             name="password" 
-            // id="password" 
-            value={formValues.password}
-            onChange={handleChange}
             placeholder='Minimum of 8 characters'
+            value={formValues.password}
+            onChange={handleInputChange}
             
             />
             <p className={classes.error}>{formErrors.password}</p>
@@ -77,11 +71,10 @@ const NewPassword = () => {
             <p  className={classes.heading}>Confirm Password</p>
             <input 
             type="password" 
-            name="confrimpassword" 
-            // id="confrimpassword" 
-            value={formValues.confrimPassword}
-            onChange={handleChange}
+            name="confirmPassword"  
             placeholder='Confirm your Password'
+            value={formValues.confirmPassword}
+            onChange={handleInputChange}
              
             />
             <p className={classes.error}>{formErrors.confirmPassword}</p>

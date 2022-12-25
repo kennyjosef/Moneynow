@@ -5,9 +5,12 @@ import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
 import classes from './Login.module.css'
 import { loginSchema } from '../Schema/LoginSchema'
+import { useNavigate } from 'react-router-dom'
+
 import axios from 'axios'
 
 const Login = () => {
+const navigate=useNavigate()
 const formik= useFormik({
     initialValues:{
         email: "",
@@ -18,6 +21,8 @@ const formik= useFormik({
         axios.post("https://moneynow.onrender.com/api/login", values)
         .then(res=>{ 
             console.log(res)
+            navigate("/dashboard")
+
         })
         .catch(error=>{
             console.log(error.response)

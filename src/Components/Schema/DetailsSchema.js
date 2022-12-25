@@ -19,6 +19,6 @@ export const detailsSchema= yup.object().shape({
     .required('A phone number is required'),
     refer:yup 
     .string()
-    .required("Required")
+    
 
 })
