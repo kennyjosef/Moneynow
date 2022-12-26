@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../Button/Button'
 import Logo from '../Logo/Logo'
 import Logo5 from '../../Assets/details.png'
@@ -23,10 +23,10 @@ const Password = () => {
     const handleSubmit=(e)=>{
         e.preventDefault()
         setFormErrors(validate(formValues))
-        setIstSubmit(true)
         axios.put(`https://moneynow.onrender.com/api/passwordSignUp?id=${ localStorage.getItem("id")}`, formValues)
         .then(res=>{
           console.log(res)
+          setIstSubmit(true)
           navigate('/bvn')
         })
         .catch(error=>{
@@ -58,7 +58,7 @@ const Password = () => {
         </div>
         <div className={classes.login}>
           <h3>Create Password</h3>
-          <p>Add Security to Your Accountme</p>
+          <p>Add Security to Your Account</p>
         </div>
         
         <form action=''  onSubmit={handleSubmit}>

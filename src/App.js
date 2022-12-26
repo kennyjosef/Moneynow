@@ -7,14 +7,18 @@ import Login from "./Components/Login/Login";
 import NewPassword from "./Components/Login/NewPassword";
 import BVN from "./Components/SignUp/BVN";
 import Details from "./Components/SignUp/Details";
+import Id from "./Components/SignUp/Id";
 import Password from "./Components/SignUp/Password";
 import SignUp1 from "./Components/SignUp/SignUp1";
 import Verify from "./Components/SignUp/Verify";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 
+import { ToastContainer, toast } from 'react-toastify';
+
 function App() {
   return (
     <div className="App">
+      {/* <Id/> */}
       
       <Routes>
         <Route path="/" element={<Login/>}/>
@@ -29,6 +33,7 @@ function App() {
         <Route path= "passwordset" element={<ForgetSucces/>}/>
         <Route path="dashboard" element={<Dashboard/>}/>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

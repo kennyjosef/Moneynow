@@ -7,6 +7,9 @@ import classes from './Login.module.css'
 import { loginSchema } from '../Schema/LoginSchema'
 import { useNavigate } from 'react-router-dom'
 
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import axios from 'axios'
 
 const Login = () => {
@@ -19,19 +22,22 @@ const formik= useFormik({
     validationSchema:loginSchema,
     onSubmit: (values )=>{
         axios.post("https://moneynow.onrender.com/api/login", values)
-        .then(res=>{ 
-            console.log(res)
-            navigate("/dashboard")
-
+        .then(response=>{ 
+            if(response.data){
+                navigate("/dashboard")
+            }
         })
         .catch(error=>{
+           toast.error('Invalid Credentials')
             console.log(error.response)
+            console.log(error.response.data)
+            console.log(error.message)
         })
     }
 })
 console.log(formik.errors)
 console.log("vaules", formik.values.email, formik.values.password)
-  return (
+  return ( 
     <div className={classes.container}>
       <div className={classes.item1}>
             <div className={classes.logo}>
@@ -73,9 +79,7 @@ console.log("vaules", formik.values.email, formik.values.password)
                     <p>Remember me</p>
                 </div>
                 <div>
-                    {/* <Link to="/dasboard"> */}
                         <Button   name="Proceed"/>
-                    {/* </Link> */}
                 </div>
             </form>
                 <div className={classes.para}>
@@ -92,6 +96,7 @@ console.log("vaules", formik.values.email, formik.values.password)
         </div>
         <div className={classes.item2}></div>
     </div>
+     
   )
 }
 

@@ -5,6 +5,8 @@ import classes from './Verify.module.css'
 import Button from '../Button/Button'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Verify = () => {
     const navigate= useNavigate()
     const[otp, setOtp]=useState(new Array(4).fill(""))
@@ -22,13 +24,15 @@ const Verify = () => {
         .then(response=>{
             localStorage.setItem( "id", response.data.checkExistingUser._id)
             console.log(response)
-            if(!response){
-                return alert("Invalid OTP provided")
-            }else{
+            // if(!response){
+                // toast.response('Invalid OTP provided')
+                // return alert("Invalid OTP provided")
+            // }else{
                 navigate('/details')
-            }
+            // }
         })
         .catch(error=>{
+            toast.error("Invalid OTP provided")
             console.log(error.message)
         })
     }
