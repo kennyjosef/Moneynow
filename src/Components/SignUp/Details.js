@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Logo from '../Logo/Logo'
 import Logo5 from '../../Assets/password.jpg'
 import classes from './Details.module.css'
@@ -12,12 +12,7 @@ import { useNavigate } from 'react-router-dom'
 const Details = () => { 
     const navigate= useNavigate()
     const {values, errors, handleBlur, handleChange, handleSubmit} = useFormik({
-        initialValues:{
-            firstName:"",
-            lastName:"",
-            phoneNumber:"",
-            refer: "",
-        },
+        initialValues:{firstName:"",lastName:"",phoneNumber:"",referralId: ""},
         validationSchema: detailsSchema,
         onSubmit:(values)=>{
             axios.put(`https://moneynow.onrender.com/api/nameSignUp?id=${localStorage.getItem("id")}`, values)
@@ -72,9 +67,9 @@ const Details = () => {
                 <div>
                     <p className={classes.detailsP}>Phone Number</p>
                     <input 
-                    type="tel" 
+                    type="text" 
                     name="phoneNumber" 
-                    id="PhoneNumber" 
+                    id="phoneNumber" 
                     value={values.phoneNumber}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -86,10 +81,10 @@ const Details = () => {
                     <p className={classes.detailsP}>Referral ID (Optional)</p>
                     <input 
                     type="text" 
-                    name="refer" 
-                    id="refer" 
+                    name="referralId" 
+                    id="referralId" 
                     placeholder='jw34r'
-                    value={values.refer}
+                    value={values.referralId}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     />
@@ -102,7 +97,7 @@ const Details = () => {
 
         </div>
         <div className={classes.item2}>
-            <img src={Logo5} alt="picture" />
+            <img src={Logo5} alt="pic" />
         </div>
     </div>
   )

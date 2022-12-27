@@ -15,9 +15,8 @@ export const detailsSchema= yup.object().shape({
     .typeError("That doesn't look like a phone number")
     .positive("A phone number can't start with a minus")
     .integer("A phone number can't include a decimal point")
-    // .max(11)
     .required('A phone number is required'),
-    refer:yup 
+    referralId:yup 
     .string()
     
 
