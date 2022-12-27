@@ -9,9 +9,6 @@ import { detailsSchema } from '../Schema/DetailsSchema'
 import { useFormik } from 'formik'
 import { useNavigate } from 'react-router-dom'
 
-const url ='https://moneynow.onrender.com/api/nameSignUp';
-let id =localStorage.getItem("id");
-console.log(id)
 const Details = () => { 
     const navigate= useNavigate()
     const {values, errors, handleBlur, handleChange, handleSubmit} = useFormik({
@@ -24,10 +21,9 @@ const Details = () => {
         validationSchema: detailsSchema,
         onSubmit:(values)=>{
             axios.put(`https://moneynow.onrender.com/api/nameSignUp?id=${localStorage.getItem("id")}`, values)
-            .then(res=>{
-                
-                console.log(res)
-                navigate("/password")
+            .then(response=>{
+                console.log(response)
+                    navigate("/password")
             })
             .catch(error=>{
                 console.log(error.message)

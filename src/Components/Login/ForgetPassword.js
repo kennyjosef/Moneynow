@@ -18,7 +18,9 @@ const ForgetPassword = () => {
         onSubmit:(values)=>{
             axios.put('https://moneynow.onrender.com/api/forgotpassword', values)
             .then(res=>{
+                localStorage.setItem('userEmail', res.config.data)
                 console.log(res)
+                console.log(res.config.data.email)
                 navigate('/passwordverify')
             })
             .catch(error=>{

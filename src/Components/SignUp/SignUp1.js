@@ -8,6 +8,8 @@ import { useFormik} from 'formik'
 import { basicSchema } from '../Schema/Schema'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignUp1 = () => {
@@ -23,12 +25,11 @@ const SignUp1 = () => {
             .then(res=>{
                 localStorage.setItem("email", res.data.saveNewUser.email)
                 console.log(res)
-                    navigate("/verify")
+                    navigate("/verify")    
             })
-            
             .catch(error=>{
                 console.log(error.message)
-                
+                toast.error("User already exist ")  
             })
         }
     });
@@ -61,9 +62,7 @@ const SignUp1 = () => {
                     placeholder='xzy@gmail.com'
                     />
                     <p className={classes.error}>{errors.email}</p>
-                    {/* <Link to="/verify"> */}
                         <Button name="Proceed"/>
-                    {/* </Link> */}
                 </form>
                 <div className={classes.para}>
                     <p>Already have an account? 

@@ -23,11 +23,11 @@ const Password = () => {
     const handleSubmit=(e)=>{
         e.preventDefault()
         setFormErrors(validate(formValues))
+        setIstSubmit(true)
         axios.put(`https://moneynow.onrender.com/api/passwordSignUp?id=${ localStorage.getItem("id")}`, formValues)
         .then(res=>{
           console.log(res)
-          setIstSubmit(true)
-          navigate('/bvn')
+            navigate('/bvn')
         })
         .catch(error=>{
           console.log(error)

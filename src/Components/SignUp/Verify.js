@@ -24,12 +24,7 @@ const Verify = () => {
         .then(response=>{
             localStorage.setItem( "id", response.data.checkExistingUser._id)
             console.log(response)
-            // if(!response){
-                // toast.response('Invalid OTP provided')
-                // return alert("Invalid OTP provided")
-            // }else{
                 navigate('/details')
-            // }
         })
         .catch(error=>{
             toast.error("Invalid OTP provided")

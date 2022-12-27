@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useFormik } from 'formik'
 import React from 'react'
-// import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 import Logo from '../Logo/Logo'
 import { bvnSchema } from '../Schema/BvnSchema'
@@ -9,14 +8,10 @@ import classes from './BVN.module.css'
 import { useNavigate } from 'react-router-dom'
 
 
-// const onSubmit=()=>{
-//     console.log("submitted")
-// }
 let id =localStorage.getItem("id");
 const BVN = () => {
 
     const navigate = useNavigate();
-    // navigate("/")
     const formik= useFormik({
         initialValues:{
             bvn:""
@@ -34,7 +29,6 @@ const BVN = () => {
         }
         
     });
-    // console.log(formik.errors)
   return (
     <div className={classes.container}>
         <div className={classes.item1} >
@@ -60,9 +54,7 @@ const BVN = () => {
                     <p className={classes.dial}>Dial *565*0# on your mobile phone to get your BVN</p>
                 </div>
                 <div>
-                    {/* <Link to="/"> */}
                         <Button name="Proceed" />
-                    {/* </Link> */}
                 </div>
             </form>
 

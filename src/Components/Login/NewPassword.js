@@ -4,9 +4,11 @@ import Logo from '../Logo/Logo'
 import Logo4 from '../../Assets/details.png'
 import classes from './NewPassword.module.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 const NewPassword = () => {
+  const navigate = useNavigate()
   const initialValues= {password:"", confirmPassword:""}
   const [formValues, setFormValues]= useState(initialValues)
   const [formErrors , setFormErrors]= useState({})
@@ -20,9 +22,10 @@ const NewPassword = () => {
   const handleSubmit=(e)=>{
     e.preventDefault()
     setFormErrors(validate(formValues))
-    axios.put("https://moneynow.onrender.com/api/resetpassword?id=639b9e5ce2ea19656ef00cf9", formValues)
+    axios.put(`https://moneynow.onrender.com/api/resetpassword?id=${localStorage.getItem('userId')}`, formValues)
     .then(res=>{
       console.log(res)
+      navigate('/passwordset')
     })
     .catch(error=>{
       console.log(error)
@@ -80,9 +83,7 @@ const validate = (values)=>{
             <p className={classes.error}>{formErrors.confirmPassword}</p>
           </div>
           <div>
-            {/* <Link to="/forget/4"> */}
               <Button name="Proceed"/>
-            {/* </Link> */}
           </div>
         </form>
       </div>

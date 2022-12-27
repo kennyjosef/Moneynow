@@ -5,6 +5,9 @@ import classes from './ForgetPwrdVerify.module.css'
 import Button from '../Button/Button'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 const ForgetPwrdVerify = () => {
     const navigate= useNavigate()
     const[otp, setOtp]=useState(new Array(4).fill(""))
@@ -20,21 +23,19 @@ const ForgetPwrdVerify = () => {
         axios.post('https://moneynow.onrender.com/api/otp', {otp:otp.join("")})
         .then(response=>{
             console.log(response)
-            let userId=""
-            userId=response.data.checkExistingUser._id
-            if(!response){
-                return alert("Invalid otp provided")
-            }else{
+            localStorage.setItem('userId', response.data.checkExistingUser._id)
+            localStorage.getItem("userId")
                 navigate('/createnew')
-            }
         })
         .catch(error=>{
+            toast.error("Invalid OTP provided")
             console.log(error)
             console.log(error.message)
-            alert(error.response.data.message)
         })
     }
     console.log("otp is", otp.join(""))
+    const userIDnumber = localStorage.getItem("userId")
+    console.log(userIDnumber)
 
   return (
     <div className={classes.container}>
@@ -44,7 +45,7 @@ const ForgetPwrdVerify = () => {
             </div>
             <div className={classes.login}>
                 <h3>Verify E-mail</h3>
-                <p>Enter OTP sent to xyz@gmail.com</p>
+                <p>Enter OTP sent to <span>{localStorage.getItem('userEmail')}</span></p>
             </div>
             <div className={classes.otp}>
                 <p>Enter OTP</p>
