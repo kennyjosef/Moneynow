@@ -1,6 +1,4 @@
-/* form div{
-    margin-top: 2px;
-} */
+
 *{
     padding: 0;
     margin: 0;
@@ -56,14 +54,12 @@
     justify-content: space-around;
     margin-bottom: 30px;
 }
-.detailsP{
-    padding:15px 0px 0px 0px;
-    text-align: left;
+
+.forform{
     width: 427px;
     margin: auto;
-    
 }
-.details input{
+.form input{
     width: 427px;
     height: 46px;
     border: 1px solid #070807;
@@ -94,6 +90,12 @@ a{
 .item2 img{
     max-width: 100%;
 }
+div label{
+    text-align: left;
+    width: 427px;
+    margin: auto;
+    padding-top: 7px;
+}
 
 @media screen and (max-width:768px) {
     .container{
@@ -111,11 +113,10 @@ a{
         width: 100%;
         margin-bottom: 40px;
     }
-    .details p{
+    .forform{
         width: 100%;
-
     }
-    .details input{
+    .form input{
         width: 100%;
     }
     .item2{
@@ -127,4 +128,8 @@ a{
         line-height: 51px;
     }
     .error{width: 100%;}
+     div label{
+        width: 100%;
+        margin: auto;
+    }
 }

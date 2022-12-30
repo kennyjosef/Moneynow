@@ -5,102 +5,101 @@ import classes from './Details.module.css'
 import  './Details.module.css'
 import Button from '../Button/Button'
 import axios from "axios"
-import { detailsSchema } from '../Schema/DetailsSchema'
-import { useFormik } from 'formik'
+import { Formik, Form } from 'formik'
 import { useNavigate } from 'react-router-dom'
+import TextField from '../Login/TextField'
+import * as Yup from "yup"
 
-const Details = () => { 
-    const navigate= useNavigate()
-    const {values, errors, handleBlur, handleChange, handleSubmit} = useFormik({
-        initialValues:{firstName:"",lastName:"",phoneNumber:"",referralId: ""},
-        validationSchema: detailsSchema,
-        onSubmit:(values)=>{
+
+const Details = () => {
+  const navigate = useNavigate()
+    const validate=Yup.object({
+        firstName:Yup
+        .string()
+        .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
+        .max(40)
+        .required("First name is required"),
+        lastName:Yup
+        .string()
+        .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
+        .max(40)
+        .required("Last name is equired"),
+        phoneNumber:Yup
+        .number()
+        .typeError("That doesn't look like a phone number")
+        .positive("A phone number can't start with a minus")
+        .integer("A phone number can't include a decimal point")
+        .required('A phone number is required'),
+        referralId:Yup 
+        .string()
+
+    })
+
+  return (
+    <div className={classes.container}>
+        <Formik
+        initialValues={{
+            firstName:"",
+            lastName:"",
+            phoneNumber:"",
+            referralId: ""
+        }}
+        validationSchema={validate}
+        onSubmit={values=>{
+            console.log(values)
             axios.put(`https://moneynow.onrender.com/api/nameSignUp?id=${localStorage.getItem("id")}`, values)
             .then(response=>{
                 console.log(response)
-                    navigate("/password")
+                navigate("/password")
             })
             .catch(error=>{
                 console.log(error.message)
             })
-        }
-        
-    })
-    
-    console.log(errors)
-    console.log("values", values)
-  return (
-    <div className={classes.container}>
-        <div className={classes.item1}>
-            <div className={classes.logo}>
-                <Logo/>
-            </div>
-            <div className={classes.login}>
-                <h3>Enter Name</h3>
-                <p>Kindly Provide Your Name </p>
-            </div>
-            <form action="" className={classes.details} onSubmit={handleSubmit}>
-                <div>
-                    <p className={classes.detailsP}> FisrtName</p>
-                    <input 
-                    type="text" 
-                    name="firstName" 
-                    id="firstName" 
-                    value={values.firstName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder='Enter your First Name' />
-                    <p className={classes.error}>{errors.firstName}</p>
-                </div>
-                <div>
-                    <p className={classes.detailsP}>Last Name</p>
-                    <input 
-                    type="text" 
-                    name="lastName" 
-                    id="lastName" 
-                    value={values.lastName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder='Enter your Last Name'/>
-                    <p className={classes.error}>{errors.lastName}</p>
-                </div>
-                <div>
-                    <p className={classes.detailsP}>Phone Number</p>
-                    <input 
-                    type="text" 
-                    name="phoneNumber" 
-                    id="phoneNumber" 
-                    value={values.phoneNumber}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder="Type your Phone Number"
-                    />
-                    <p className={classes.error}>{errors.phoneNumber}</p>
-                </div>
-                <div>
-                    <p className={classes.detailsP}>Referral ID (Optional)</p>
-                    <input 
-                    type="text" 
-                    name="referralId" 
-                    id="referralId" 
-                    placeholder='jw34r'
-                    value={values.referralId}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    />
-                    <p className={classes.error}>{errors.refer}</p>
-                </div>
-                <div>
-                        <Button  name="Proceed"/>
-                </div>
-            </form>
+        }}
+        >
+            {formik=>(
+                
+                <div className={classes.item1}>
+                    <div className={classes.logo}>
+                        <Logo/>
+                    </div>
+                    <div className={classes.login}>
+                        <h3>Enter Name</h3>
+                        <p>Kindly Provide Your Name</p>
+                    </div>
+                    <div className={classes.forform}>
+                        <Form className={classes.form}>
+                            {console.log("values", formik.values)}
+                            <div>
+                                <TextField label="First Name" name="firstName"type="text" placeholder='Enter your First Name'/>
+                            </div>
+                            <div>
+                                <TextField label="Last Name" name="lastName"type="text" placeholder='Enter your Last Name'/>
+                            </div>
+                            <div>
+                                <TextField label="Phone Number" name="phoneNumber"type="tel" placeholder="Type your Phone Number"/>
+                            </div>
+                            <div>
+                                <TextField label="Referral Id" name="referalId" placeholder="jw34r"type="text"/>
+                            </div>
+                            <div>
+                                <Button name="Proceed"/>
+                            </div>
 
-        </div>
+                        </Form>
+                    </div>
+                </div>
+            )}
+
+        </Formik>
+
         <div className={classes.item2}>
             <img src={Logo5} alt="pic" />
         </div>
+
     </div>
   )
 }
 
 export default Details
+

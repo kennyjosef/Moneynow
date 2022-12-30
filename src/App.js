@@ -7,19 +7,18 @@ import Login from "./Components/Login/Login";
 import NewPassword from "./Components/Login/NewPassword";
 import BVN from "./Components/SignUp/BVN";
 import Details from "./Components/SignUp/Details";
-import Id from "./Components/SignUp/Id";
 import Password from "./Components/SignUp/Password";
 import SignUp1 from "./Components/SignUp/SignUp1";
 import Verify from "./Components/SignUp/Verify";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer, toast } from 'react-toastify';
+import Payment from "./Components/DashboardComp.js/Payment";
 
 function App() {
   return (
     <div className="App">
-      {/* <Id/> */}
-      
+      {/* <Payment/>       */}
       <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path="signup" element={<SignUp1/>}/>

@@ -59,8 +59,12 @@
     justify-content: space-around;
     margin-bottom: 30px;
 }
+.forform{
+    width: 427px;
+    margin: auto;
+}
 
-form input{
+.form input{
     width: 427px;
     height: 46px;
     border: 1px solid #070807;
@@ -80,13 +84,16 @@ form input{
 }
 
 .para span{
-    cursor: pointer;
+    
     font-weight: 500;
 }
-a{
-    text-decoration: none;
-    color:rgb(238, 88, 238);
+ a{
+    text-decoration: none!important;
+    color:rgb(238, 88, 238)!important;
+    cursor: pointer;
 }
+
+
 .remember{
     display: flex;
     align-items: center;
@@ -102,7 +109,7 @@ a{
 .remember p{
     font-size: 15px;
     text-align: center;
-    padding-top: 10px;
+    padding-top:22px;
 }
 .error{
     width: 427px;
@@ -141,15 +148,17 @@ a{
         width: 100%;
         margin-bottom: 40px;
     }
-    .logo img{
-        /* margin-top: 10px; */
+    .forform{
+        width: 100%;
     }
-    form div input{
-        /* border: 1px solid red; */
+    .form  input{
         width: 100%;
     }
     .remember{
         width: 100%;
+    }
+    .remember input{
+        width: auto;
     }
     
     .item2{

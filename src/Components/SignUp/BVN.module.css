@@ -53,9 +53,7 @@
     line-height: 61px;
     color: #000000;
 }
-.login p{
-    /* padding-bottom: 60px; */
-}
+
 .item1{
     background-color: white;
     display: flex;
@@ -63,8 +61,11 @@
     justify-content: space-around;
     margin-bottom: 30px;
 }
-
-form input{
+.forform{
+    width: 427px;
+    margin: auto;
+}
+.form input{
     width: 427px;
     height: 46px;
     border: 1px solid #070807;
@@ -107,8 +108,10 @@ form input{
     .item1 button{
         width: 100%;
     }
-    
-    form input{
+    .forform{
+        width: 100%;
+    }
+    .form input{
         width: 100%;
     }
     .item2{
