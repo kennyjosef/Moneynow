@@ -68,6 +68,8 @@ const Login = () => {
                             <p>Remember me</p>
                             </div>
                             <div>
+                                <Link to="/dashboard">
+                                </Link>
                                 <Button name="Proceed"/>
                             </div>
                         </Form>

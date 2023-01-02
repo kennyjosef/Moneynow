@@ -1,25 +1,23 @@
 import React from 'react'
-import ButtonDash from '../Button/ButtonDash'
+import Nav from './Nav'
+import SideBar from './Sidebar'
+import classes from './Payment.module.css'
 
 const Payment = () => {
   return (
     <div>
-        <div>
-            <h3>HELLO VICTOR!</h3>
-            <p>Add Your Preferred  Payment Method </p>
-        </div>
-        <div>
-            <h4>Choose Your Primary Payment Method</h4>
-            <p>Please add your account’s primary payment method which will be used to pay for your contributions . Don’t worry, you can always change this later</p>
-            <p>Select a Payment Method</p>
-            <div>
-                <div></div>
-                <div>
-                    <ButtonDash name="Add"/>
-                </div>
+        <Nav/>
+        <div className={classes.containers}>
+            <SideBar/>
+            <div className={classes.main}>
+              <h3>Pay now</h3>
+              <h3>Pay now</h3>
+              <h3>Pay now</h3>
+              <h3>Pay now</h3>
+              <h3>Pay now</h3>
             </div>
-            <div></div>
-
+            
+            
         </div>
     </div>
   )

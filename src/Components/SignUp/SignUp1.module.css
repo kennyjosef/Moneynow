@@ -23,12 +23,6 @@
     cursor: pointer;
     margin-bottom: 90px;
 }
-.logo img{
-    width: 180px;
-    margin-bottom: 30px;
-}
-
-
 .container{
     display: flex;
     justify-content: center;

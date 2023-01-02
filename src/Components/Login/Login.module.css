@@ -20,7 +20,7 @@
     text-align: center;
     color: #FFFFFF;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom:20px;
     cursor: pointer;
 }
 
@@ -119,17 +119,10 @@
     padding: 0px;
     color: red;
 }
-.check{
-    border-color: rgb(238, 88, 238);
+.checkbox{
+    background-color: rgb(238, 88, 238);
 }
-.heading{
-    width: 427px;
-    margin: auto;
-    text-align: left;
-    padding: 0px;
-    padding-top: 10px;
 
-}
 
 @media screen and (max-width:768px) {
     .container{

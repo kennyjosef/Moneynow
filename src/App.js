@@ -12,13 +12,14 @@ import SignUp1 from "./Components/SignUp/SignUp1";
 import Verify from "./Components/SignUp/Verify";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+// import Payment from "./Components/DashboardComp.js/Payment";
+import Overview from "./Components/DashboardComp.js/Overview";
 import Payment from "./Components/DashboardComp.js/Payment";
 
 function App() {
   return (
     <div className="App">
-      {/* <Payment/>       */}
       <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path="signup" element={<SignUp1/>}/>
@@ -31,6 +32,8 @@ function App() {
         <Route path= "createnew" element={<NewPassword/>}/>
         <Route path= "passwordset" element={<ForgetSucces/>}/>
         <Route path="dashboard" element={<Dashboard/>}/>
+        <Route path ="overview" element={<Overview/>}/>
+        <Route path="payment" element={<Payment/>}/>
       </Routes>
       <ToastContainer />
     </div>
