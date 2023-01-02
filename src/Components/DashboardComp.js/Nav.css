@@ -17,7 +17,6 @@
     right: 0;
     width: 100%;
     background-color: white;
-    /* border-bottom: 1px solid red; */
 
   }
   
@@ -26,11 +25,7 @@
     align-items: center;
     margin-right: 30px;
   }
-  /* .navbar div {
-    display: flex;
-    align-items: center;
-    margin-right: 30px;
-  } */
+  
   .forul{
     /* width: 70%; */
     
@@ -89,6 +84,7 @@
     .navbar{
       width: 100%;
       margin: 0;
+      margin-bottom: 0px;
     }
     .hamburger{
       display: block !important;
@@ -106,10 +102,11 @@
       flex-direction: column;
       background-color: rgb(238, 88, 238);
       height: 100vh;      
-      border-top-right-radius: 20px;
+      border-top-right-radius: 10px;
+      margin-top: -10px;
       opacity: 1;
-      width: 250px;
       transition: all 0.5s ease-in-out;
+
     }
     .forul{
       margin-top: 0px;

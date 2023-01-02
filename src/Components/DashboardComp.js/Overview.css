@@ -6,6 +6,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-left: 200px;
+    /* width: 100%; */
   }
   
   .balancegroup {
@@ -14,6 +15,7 @@
     justify-content: space-between;
     margin-bottom: 30px;
     width: 100%;
+    margin: auto;
   }
   
   .balance {
@@ -32,7 +34,7 @@
   }
   
   .wrapper {
-    height: 100px;
+    /* height: 100px; */
     padding: 20px 25px;
     background: #ffffff;
     box-shadow: 0px 3px 8px rgba(41, 41, 41, 0.13);
@@ -42,7 +44,7 @@
   .wrapper h5 {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
   
   }
   
@@ -66,6 +68,7 @@
     padding-bottom: 20px;
     overflow: auto;
     width: 100%;
+    margin-top: 30px;
   }
   
   .transaction-container::-webkit-scrollbar {
@@ -153,21 +156,27 @@
         width: 100%;
         padding: 0px 0px 20px 0px;
         margin-left: 0px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
     }
     .balancegroup{
         flex-direction: column;
-        width: 80%;
+        width: 90%;
         margin: auto;
+        padding-top: 20px;
     }
     .balance{
         width: 100%;
+        /* height: auto; */
     }
     .group{
         width: 100%;
+        /* height: auto; */
+
         margin-top: 20px;
     }
     .transaction-container{
-        width: 80%;
+        width: 90%;
         margin: auto;
         margin-top: 20px;
     }

@@ -5,7 +5,7 @@ import eye from "../../Assets/eyeopened.svg";
 const Overview = () => {
   return (
     <div className="overview back">
-      <h2 className="header">Overview</h2>
+      {/* <h2 className="header">Overview</h2> */}
       <div className="balancegroup">
         <div className="balance wrapper">
           <h5>
