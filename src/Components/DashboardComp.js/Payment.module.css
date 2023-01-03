@@ -49,7 +49,7 @@ button{
     background-color:  rgb(238, 88, 238);
     width: 120px;
     height: 40px;
-    border-radius: 8px;
+    border-radius: 8px !important;
     border: none;
     font-style: normal;
     font-weight: 500;
@@ -92,59 +92,8 @@ button{
     margin-left: 10px;
     padding-top: 15px;
 }
-/* for modal button */
-/* body.activeModal {
-    overflow-y: hidden;
-} */
 
-/* .btnModal {
-    padding: 10px 20px;
-    display: block;
-    margin: 100px auto 0;
-    font-size: 18px;
-} */
-
- /* .modal {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-} */
- .overlay {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-}
-
-.overlay {
-    background: rgba(49,49,49,0.8);
-}
-.modalContent {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    line-height: 1.4;
-    background: #f1f1f1;
-    padding: 14px 28px;
-    border-radius: 3px;
-    max-width: 600px;
-    min-width: 300px;
-}
-
-.closeModal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 7px;
-}
+ 
 
 @media screen and (max-width:768px) {
     .main{
@@ -156,7 +105,7 @@ button{
         margin: auto;
     }
     .content h3{
-        margin: 5px 0px;
+        margin: 5px 0px 10px 0px;
         font-size: 20px;
         text-align: left;
         color:rgb(238, 88, 238) ;
@@ -164,7 +113,7 @@ button{
     }
     .content p{
         text-align: left;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
     .choose{
         width: 100%;
@@ -185,5 +134,17 @@ button{
         margin-left: 0px;
         text-align: left;
 
+    }
+    .btns{
+        width: 100%;
+        padding: 0px;
+        margin-top: 20px;
+    }
+    .box{
+        border:none;
+        width: 100%;
+        padding: 0px;
+        margin-bottom: 0px;
+        margin-top: 10px;
     }
 }
