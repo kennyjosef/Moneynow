@@ -22,7 +22,7 @@ const Overview = () => {
         <h6 className="transheader">Transaction History</h6>
         <div className="tableheader">
             <p className="ttype">Transaction type</p>
-            <p className="amount">Amount</p>
+            <p className="amount">Amount</p> 
             <p className="dandt">Date & time</p>
             <p className="status">Status</p>
         </div>

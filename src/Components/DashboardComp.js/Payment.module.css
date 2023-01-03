@@ -4,7 +4,7 @@
     flex-direction: row;
 }
 .main{
-    background-color: #888888;
+    background-color: whitesmoke;
     margin-left: 200px;
     margin-top: 60px;
     width: 100%;
@@ -15,9 +15,175 @@
     
     
 }
+.content h3{
+    margin: 20px 0px;
+    text-align: center;
+    font-weight: 550;
+    font-size: 30px;
+}
+.content p {
+    text-align: center;
+    font-weight: 540;
+    font-size: 18px;
+}
+.choose h4 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+.choose p {
+    margin-bottom: 60px;
+    font-size: 0.98rem;
+    font-weight: 500;
+    margin-left: 30px;
+}
+.payment h4{
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    
+}
+
+
+button{
+    background-color:  rgb(238, 88, 238);
+    width: 120px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.box{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    border: 1px solid  rgb(238, 88, 238);
+    height: 70px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    padding: 0px 20px;
+}
+.btns{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    padding: 0px 20px;
+}
+.boxContent{
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+.boxContent p{
+    font-size: 12px;
+}
+.boxContent div{
+    margin-left: 10px;
+    padding-top: 15px;
+}
+/* for modal button */
+/* body.activeModal {
+    overflow-y: hidden;
+} */
+
+/* .btnModal {
+    padding: 10px 20px;
+    display: block;
+    margin: 100px auto 0;
+    font-size: 18px;
+} */
+
+ /* .modal {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+} */
+ .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49,49,49,0.8);
+}
+.modalContent {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+.closeModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 7px;
+}
+
 @media screen and (max-width:768px) {
     .main{
         margin-left: 0px;
         padding: 20px;
+    }
+    .content{
+        width: 100%;
+        margin: auto;
+    }
+    .content h3{
+        margin: 5px 0px;
+        font-size: 20px;
+        text-align: left;
+        color:rgb(238, 88, 238) ;
+        
+    }
+    .content p{
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    .choose{
+        width: 100%;
+        margin: auto;
+    }
+    .choose h4{
+        font-size: 1.2rem;
+        text-align: left;
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }
+    .choose p{
+        margin-bottom: 10px;
+        margin-left: 0px;
+    }
+    .payment h4{
+        margin-bottom: 0px;
+        margin-left: 0px;
+        text-align: left;
+
     }
 }

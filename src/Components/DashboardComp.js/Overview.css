@@ -1,12 +1,11 @@
 .overview {
     padding: 10px 200px 10px 50px;
-    background-color: #888888;
+    background-color: whitesmoke;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-left: 200px;
-    /* width: 100%; */
   }
   
   .balancegroup {
@@ -28,13 +27,9 @@
     color: #27272E;
     width: 40%;
     padding: 20px 0px;
-
-
-
   }
   
   .wrapper {
-    /* height: 100px; */
     padding: 20px 25px;
     background: #ffffff;
     box-shadow: 0px 3px 8px rgba(41, 41, 41, 0.13);
@@ -44,7 +39,6 @@
   .wrapper h5 {
     display: flex;
     align-items: center;
-    /* margin-bottom: 15px; */
   
   }
   
@@ -158,6 +152,8 @@
         margin-left: 0px;
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
     }
     .balancegroup{
         flex-direction: column;
@@ -167,12 +163,9 @@
     }
     .balance{
         width: 100%;
-        /* height: auto; */
     }
     .group{
         width: 100%;
-        /* height: auto; */
-
         margin-top: 20px;
     }
     .transaction-container{
@@ -182,7 +175,8 @@
     }
     .tableheader{
         width: 100%;
-        /* padding: 0px;
-        border-collapse: collapse; */
+    }
+    .trans{
+        flex-direction: column;
     }
   }
