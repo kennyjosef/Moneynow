@@ -20,26 +20,27 @@ function AddBank() {
         </Modal.Header>
         <Modal.Body>
           <p>Add your card Details</p>
-          <div>
-            <div>
-              <label htmlFor="number">Card Number</label>
-              <input type="number" name="number" placeholder='1234 5678 6789 8797' />
-            </div>
-            <div>
-              <label htmlFor="name">Card Holder Name</label>
-              <input type="text" name="userName" placeholder=' David Ade' />
-            </div>
-            <div>
+            <form action="">
               <div>
-                <label htmlFor="expiry">Expiry Date</label>
-                <input type="text" name="expiry" placeholder='12/23' />
+                <label htmlFor="number">Card Number</label>
+                <input type="number" name="number" placeholder='1234 5678 6789 8797' />
               </div>
               <div>
-                <label htmlFor="cvv">CVV</label>
-                <input type="number" name="cvv" placeholder='567' />
+                <label htmlFor="name">Card Holder Name</label>
+                <input type="text" name="userName" placeholder=' David Ade' />
               </div>
-            </div>
-          </div>
+              <div>
+                <div>
+                  <label htmlFor="expiry">Expiry Date</label>
+                  <input type="text" name="expiry" placeholder='12/23' />
+                </div>
+                <div>
+                  <label htmlFor="cvv">CVV</label>
+                  <input type="number" name="cvv" placeholder='567' />
+                </div>
+              </div>
+              {/* <button>Add Card</button> */}
+            </form>
         </Modal.Body>
         <Modal.Footer>
           <button onClick={handleClose}>

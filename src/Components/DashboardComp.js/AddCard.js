@@ -20,9 +20,9 @@ function AddCard() {
         </Modal.Header>
         <Modal.Body>
             <p>Add Your One Time Bank Transfer Account</p>
-            <div>
+            <form action="">
               <label htmlFor="bank">Bank Details</label>
-              <select name="banks" id="banks">
+              <select name="banks" id="banks" className='selectOption'>
                 <option value="access">Access Bank plc</option>
                 <option value="first">Frst Bank plc</option>
                 <option value="polaris">Polaris Bank plc</option>
@@ -35,11 +35,11 @@ function AddCard() {
                 <option value="fcmb">FCMB</option>
                 <option value="palm">Palm pay</option>
               </select>
-            </div>
-            <div>
+              <div>
               <label htmlFor="accountName">Account Name</label>
               <input type="text" name="accountName" id="accountName" placeholder='David Ade' />
-            </div>
+             </div>
+            </form>
         </Modal.Body>
         <Modal.Footer>
           <button  onClick={handleClose}>
