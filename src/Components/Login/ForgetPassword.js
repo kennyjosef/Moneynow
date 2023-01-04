@@ -1,5 +1,5 @@
 import { Formik, Form} from 'formik'
-import React from 'react' 
+import React, {useState} from 'react' 
  import Logo from '../Logo/Logo'
  import Button from '../Button/Button'
  import classes from './ForgetPassword.module.css'
@@ -7,9 +7,15 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import TextField from './TextField'
 import * as Yup from "yup"
+import { toast } from 'react-toastify'
 
 
 const ForgetPassword = () => {
+    const [loading, setLoading] = useState(false)
+  const style ={
+    backgroundColor:"rgb(237, 162, 237)",
+
+}
   const navigate = useNavigate()
     const validate= Yup.object({
         email:Yup.string()
@@ -26,8 +32,10 @@ const ForgetPassword = () => {
         validationSchema={validate}
         onSubmit={values=>{
             console.log(values)
+            setLoading(true)
             axios.put('https://moneynow.onrender.com/api/forgotpassword', values)
             .then(res=>{
+                setLoading(false)
                 localStorage.setItem('userEmail', res.config.data)
                 console.log(res)
                 console.log(res.config.data.email)
@@ -35,6 +43,11 @@ const ForgetPassword = () => {
             })
             .catch(error=>{
              console.log(error.message)
+             if(error.message==="Network Error"){
+                toast.error("Network Issues")
+             }else{
+                toast.error("No former user with this Email.")
+             }
             })
         }}
         >
@@ -54,7 +67,12 @@ const ForgetPassword = () => {
                                 <TextField label="Email" name="email" type="email" placeholder="xyz@gmail.com"/>
                             </div>
                             <div>
-                                <Button name="Reset"/>
+                                {
+                                    loading?
+                                    <Button style={style} name="Loading"/>
+                                    :
+                                    <Button name="Reset"/>
+                                }
                             </div>
                         </Form>
                     </div>

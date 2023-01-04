@@ -11,16 +11,21 @@ function AddCard() {
   return (
     <>
     <div>
-      <button onClick={handleShow}>Add Bank</button>
+      <button onClick={handleShow}>Continue</button>
     </div>
 
       <Modal show={show} onHide={handleClose} className="down">
         <Modal.Header closeButton className='color'>
-          <Modal.Title>Add Bank</Modal.Title>
+          <Modal.Title>One-Time Bank Transfer</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <p>Add Your One Time Bank Transfer Account</p>
-            <form action="">
+            <p>Kindly Generate Your One-time Bank Transfer Account</p>
+            <h5>How it works</h5>
+            <div>
+              <p>1. This account number can only be used once</p>
+              <p>2. This account number is not to be saved for future use</p>
+            </div>
+            {/* <form action="">
               <label htmlFor="bank">Bank Details</label>
               <select name="banks" id="banks" className='selectOption'>
                 <option value="access">Access Bank plc</option>
@@ -39,12 +44,15 @@ function AddCard() {
               <label htmlFor="accountName">Account Name</label>
               <input type="text" name="accountName" id="accountName" placeholder='David Ade' />
              </div>
-            </form>
+            </form> */}
+          <button className='modalbtn'>
+            Generate Account
+          </button>
         </Modal.Body>
         <Modal.Footer>
-          <button  onClick={handleClose}>
-            Add Bank
-          </button>
+          {/* <button  onClick={handleClose}>
+            Generate Account
+          </button> */}
         </Modal.Footer>
       </Modal>
     </>

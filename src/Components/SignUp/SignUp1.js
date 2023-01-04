@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
 import classes from './SignUp1.module.css'
@@ -11,9 +11,13 @@ import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TextField from '../Login/TextField'
 import * as Yup from "yup"
-
 const SignUp1 = () => {
-  const navigate = useNavigate()
+    let [loading, setLoading] = useState(false);
+    const style ={
+        backgroundColor:"rgb(237, 162, 237)",
+
+    }
+    const navigate = useNavigate()
     const validate=Yup.object({
         email:Yup
         .string()
@@ -29,15 +33,22 @@ const SignUp1 = () => {
         validationSchema={validate}
         onSubmit={values=>{
             console.log(values)
+            setLoading(true)
             axios.post("https://moneynow.onrender.com/api/signup",values)
             .then(res=>{
+                setLoading(false)
                 localStorage.setItem("email", res.data.saveNewUser.email)
                 console.log(res)
                 navigate("/verify")    
              })
              .catch(error=>{
                 console.log(error.message)
-                toast.error("User already exist ")  
+                if(error.message==="Network Error"){
+                    toast.error('Network Issue')
+                }else{
+
+                    toast.error("User already exist ")  
+                }
              })
         }}
         >
@@ -55,9 +66,13 @@ const SignUp1 = () => {
                             <div>
                                 <TextField label="Email" name="email" placeholder="xzy@gmail.com"/> 
                             </div>
-                            {/* <div> */}
-                                <Button name="Proceed"/>
-                            {/* </div> */}
+                            <>
+                                {
+                                    loading ?
+                                    <Button style={style} name="Loading..."/>:
+                                    <Button name="Proceed" />
+                                }
+                            </>
                         </Form>
                         <div className={classes.para}>
                             <p>Already have an account? 

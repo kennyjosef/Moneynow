@@ -7,6 +7,10 @@
     border-radius: 8px;
     padding-left: 10px;
 }
+.modalbtn{
+    width: 200px;
+
+}
 
 @media screen and (max-width:768px) {
     .down{

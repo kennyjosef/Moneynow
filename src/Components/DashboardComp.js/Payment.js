@@ -9,6 +9,7 @@ import Button from '../Button/Button'
 import MoonLoader from "react-spinners/MoonLoader";
 import AddBank from './AddBank'
 import AddCard from './AddCard'
+import { Link } from 'react-router-dom'
 const Payment = () => {
   const [loading, setLoading]=useState(false)
   let [color, setColor] = useState(" rgb(238, 88, 238)");
@@ -21,7 +22,7 @@ const Payment = () => {
     setLoading(true)
     setTimeout(()=>{
       setLoading(false)
-    }, 5000)
+    }, 3000)
 
   },[])
   return (
@@ -48,7 +49,7 @@ const Payment = () => {
                   <img src={bank} alt="bank" />
                   <div>
                   <p>Bank account <br />
-                  Pay via bank transfer</p>
+                  Pay via one-time bank transfer</p>
                   </div>
                   </div>
                   <>
@@ -69,7 +70,7 @@ const Payment = () => {
                 </div>
                 <div className={classes.btns}>
                   <Button name="Go Back"/>
-                  <Button name="Continue"/>
+                    <Button name="Continue"/>
                 </div>
               </div>
             </div>

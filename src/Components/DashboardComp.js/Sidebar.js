@@ -17,7 +17,7 @@ const SideBar = () => {
       </div>
       <ul className={classes.ul}>
          <Link  to="/dashboard"><img src={Home} alt="home" />Overview</Link>
-         <Link  to="/join-group"><img src={Group} alt="group" />Join Group </Link>
+         <Link  to="/joinGroup"><img src={Group} alt="group" />Join Group </Link>
          <Link  to="/payment"><img src={Atm} alt="atm" />Payment</Link>
          <Link  to="/referral"><img src={Referral} alt="referral" />Referral</Link>
          <Link  to="#"><img src={More} alt="more" />More</Link>

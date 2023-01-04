@@ -21,7 +21,7 @@ const Nav = () => {
       <div className='forul'>
         <ul className={toggle? ' ul' : 'navShow'}>
           <div className="flex"><Link  to="/dashboard"><img src={Home} alt="home" /><p>Overview</p></Link></div>
-          <div className="flex"><Link  to="/join-group"><img src={Group} alt="group" /><p>Join Group</p> </Link></div>
+          <div className="flex"><Link  to="/joinGroup"><img src={Group} alt="group" /><p>Join Group</p> </Link></div>
           <div className="flex"><Link  to="/payment"><img src={Atm} alt="atm" /><p>Payment</p></Link></div>
           <div className="flex"><Link  to="/referral"><img src={Referral} alt="referral" /><p>Referral</p></Link></div>
           <div className="flex"><Link  to="#"><img src={More} alt="more" /><p>More</p></Link></div>

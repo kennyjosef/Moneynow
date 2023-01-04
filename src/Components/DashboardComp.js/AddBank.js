@@ -16,16 +16,15 @@ function AddBank() {
 
       <Modal show={show} onHide={handleClose}  className="down">
         <Modal.Header closeButton className='color'>
-          <Modal.Title>Add Bank</Modal.Title>
+          <Modal.Title>Add Your Bank Account!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Add your card Details</p>
+          <p>Please add your account’s primary payout method which will  be used to process your withdrawal  <br /></p>
             <form action="">
               <div>
-                <label htmlFor="number">Card Number</label>
-                <input type="number" name="number" placeholder='1234 5678 6789 8797' />
+                <input type="text" name="number" placeholder='Account Number' />
               </div>
-              <div>
+              {/* <div>
                 <label htmlFor="name">Card Holder Name</label>
                 <input type="text" name="userName" placeholder=' David Ade' />
               </div>
@@ -38,7 +37,7 @@ function AddBank() {
                   <label htmlFor="cvv">CVV</label>
                   <input type="number" name="cvv" placeholder='567' />
                 </div>
-              </div>
+              </div> */}
               {/* <button>Add Card</button> */}
             </form>
         </Modal.Body>

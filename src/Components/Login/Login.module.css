@@ -169,4 +169,7 @@
     .heading{
         width: 100%;
     }
+    .why a{
+        padding-left: 0px !important;
+    }
 }

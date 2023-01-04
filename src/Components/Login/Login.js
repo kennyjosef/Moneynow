@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from '../Logo/Logo'
 import {Formik, Form} from 'formik'
 import Button from '../Button/Button'
@@ -11,6 +11,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 import TextField from './TextField'
 const Login = () => {
+  const [loading, setLoading] = useState(false)
+  const style ={
+    backgroundColor:"rgb(237, 162, 237)",
+
+}
   const navigate = useNavigate()
     const validate= Yup.object({
         email:Yup
@@ -32,17 +37,21 @@ const Login = () => {
         validationSchema={validate}
         onSubmit={values=>{
             console.log(values)
+                setLoading(true)
             axios.post("https://moneynow.onrender.com/api/login", values)
             .then(response=>{ 
+                setLoading(false)
                  if(response.data){
                     navigate("/dashboard")
-                 }
+                 }   
              })
              .catch(error=>{
-                toast.error('Invalid Credentials')
-                console.log(error.response)
-                console.log(error.response.data)
-                console.log(error.message)
+                 console.log(error.message)
+                 if(error.message=== "Network Error"){
+                    toast.error("Network Issues")
+                 }else{
+                     toast.error('Invalid Credentials')
+                 }
              })
         }}
         >
@@ -68,9 +77,11 @@ const Login = () => {
                             <p>Remember me</p>
                             </div>
                             <div>
-                                <Link to="/dashboard">
-                                </Link>
-                                <Button name="Proceed"/>
+                                {
+                                    loading?
+                                    <Button style={style} name="Loading..." />:
+                                    <Button name="Proceed" />
+                                }
                             </div>
                         </Form>
                         <div className={classes.para}>
@@ -78,9 +89,9 @@ const Login = () => {
                             <p className={classes.link}>Forgot Password?</p>
                             </Link>
                         </div>
-                        <p>New to MoneyNow?
+                        <p className={classes.why}>New to MoneyNow?
                             <Link to="/signup">
-                            <span className={classes.link}>Sign Up</span>
+                            <span className="">Sign Up</span>
                             </Link>
                         </p>
                     </div>

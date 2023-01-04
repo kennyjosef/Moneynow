@@ -8,7 +8,14 @@ import { useNavigate } from 'react-router-dom'
 import {Formik, Form} from "formik"
 import TextField from './TextField'
 import * as Yup from "yup"
+import {toast } from 'react-toastify';
+
 const NewPassword = () => {
+  const [loading, setLoading] = useState(false)
+  const style ={
+    backgroundColor:"rgb(237, 162, 237)",
+
+}
   const navigate = useNavigate()
   const validate= Yup.object({
     password: Yup.string()
@@ -28,13 +35,20 @@ const NewPassword = () => {
       validationSchema={validate}
       onSubmit={values=>{
         console.log(values)
+        setLoading(true)
         axios.put(`https://moneynow.onrender.com/api/resetpassword?id=${localStorage.getItem('userId')}`, values)
         .then(res=>{
          console.log(res)
+         setLoading(false)
          navigate('/passwordset')
         })
        .catch(error=>{
-         console.log(error)
+         console.log(error.message)
+         if(error.message=== "Network Error"){
+          toast.error("Network Issues, check your connection")
+       }else{
+           toast.error('Invalid Credentials')
+       }
        })
       }}
       >
@@ -58,7 +72,12 @@ const NewPassword = () => {
                 <TextField label="Confirm Password" name="confirmPassword" type="password" placeholder="Confirm your password"/>
               </div>
               <div>
-                <Button name="Proceed"/>
+                {
+                  loading ?
+                  <Button style={style} name="Loading"/>
+                  :
+                  <Button name="Proceed"/>
+                }
               </div>
               </Form>
             </div>

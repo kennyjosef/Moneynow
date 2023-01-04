@@ -3,11 +3,11 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 const override = {
   display: "block",
-  margin: "300px auto",
+  margin: "0 auto",
   borderColor: "red",
 };
 
-function Spi() {
+function Spinner() {
   let [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#ffffff");
 
@@ -20,7 +20,7 @@ function Spi() {
         color={color}
         loading={loading}
         cssOverride={override}
-        size={50}
+        size={30}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
@@ -28,4 +28,4 @@ function Spi() {
   );
 }
 
-export default Spi;
+export default Spinner

@@ -76,13 +76,6 @@ a{
     text-decoration: none;
     color:  rgb(238, 88, 238);
 }
-/* a:hover{
-    color:rgb(238, 88, 238) ;
-} */
-
-.item2{
-  
-}
 .item2 img{
     max-width: 100%;
 }
@@ -135,6 +128,10 @@ a{
         font-weight: 700;
         font-size: 30px;
         line-height: 51px;
+    }
+    
+    .para a{
+        padding-left: 0px !important;
     }
     
 }
