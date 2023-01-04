@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react'
 import Nav from './Nav'
 import SideBar from './Sidebar'
 import MoonLoader from "react-spinners/MoonLoader";
-import classes from './Payment.module.css'
+import classes from './Join.module.css'
+import Button from '../Button/Button'
+
 
 const JoinGroup = () => {
     const [loading, setLoading]=useState(false)
@@ -28,7 +30,40 @@ const JoinGroup = () => {
                 loading ?
                 <MoonLoader color={color} loading={loading} size={50} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>:
                 <div className={classes.main}>
-                    <h3>woo!</h3>
+                  <div>
+                    <h3>Join Group</h3>
+                    <p>Explore any of our available groups to choose the one that suits your goal</p>
+                  </div>
+                  <div className={classes.groups}>
+                    <div className={classes.miniGroups}>
+                      <h3>SILVER GROUP</h3>
+                      <ul className={classes.joinUl}>
+                        <li>Each member pays: N10,000 monthly for savings duration</li>
+                        <li>Savings Target: N1,000,000</li>
+                        <li>Savings Duration: 5 months</li>
+                      </ul>
+                      <button className={classes.joinbtn}>JOIN</button>
+                    </div>
+                    <div  className={classes.miniGroups}>
+                      <h3>GOLD GROUP</h3>
+                      <ul className={classes.joinUl}>
+                        <li>Each member pays: N100,000 monthly for savings duration</li>
+                        <li>Savings Target: N5,000,000</li>
+                        <li>Savings Duration: 5 months</li>
+                      </ul>
+                      <button className={classes.joinbtn}>JOIN</button>
+                    </div>
+                    <div  className={classes.miniGroups}>
+                    <h3>PLATINUM GROUP</h3>
+                    <ul className={classes.joinUl}>
+                      <li>Each member pays: N200,000 monthly for savings duration</li>
+                      <li>Savings Target: N5,000,000</li>
+                      <li>Savings Duration: 5 months</li>
+                    </ul>
+                    <button className={classes.joinbtn}>JOIN</button>
+                    </div>
+
+                  </div>
 
                 </div>
             }

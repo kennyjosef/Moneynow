@@ -1,0 +1,76 @@
+.containers{ 
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.main{
+    background-color: whitesmoke;
+    margin-left: 200px;
+    margin-top: 60px;
+    width: 100%;
+    /* padding-bottom: 370px; */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+    
+}
+.groups {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-around;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.miniGroups {
+    width: 20%;
+    padding: 30px;
+    background: #ffffff;
+    box-shadow: 0px 3px 8px rgba(41, 41, 41, 0.13);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.miniGroups h3 {
+    color: rgb(238, 88, 238);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.joinbtn{
+    width: 150px !important;
+}
+@media screen and (max-width:912px) {
+    .main{
+        margin-top: 100px;
+    }
+    .miniGroups{
+        width: auto;
+        flex-wrap: wrap;
+        margin: 10px;
+    }
+}
+@media screen and (max-width:768px) {
+    .main{
+        margin-left: 0px;
+        padding: 20px;
+    }
+    .groups{
+        flex-direction: column;
+        margin-bottom: 0px;
+        
+    }
+    .miniGroups{
+        width: 80%;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+    .miniGroups h3{
+        font-weight: 400;
+    }
+   .joinUl{
+    display: block;
+   }
+}
