@@ -56,6 +56,7 @@
     .main{
         margin-left: 0px;
         padding: 20px;
+        margin-top: 50px;
     }
     .groups{
         flex-direction: column;
@@ -63,14 +64,19 @@
         
     }
     .miniGroups{
-        width: 80%;
+        width: 100%;
         margin: auto;
         margin-bottom: 30px;
     }
     .miniGroups h3{
         font-weight: 400;
+        text-align: center;
     }
    .joinUl{
     display: block;
+   }
+   .joinbtn{
+    width: 80% !important;
+    margin: auto;
    }
 }
