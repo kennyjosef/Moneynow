@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Logo from '../Logo/Logo'
 import Logo5 from '../../Assets/password.jpg'
 import classes from './Details.module.css'
@@ -9,10 +9,13 @@ import { Formik, Form } from 'formik'
 import { useNavigate } from 'react-router-dom'
 import TextField from '../Login/TextField'
 import * as Yup from "yup"
+import { toast } from 'react-toastify'
 
 
 const Details = () => {
-  const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
+    const style ={backgroundColor:"rgb(237, 162, 237)",}
+    const navigate = useNavigate()
     const validate=Yup.object({
         firstName:Yup
         .string()
@@ -47,13 +50,18 @@ const Details = () => {
         validationSchema={validate}
         onSubmit={values=>{
             console.log(values)
+            setLoading(true)
             axios.put(`https://moneynow.onrender.com/api/nameSignUp?id=${localStorage.getItem("id")}`, values)
             .then(response=>{
+                setLoading(false)
                 console.log(response)
                 navigate("/password")
             })
             .catch(error=>{
                 console.log(error.message)
+                if(error.message==="Network Error"){
+                    toast.error("Network Issues")
+                }
             })
         }}
         >
@@ -83,7 +91,12 @@ const Details = () => {
                                 <TextField label="Referral Id" name="referalId" placeholder="jw34r"type="text"/>
                             </div>
                             <div>
-                                <Button name="Proceed"/>
+                                {
+                                    loading ?
+                                    <Button style={style} name="Loading..."/>
+                                    :
+                                    <Button name="Proceed"/>
+                                }
                             </div>
 
                         </Form>

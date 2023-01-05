@@ -41,6 +41,7 @@ const Login = () => {
             axios.post("https://moneynow.onrender.com/api/login", values)
             .then(response=>{ 
                 setLoading(false)
+                console.log("response", response.data)
                  if(response.data){
                     navigate("/dashboard")
                  }   

@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom'
 import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Verify = () => {
+    const [loading, setLoading] = useState(false)
+    const style ={backgroundColor:"rgb(237, 162, 237)",}
     const navigate= useNavigate()
     const[otp, setOtp]=useState(new Array(4).fill(""))
     const handleChange=(element, index)=>{
@@ -20,15 +22,22 @@ const Verify = () => {
      
     const handleSubmit =(e)=>{
         e.preventDefault()
+        setLoading(true)
         axios.post('https://moneynow.onrender.com/api/otp', {otp: otp.join("")})
         .then(response=>{
+            setLoading(false)
             localStorage.setItem( "id", response.data.checkExistingUser._id)
             console.log(response)
                 navigate('/details')
         })
         .catch(error=>{
-            toast.error("Invalid OTP provided")
             console.log(error.message)
+            if(error.message=== "Network Error"){
+                toast.error("Network Issues")
+            }else{
+
+                toast.error("Invalid OTP provided")
+            }
         })
     }
     console.log("otp is", otp.join(""))
@@ -66,7 +75,13 @@ const Verify = () => {
                                 })
                             }        
                     </div>
-                    <Button name="Verify"/>
+                    <>
+                        {
+                            loading ?
+                            <Button  style={style} name="Loading..."/>:
+                            <Button name="Verify"/>
+                        }
+                    </>
                 </form>
             </div>
             <div className={classes.resend}>

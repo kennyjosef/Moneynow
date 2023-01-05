@@ -11,13 +11,10 @@ import { toast } from 'react-toastify'
 
 
 const ForgetPassword = () => {
-    const [loading, setLoading] = useState(false)
-  const style ={
-    backgroundColor:"rgb(237, 162, 237)",
-
-}
-  const navigate = useNavigate()
-    const validate= Yup.object({
+const [loading, setLoading] = useState(false)
+const style ={backgroundColor:"rgb(237, 162, 237)",}
+const navigate = useNavigate()
+const validate= Yup.object({
         email:Yup.string()
         .email("Please enter valid email")
         .required("Email is required"),
@@ -69,7 +66,7 @@ const ForgetPassword = () => {
                             <div>
                                 {
                                     loading?
-                                    <Button style={style} name="Loading"/>
+                                    <Button style={style} name="Loading..."/>
                                     :
                                     <Button name="Reset"/>
                                 }

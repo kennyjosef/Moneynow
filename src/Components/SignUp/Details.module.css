@@ -97,7 +97,7 @@ div label{
     padding-top: 7px;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:912px) {
     .container{
         flex-direction: column;
         width: 100%;
