@@ -73,12 +73,26 @@
     padding-top: 10px;
 }
 .code{
-    border-radius: 10px;
     outline: none;
-    width: 427px;
-    border-color:rgb(238, 88, 238) ;
-    height: 35px;
+    padding-left: 10px;
+    border: none;
 }
+.forshare div{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+}
+.forshare{
+    border-radius: 10px;
+    border:1px solid rgb(238, 88, 238) ;
+    width: 427px;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    padding:  0px 10px;
+}
+
 @media screen and (max-width:768px) {
     .main{
         margin-left: 0px;
@@ -108,7 +122,7 @@
         width: 100%;
         margin-bottom: 20px;
     }
-    .code{
+    .forshare{
         width: 100%;
     }
 }

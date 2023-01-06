@@ -6,6 +6,8 @@ import signup from '../../Assets/signup.svg'
 import invitation from '../../Assets/invitation.svg'
 import classes from './Referal.module.css'
 import MoonLoader from "react-spinners/MoonLoader";
+import {RiFileCopyLine} from 'react-icons/ri';
+import {FiShare} from 'react-icons/fi'
 
 
 const Referal = () => {
@@ -53,7 +55,13 @@ const Referal = () => {
                         <div className={classes.texxt}>
                         <h5>Share the referral code</h5>
                         <h6>You can also share your referral code by copying and sending or sharing it on your social media</h6>
-                        <input type="text" Email address className={classes.code}/>
+                        <div className={classes.forshare}>
+                            <input type="text" Email address className={classes.code}/>
+                            <div>
+                            <RiFileCopyLine/>
+                            <FiShare/>
+                            </div>
+                        </div>
                         </div>
                         </div>
                     </div>
