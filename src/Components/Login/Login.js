@@ -42,6 +42,12 @@ const Login = () => {
             .then(response=>{ 
                 setLoading(false)
                 console.log("response", response.data)
+                console.log("name  is",`${response.data.user.firstName} ${response.data.user.lastName}`)
+                localStorage.setItem("username", `${response.data.user.firstName} ${response.data.user.lastName}`)
+                localStorage.setItem("balance", response.data.user.userBalance)
+                localStorage.setItem("userID", response.data.user._id)
+                console.log(localStorage.getItem("userID"))
+                console.log(localStorage.getItem("balance"))
                  if(response.data){
                     navigate("/dashboard")
                  }   
@@ -49,7 +55,7 @@ const Login = () => {
              .catch(error=>{
                  console.log(error.message)
                  if(error.message=== "Network Error"){
-                    toast.error("Network Issues")
+                    toast.error("Network Issues 🤦‍♂️")
                  }else{
                      toast.error('Invalid Credentials')
                  }

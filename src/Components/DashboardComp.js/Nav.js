@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Logo2 from "../../Assets/profile.svg"
 import Logo1 from "../../Assets/notification.svg"
 import Logo3 from "../../Assets/arrowdown.svg"
@@ -10,12 +10,23 @@ import Atm from "../../Assets/atm.svg"
 import More from "../../Assets/more.svg"
 import Referral from "../../Assets/referral.svg"
 import logout from "../../Assets/logout.svg"
+import axios from "axios";
 const Nav = () => {
   const [toggle, setToggle] = useState(true)
 
     function handleClick(){
         return setToggle(preToggle=> !preToggle)
     }
+    const getUserName = () =>  {
+      axios.get(`https://moneynow.onrender.com/api/username?id=${localStorage.getItem("userID")}`)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
+    getUserName()
   return (
     <div className='navbar'>
       <div className='forul'>
@@ -36,7 +47,7 @@ const Nav = () => {
         <img className='icon1' src={Logo1} alt="notification" />
         <span className='divider'></span>
         <img className='icon2' src={Logo2} alt="profile" />
-        <h5>David Okoye</h5>
+        <h5>{localStorage.getItem('username')}</h5>
         <img className='icon3' src={Logo3} alt="arrow-down" />
       </div>
     </div>

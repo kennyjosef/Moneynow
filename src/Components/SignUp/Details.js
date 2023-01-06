@@ -88,7 +88,7 @@ const Details = () => {
                                 <TextField label="Phone Number" name="phoneNumber"type="tel" placeholder="Type your Phone Number"/>
                             </div>
                             <div>
-                                <TextField label="Referral Id" name="referalId" placeholder="jw34r"type="text"/>
+                                <TextField label="Referral Id" name="referralId" placeholder="jw34r"type="text"/>
                             </div>
                             <div>
                                 {

@@ -17,6 +17,7 @@ import { ToastContainer } from 'react-toastify';
 import Overview from "./Components/DashboardComp.js/Overview";
 import Payment from "./Components/DashboardComp.js/Payment";
 import JoinGroup from "./Components/DashboardComp.js/JoinGroup";
+import Referal from "./Components/DashboardComp.js/Referal";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path ="overview" element={<Overview/>}/>
         <Route path="payment" element={<Payment/>}/>
         <Route path ="joinGroup" element={<JoinGroup/>}/>
+        <Route path="referral" element={<Referal/>}/>
       </Routes>
       <ToastContainer />
     </div>

@@ -8,7 +8,7 @@
     margin-left: 200px;
     margin-top: 60px;
     width: 100%;
-    /* padding-bottom: 370px; */
+    padding-bottom:260px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -31,7 +31,6 @@
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
 }
 .miniGroups h3 {
     color: rgb(238, 88, 238);
@@ -57,6 +56,8 @@
         margin-left: 0px;
         padding: 20px;
         margin-top: 50px;
+        padding-bottom:0px;
+
     }
     .groups{
         flex-direction: column;

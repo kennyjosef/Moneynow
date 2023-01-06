@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import AddPayIn from './AddPayIn';
 // import './Modal/css'
 function AddCard() {
   const [show, setShow] = useState(false);
@@ -25,29 +26,12 @@ function AddCard() {
               <p>1. This account number can only be used once</p>
               <p>2. This account number is not to be saved for future use</p>
             </div>
-            {/* <form action="">
-              <label htmlFor="bank">Bank Details</label>
-              <select name="banks" id="banks" className='selectOption'>
-                <option value="access">Access Bank plc</option>
-                <option value="first">Frst Bank plc</option>
-                <option value="polaris">Polaris Bank plc</option>
-                <option value="wema">Wema Bank plc</option>
-                <option value="gtb">GTBank plc</option>
-                <option value="sterlin">Sterlin Bank plc</option>
-                <option value="lafenda">Lafenda Mircrofinance Bank plc</option>
-                <option value="mortage">Mortage Bank plc</option>
-                <option value="union">Union Bank </option>
-                <option value="fcmb">FCMB</option>
-                <option value="palm">Palm pay</option>
-              </select>
-              <div>
-              <label htmlFor="accountName">Account Name</label>
-              <input type="text" name="accountName" id="accountName" placeholder='David Ade' />
-             </div>
-            </form> */}
-          <button className='modalbtn'>
-            Generate Account
-          </button>
+            <>
+              {/* <button className='modalbtn'>
+                Generate Account
+              </button> */}
+              <AddPayIn/>
+            </>
         </Modal.Body>
         <Modal.Footer>
           {/* <button  onClick={handleClose}>

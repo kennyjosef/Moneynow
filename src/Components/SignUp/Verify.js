@@ -33,7 +33,7 @@ const Verify = () => {
         .catch(error=>{
             console.log(error.message)
             if(error.message=== "Network Error"){
-                toast.error("Network Issues")
+                toast.error("Network Issues🤦‍♀️")
             }else{
 
                 toast.error("Invalid OTP provided")

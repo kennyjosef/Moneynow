@@ -4,6 +4,7 @@ import SideBar from './Sidebar'
 import MoonLoader from "react-spinners/MoonLoader";
 import classes from './Join.module.css'
 import Button from '../Button/Button'
+import axios from 'axios';
 
 
 const JoinGroup = () => {
@@ -21,6 +22,16 @@ const JoinGroup = () => {
       }, 3000)
   
     },[])
+    const generateRef =(e)=>{
+      e.preventDefault()
+      axios.post(`https://moneynow.onrender.com/group/create/?id=${localStorage.getItem("userID")}`)
+      .then(res=>{
+        console.log(res)
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+    }
   return (
     <div>
         <Nav/>
@@ -42,7 +53,7 @@ const JoinGroup = () => {
                         <li>Savings Target: N1,000,000</li>
                         <li>Savings Duration: 5 months</li>
                       </ul>
-                      <button className={classes.joinbtn}>JOIN</button>
+                      <button onClick={generateRef} className={classes.joinbtn}>JOIN</button>
                     </div>
                     <div  className={classes.miniGroups}>
                       <h3>GOLD GROUP</h3>

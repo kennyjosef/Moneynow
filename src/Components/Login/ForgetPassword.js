@@ -28,14 +28,14 @@ const validate= Yup.object({
         }}
         validationSchema={validate}
         onSubmit={values=>{
-            console.log(values)
+            console.log( "Email is", JSON.stringify(values))
             setLoading(true)
             axios.put('https://moneynow.onrender.com/api/forgotpassword', values)
             .then(res=>{
                 setLoading(false)
-                localStorage.setItem('userEmail', res.config.data)
+                localStorage.setItem('userEmail', values.email)
                 console.log(res)
-                console.log(res.config.data.email)
+                // console.log(res.email)
                 navigate('/passwordverify')
             })
             .catch(error=>{

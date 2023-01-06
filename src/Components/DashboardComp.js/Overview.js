@@ -11,7 +11,7 @@ const Overview = () => {
           <h5>
             Total Balance <img src={eye} alt="eye" />
           </h5>
-          <h2> ₦ 4000.00</h2>
+          <h2> ₦ {localStorage.getItem("balance")}</h2>
         </div>
         <div className="group wrapper">
             <h5>Your Groups</h5>

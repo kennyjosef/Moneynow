@@ -35,7 +35,7 @@ const Payment = () => {
               <MoonLoader color={color} loading={loading} size={50} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>:
             <div className={classes.main}>
               <div className={classes.content}>
-                <h3>HELLO VICTOR!</h3>
+                <h3>Hello {localStorage.getItem('username')}!</h3>
                 <p>Add Your Preferred Payment Method</p>
               </div>
               <div className={classes.choose}>
@@ -68,14 +68,8 @@ const Payment = () => {
                   <AddBank/>
                   </>
                 </div>
-                <div className={classes.btns}>
-                  <Button name="Go Back"/>
-                    <Button name="Continue"/>
-                </div>
               </div>
             </div>
-            
-            
           }
           </div>
     </div>

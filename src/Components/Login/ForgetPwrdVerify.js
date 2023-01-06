@@ -70,8 +70,8 @@ const ForgetPwrdVerify = () => {
                         <Button name="Verify"/>
                 </form>
             </div>
-            <div>
-                <p>Didn’t receive code? Resend code</p>
+            <div className={classes.resend}>
+                <p>Didn’t receive code? <span>Resend code</span></p>
             </div>
         </div>
         <div className={classes.item2}>
