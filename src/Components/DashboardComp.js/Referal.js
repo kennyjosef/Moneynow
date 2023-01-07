@@ -69,14 +69,14 @@ const Referal = () => {
                         <h5>Share the referral code</h5>
                         <h6>You can also share your referral code by copying and sending or sharing it on your social media</h6>
                         <div className={classes.forshare}>
-                            {/* <input 
+                            <input 
                             type="text" 
                             name="code"
-                            value={codeValues}
-                            onChange={handleChange}
+                            value={localStorage.getItem("referralCode")}
+                            // onChange={handleChange}
                             className={classes.code}
-                            /> */}
-                            <p>{localStorage.getItem("referralCode")}</p>
+                            />
+                            {/* <p vaule={localStorage.getItem("referralCode")}></p> */}
                             <div>
                             <RiFileCopyLine/>
                             <FiShare/>
