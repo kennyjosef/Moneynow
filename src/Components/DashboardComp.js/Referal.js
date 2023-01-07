@@ -10,6 +10,8 @@ import {RiFileCopyLine} from 'react-icons/ri';
 import {FiShare} from 'react-icons/fi'
 import Button from '../Button/Button'
 import axios from 'axios'
+import RefPerformance from './RefPeformance'
+import { toast } from 'react-toastify'
 
 
 const Referal = () => {
@@ -47,6 +49,10 @@ const Referal = () => {
       })
       .catch(error=>{
         console.log(error)
+        console.log(error.message)
+        if(error.message==="Network Error"){
+          toast.error("Network Issues")
+        }
       })
       console.log("was click")
     }
@@ -95,7 +101,11 @@ const Referal = () => {
                             <FiShare/>
                             </div>
                         </div>
-                        <button onClick={handleClick}>Generate Code</button>
+                        <div className={classes.shareme}>
+                        <button onClick={handleClick} className={classes.forcode}>Get Code</button>
+                        <RefPerformance/>
+                        </div>
+                        {/* <button className={classes.view}>View Referral Performance</button> */}
                         </div>
                         </div>
                     </div>
