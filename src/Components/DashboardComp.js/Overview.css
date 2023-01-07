@@ -16,6 +16,10 @@
     width: 100%;
     margin: auto;
   }
+  .seeMe{
+    display: flex;
+    justify-content: space-between;
+  }
   
   .balance {
     color: #353535;

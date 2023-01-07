@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Overview.css";
 import eye from "../../Assets/eyeopened.svg";
 
 const Overview = () => {
+  const [show, setShow]=useState(true)
   return (
     <div className="overview back">
       {/* <h2 className="header">Overview</h2> */}
       <div className="balancegroup">
         <div className="balance wrapper">
-          <h5>
-            Total Balance <img src={eye} alt="eye" />
-          </h5>
-          <h2> ₦ {localStorage.getItem("balance")}</h2>
+          <div className="seeMe">
+          <h5>Total Balance</h5>
+          <img onClick={()=>setShow(!show)}src={eye} alt="eye" />
+          </div>
+          {/* <h2> ₦ {localStorage.getItem("balance")}</h2> */}
+          {show && <h2> ₦4000.00</h2>}
         </div>
         <div className="group wrapper">
             <h5>Your Groups</h5>
