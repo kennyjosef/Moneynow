@@ -23,17 +23,17 @@ function RefPerformance() {
           <p>N100.00</p>
           <div className="reward">
             <div>
-                <h5>Damilare</h5>
+                <h5>Nicolas</h5>
                 <p>Referral Status: successful</p>
                 <button className='rewardBtn'>🏆 You've got a reward</button>
             </div>
             <div>
-                <h5>Damilare</h5>
+                <h5>Vicoti</h5>
                 <p>Referral Status: successful</p>
                 <button className='rewardBtn'>🏆 You've got a reward</button>
             </div>
             <div>
-                <h5>Damilare</h5>
+                <h5>Santa</h5>
                 <p>Referral Status: successful</p>
                 <button className='rewardBtn'>🏆 You've got a reward</button>
             </div>
