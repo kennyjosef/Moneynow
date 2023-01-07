@@ -13,6 +13,8 @@ import axios from 'axios'
 
 
 const Referal = () => {
+  const initialValues = {code: ""}
+    const [codeValues, setCodeValues] = useState(initialValues);
     const [loading, setLoading]=useState(false)
     let [color, setColor] = useState(" rgb(238, 88, 238)");
     const override  = {
@@ -27,17 +29,28 @@ const Referal = () => {
       }, 3000)
   
     },[])
-    const handleClick =(e)=>{
-      e.preventDefault()
+    const handleChange= (e)=>{
+      const {name, value} =e.target
+      setCodeValues(preVaule =>{
+        return {...preVaule,[name]:value}
+      })
+      console.log("first", codeValues)
+  }
+
+    const handleClick =()=>{
+      // e.preventDefault()
       axios.post(`https://moneynow.onrender.com/api/ref/${localStorage.getItem("userID")}`)
       .then(res=>{
         console.log(res)
+        setCodeValues(res.data.updatedUser.referralId)
         localStorage.setItem("referralCode", res.data.updatedUser.referralId)
       })
       .catch(error=>{
         console.log(error)
       })
+      console.log("was click")
     }
+    console.log("second", codeValues)
   return (
     <div>
         <Nav/>
@@ -69,14 +82,14 @@ const Referal = () => {
                         <h5>Share the referral code</h5>
                         <h6>You can also share your referral code by copying and sending or sharing it on your social media</h6>
                         <div className={classes.forshare}>
-                            <input 
+                            {/* <input 
                             type="text" 
                             name="code"
-                            value={localStorage.getItem("referralCode")}
-                            // onChange={handleChange}
+                            value={codeValues}
+                            onChange={handleChange}
                             className={classes.code}
-                            />
-                            {/* <p vaule={localStorage.getItem("referralCode")}></p> */}
+                            /> */}
+                            <p>{localStorage.getItem("referralCode")}</p>
                             <div>
                             <RiFileCopyLine/>
                             <FiShare/>
