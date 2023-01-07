@@ -48,6 +48,9 @@ const Nav = () => {
         <span className='divider'></span>
         <img className='icon2' src={Logo2} alt="profile" />
         <h5>{localStorage.getItem('username')}</h5>
+        {
+          
+        }
         <img className='icon3' src={Logo3} alt="arrow-down" />
       </div>
     </div>

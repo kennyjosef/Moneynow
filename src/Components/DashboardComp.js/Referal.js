@@ -8,6 +8,8 @@ import classes from './Referal.module.css'
 import MoonLoader from "react-spinners/MoonLoader";
 import {RiFileCopyLine} from 'react-icons/ri';
 import {FiShare} from 'react-icons/fi'
+import Button from '../Button/Button'
+import axios from 'axios'
 
 
 const Referal = () => {
@@ -25,6 +27,17 @@ const Referal = () => {
       }, 3000)
   
     },[])
+    const handleClick =(e)=>{
+      e.preventDefault()
+      axios.post(`https://moneynow.onrender.com/api/ref/${localStorage.getItem("userID")}`)
+      .then(res=>{
+        console.log(res)
+        localStorage.setItem("referralCode", res.data.updatedUser.referralId)
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+    }
   return (
     <div>
         <Nav/>
@@ -56,12 +69,20 @@ const Referal = () => {
                         <h5>Share the referral code</h5>
                         <h6>You can also share your referral code by copying and sending or sharing it on your social media</h6>
                         <div className={classes.forshare}>
-                            <input type="text" Email address className={classes.code}/>
+                            {/* <input 
+                            type="text" 
+                            name="code"
+                            value={codeValues}
+                            onChange={handleChange}
+                            className={classes.code}
+                            /> */}
+                            <p>{localStorage.getItem("referralCode")}</p>
                             <div>
                             <RiFileCopyLine/>
                             <FiShare/>
                             </div>
                         </div>
+                        <button onClick={handleClick}>Generate Code</button>
                         </div>
                         </div>
                     </div>

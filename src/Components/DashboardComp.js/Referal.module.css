@@ -34,7 +34,7 @@
     margin-left: 30px;
     margin-top: 20px;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 15px;
 }
 .refer p span{
     color: rgb(238, 88, 238);
@@ -57,7 +57,7 @@
     align-items: center;
 }
 .friends p {
-    font-size: 12px;
+    font-size: 15px;
     text-align: center;
 }
 .friends img {
@@ -69,7 +69,7 @@
 }
 .texxt h6 {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 15px;
     padding-top: 10px;
 }
 .code{
@@ -90,7 +90,9 @@
     height: 35px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding:  0px 10px;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width:768px) {
@@ -113,7 +115,7 @@
     .refer p {
         margin-left: 0px;
         font-weight: 0;
-        font-size: 12px;
+        font-size: 15px;
     }
     .referrals{
         flex-direction: column;
