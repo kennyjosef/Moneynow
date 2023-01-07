@@ -44,13 +44,13 @@ const Login = () => {
                 console.log("response", response.data)
                 console.log("name  is",`${response.data.user.firstName} ${response.data.user.lastName}`)
                 localStorage.setItem("username", `${response.data.user.firstName} ${response.data.user.lastName}`)
-                localStorage.setItem("balance", response.data.user.userBalance)
+                localStorage.setItem("token", response.data.access_token)
                 localStorage.setItem("userID", response.data.user._id)
                 console.log(localStorage.getItem("userID"))
-                console.log(localStorage.getItem("balance"))
-                 if(response.data){
+                console.log(localStorage.getItem("token"))
+                //  if(response.data){
                     navigate("/dashboard")
-                 }   
+                //  }   
              })
              .catch(error=>{
                  console.log(error.message)

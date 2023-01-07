@@ -18,6 +18,7 @@ import Overview from "./Components/DashboardComp.js/Overview";
 import Payment from "./Components/DashboardComp.js/Payment";
 import JoinGroup from "./Components/DashboardComp.js/JoinGroup";
 import Referal from "./Components/DashboardComp.js/Referal";
+import ProtectedLogin from "./Components/Login/ProtectedLogin";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
         <Route path= 'passwordverify' element={<ForgetPwrdVerify/>}/>
         <Route path= "createnew" element={<NewPassword/>}/>
         <Route path= "passwordset" element={<ForgetSucces/>}/>
-        <Route path="dashboard" element={<Dashboard/>}/>
+        <Route path="dashboard" element={<ProtectedLogin><Dashboard/></ProtectedLogin>}/>
         <Route path ="overview" element={<Overview/>}/>
         <Route path="payment" element={<Payment/>}/>
         <Route path ="joinGroup" element={<JoinGroup/>}/>
