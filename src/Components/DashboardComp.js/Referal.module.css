@@ -98,6 +98,9 @@
     display: flex;
     width: 427px;
 }
+.copy:hover{
+    color: rgb(238, 88, 238);
+}
 
 
 @media screen and (max-width:768px) {

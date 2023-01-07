@@ -11,12 +11,22 @@ import {FiShare} from 'react-icons/fi'
 import Button from '../Button/Button'
 import axios from 'axios'
 import RefPerformance from './RefPeformance'
-import { toast } from 'react-toastify'
+import { ToastContainer,toast } from 'react-toastify'
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 
 const Referal = () => {
-  const initialValues = {code: ""}
-    const [codeValues, setCodeValues] = useState(initialValues);
+  const notify = () =>toast.success('copied', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    });
+    const [codeValues, setCodeValues] = useState("");
     const [loading, setLoading]=useState(false)
     let [color, setColor] = useState(" rgb(238, 88, 238)");
     const override  = {
@@ -31,13 +41,13 @@ const Referal = () => {
       }, 3000)
   
     },[])
-    const handleChange= (e)=>{
-      const {name, value} =e.target
-      setCodeValues(preVaule =>{
-        return {...preVaule,[name]:value}
-      })
-      console.log("first", codeValues)
-  }
+  //   const handleChange= (e)=>{
+  //     const {name, value} =e.target
+  //     setCodeValues(preVaule =>{
+  //       return {...preVaule,[name]:value}
+  //     })
+  //     console.log("first", codeValues)
+  // }
 
     const handleClick =()=>{
       // e.preventDefault()
@@ -88,17 +98,19 @@ const Referal = () => {
                         <h5>Share the referral code</h5>
                         <h6>You can also share your referral code by copying and sending or sharing it on your social media</h6>
                         <div className={classes.forshare}>
-                            {/* <input 
+                            <input 
                             type="text" 
                             name="code"
                             value={codeValues}
-                            onChange={handleChange}
+                            onChange={e=>{setCodeValues(e.target.value)}}
                             className={classes.code}
-                            /> */}
-                            <p>{localStorage.getItem("referralCode")}</p>
+                            />
+                            {/* <p>{localStorage.getItem("referralCode")}</p> */}
                             <div>
-                            <RiFileCopyLine/>
-                            <FiShare/>
+                              <CopyToClipboard text={codeValues}>
+                               <RiFileCopyLine onClick={notify} className={classes.copy}/>
+                              </CopyToClipboard>
+                            <FiShare className={classes.copy}/>
                             </div>
                         </div>
                         <div className={classes.shareme}>
