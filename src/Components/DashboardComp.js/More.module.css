@@ -4,7 +4,7 @@
     flex-direction: row;
 }
 .main{
-    background-color: whitesmoke;
+    background-color: white;
     margin-left: 200px;
     margin-top: 60px;
     width: 100%;
@@ -41,8 +41,18 @@
     .main{
         margin-left: 0px;
         padding: 20px;
-        margin-top: 20px;
-        padding-bottom:37px;
+        margin-top: 60px;
+        padding-bottom:125px;
 
+    }
+    .acc{
+        width: 100%;
+        margin-top: 15px;
+        padding: 15px 0px 0px 15px;
+    }
+    
+    .acc div p{
+        /* line-height: 30px; */
+        font-size: 12px;
     }
 }

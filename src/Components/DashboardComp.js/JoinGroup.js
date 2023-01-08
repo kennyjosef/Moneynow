@@ -11,6 +11,7 @@ const JoinGroup = () => {
     const [loading, setLoading]=useState(false)
     let [color, setColor] = useState(" rgb(238, 88, 238)");
     const token= localStorage.getItem("token")
+    const url ="https://moneynow.onrender.com/group/allgroups"
     const override  = {
       display: "block",
       margin: "300px auto",
@@ -25,7 +26,7 @@ const JoinGroup = () => {
     },[])
     const createGroup =()=>{
       // e.preventDefault()
-      axios.post(`https://moneynow.onrender.com/group/create/?id=${localStorage.getItem("userID")}`,
+      axios.get(url,
         {headers:{authorization:`Bearer ${token}`}})
       .then(res=>{
         console.log(res)
