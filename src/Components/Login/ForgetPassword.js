@@ -35,7 +35,6 @@ const validate= Yup.object({
                 setLoading(false)
                 localStorage.setItem('userEmail', values.email)
                 console.log(res)
-                // console.log(res.email)
                 navigate('/passwordverify')
             })
             .catch(error=>{

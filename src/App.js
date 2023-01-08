@@ -19,6 +19,7 @@ import Payment from "./Components/DashboardComp.js/Payment";
 import JoinGroup from "./Components/DashboardComp.js/JoinGroup";
 import Referal from "./Components/DashboardComp.js/Referal";
 import ProtectedLogin from "./Components/Login/ProtectedLogin";
+import More from "./Components/DashboardComp.js/More";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="payment" element={<Payment/>}/>
         <Route path ="joinGroup" element={<JoinGroup/>}/>
         <Route path="referral" element={<Referal/>}/>
+        <Route path="more"  element={<More/>}/>
       </Routes>
       <ToastContainer />
     </div>

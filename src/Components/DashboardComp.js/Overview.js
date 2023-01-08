@@ -1,20 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Overview.css";
 import eye from "../../Assets/eyeopened.svg";
+import axios from "axios";
+
 
 const Overview = () => {
   const [show, setShow]=useState(true)
+  const [balance, setBalance]= useState("")
+  const url="https://moneynow.onrender.com/api/userbalance"
+  const token= localStorage.getItem("token")
+  const getUserBalance=()=>{
+    axios.get(url, 
+      {headers:{authorization:`Bearer ${token}`}})
+    .then(res=>{
+      console.log(res.data)
+      setBalance(res.data.balance)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+  }
+  getUserBalance()
+  // console.log(balance)
   return (
     <div className="overview back">
-      {/* <h2 className="header">Overview</h2> */}
       <div className="balancegroup">
         <div className="balance wrapper">
           <div className="seeMe">
           <h5>Total Balance</h5>
           <img onClick={()=>setShow(!show)}src={eye} alt="eye" />
           </div>
-          {/* <h2> ₦ {localStorage.getItem("balance")}</h2> */}
-          {show && <h2> ₦4000.00</h2>}
+          {show && <h2>{`₦ ${balance} .00`} </h2>}
         </div>
         <div className="group wrapper">
             <h5>Your Groups</h5>

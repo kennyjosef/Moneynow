@@ -20,7 +20,7 @@ const SideBar = () => {
          <Link  to="/joinGroup"><img src={Group} alt="group" />Join Group </Link>
          <Link  to="/payment"><img src={Atm} alt="atm" />Payment</Link>
          <Link  to="/referral"><img src={Referral} alt="referral" />Referral</Link>
-         <Link  to="#"><img src={More} alt="more" />More</Link>
+         <Link  to="/more"><img src={More} alt="more" />More</Link>
          <Link  to="#"><img src={logout} alt="out" />Sign out</Link>
       </ul>
     </div>

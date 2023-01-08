@@ -13,6 +13,7 @@ import logout from "../../Assets/logout.svg"
 import axios from "axios";
 const Nav = () => {
   const [toggle, setToggle] = useState(true)
+  const [myName, setMyName] =useState("")
 
     function handleClick(){
         return setToggle(preToggle=> !preToggle)
@@ -21,6 +22,7 @@ const Nav = () => {
       axios.get(`https://moneynow.onrender.com/api/username?id=${localStorage.getItem("userID")}`)
       .then(res => {
         console.log(res)
+        setMyName(res.data.fullName)
       })
       .catch(err => {
         console.log(err)
@@ -35,7 +37,7 @@ const Nav = () => {
           <div className="flex"><Link  to="/joinGroup"><img src={Group} alt="group" /><p>Join Group</p> </Link></div>
           <div className="flex"><Link  to="/payment"><img src={Atm} alt="atm" /><p>Payment</p></Link></div>
           <div className="flex"><Link  to="/referral"><img src={Referral} alt="referral" /><p>Referral</p></Link></div>
-          <div className="flex"><Link  to="#"><img src={More} alt="more" /><p>More</p></Link></div>
+          <div className="flex"><Link  to="/more"><img src={More} alt="more" /><p>More</p></Link></div>
           <div className="flex"><Link  to="#"><img src={logout} alt="out" /><p>Sign out</p></Link></div>
 
         <div className='hamburger' onClick={handleClick}> 
@@ -47,10 +49,7 @@ const Nav = () => {
         <img className='icon1' src={Logo1} alt="notification" />
         <span className='divider'></span>
         <img className='icon2' src={Logo2} alt="profile" />
-        <h5>{localStorage.getItem('username')}</h5>
-        {
-          
-        }
+        <h5>{myName}</h5>
         <img className='icon3' src={Logo3} alt="arrow-down" />
       </div>
     </div>

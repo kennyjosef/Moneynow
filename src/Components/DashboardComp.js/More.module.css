@@ -1,0 +1,48 @@
+.containers{ 
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.main{
+    background-color: whitesmoke;
+    margin-left: 200px;
+    margin-top: 60px;
+    width: 100%;
+    padding-bottom:50px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+    
+}
+.acc{
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 15px;
+    background: #ffffff;
+    box-shadow: 0px 3px 8px rgba(41, 41, 41, 0.13);
+    display: flex;
+}
+.ico{
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid rgb(238, 88, 238);
+}
+.acc div{
+    padding-top: 3px;
+    padding-left: 10px;
+}
+
+@media screen and (max-width:768px) {
+    .main{
+        margin-left: 0px;
+        padding: 20px;
+        margin-top: 20px;
+        padding-bottom:37px;
+
+    }
+}
