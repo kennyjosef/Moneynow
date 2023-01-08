@@ -21,63 +21,47 @@ const Overview = () => {
             <h6>You have no group yet</h6>
         </div>
       </div>
-       <div className="transaction-container">
-        <h6 className="transheader">Transaction History</h6>
-        <div className="tableheader">
-            <p className="ttype">Transaction type</p>
-            <p className="amount">Amount</p> 
-            <p className="dandt">Date & time</p>
-            <p className="status">Status</p>
-        </div>
-        <div className="trans" id="trans-1">
-            <p className="ttype funwit">Funding</p>
-            <p className="amount green"> $432.9</p>
-            <p className="dandt">December 20, 2021 7:30 AM</p>
-            <p className="status"><span className="processing">Processing</span></p>
-        </div>
-        <div className="trans" id="trans-2">
-            <p className="ttype funwit">Funding</p>
-            <p className="amount green"> $432.9</p>
-            <p className="dandt">December 20, 2021 7:30 AM</p>
-            <p className="status"><span className="success">Success</span></p>
-        </div>
-        <div className="trans" id="trans-3">
-            <h6 className="ttype funwit">Withdrawal</h6>
-            <h6 className="amount error"> $3000</h6>
-            <h6 className="dandt">December 20, 2021 7:30 AM</h6>
-            <h6 className="status"><span className="failed">Failed</span></h6>
-        </div>
-        <div className="trans" id="trans-4">
-            <h6 className="ttype funwit">Funding</h6>
-            <h6 className="amount green"> $432.9</h6>
-            <h6 className="dandt">December 20, 2021 7:30 AM</h6>
-            <h6 className="status "><span className="success">Success</span></h6>
-        </div>
-        <div className="trans" id="trans-5">
-            <h6 className="ttype funwit">Withdrawal</h6>
-            <h6 className="amount error"> $450.6</h6>
-            <h6 className="dandt">December 20, 2021 7:30 AM</h6>
-            <h6 className="status"><span className="failed">failed</span></h6>
-        </div>
-        <div className="trans" id="trans-5">
-            <h6 className="ttype funwit">Withdrawal</h6>
-            <h6 className="amount error"> $450.6</h6>
-            <h6 className="dandt">December 20, 2021 7:30 AM</h6>
-            <h6 className="status"><span className="failed">failed</span></h6>
-        </div>
-        <div className="trans" id="trans-5">
-            <h6 className="ttype funwit">Withdrawal</h6>
-            <h6 className="amount error"> $450.6</h6>
-            <h6 className="dandt">December 20, 2021 7:30 AM</h6>
-            <h6 className="status"><span className="failed">failed</span></h6>
-        </div>
-        <div className="trans" id="trans-5">
-            <h6 className="ttype funwit">Withdrawal</h6>
-            <h6 className="amount error"> $450.6</h6>
-            <h6 className="dandt">December 20, 2021 7:30 AM</h6>
-            <h6 className="status"><span className="success">failed</span></h6>
-        </div>
-      </div> 
+      <div className="tableContainer">
+      <p>Transaction History</p>
+      <table>
+        <tr>
+          <th>Transaction Type</th>
+          <th>Amount</th>
+          <th>Date & Time</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>Funding</td>
+          <td>₦ 1000.00</td>
+          <td>December 20, 2021 7:30 AM</td>
+          <td className="processing">Pending</td>
+        </tr>
+        <tr>
+          <td>Withdrawal</td>
+          <td>₦ 200.00</td>
+          <td>December 20, 2021 7:30 AM</td>
+          <td className="success">Success</td>
+        </tr>
+        <tr>
+          <td>Withdrawal</td>
+          <td>₦ 300.00</td>
+          <td>December 20, 2021 7:30 AM</td>
+          <td className="failed">Failed</td>
+        </tr>
+        <tr>
+          <td>Withdrawal</td>
+          <td>₦ 500.00</td>
+          <td>December 20, 2021 7:30 AM</td>
+          <td className="success">Success</td>
+        </tr>
+        <tr>
+          <td>Funding</td>
+          <td>₦ 1000.00</td>
+          <td>December 20, 2021 7:30 AM</td>
+          <td className="processing">Pending</td>
+        </tr>
+      </table>
+      </div>
     </div>
   );
 };

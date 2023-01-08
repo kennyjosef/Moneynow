@@ -24,9 +24,11 @@ const JoinGroup = () => {
     },[])
     const generateRef =(e)=>{
       e.preventDefault()
-      axios.post(`https://moneynow.onrender.com/group/create/?id=${localStorage.getItem("userID")}, ${localStorage.getItem("token")}`)
+      axios.post(`https://moneynow.onrender.com/group/create/?id=${localStorage.getItem("userID")}`,
+      )
       .then(res=>{
         console.log(res)
+      // token: localStorage.getItem("token")
       })
       .catch(error=>{
         console.log(error)

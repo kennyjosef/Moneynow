@@ -6,6 +6,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-left: 200px;
+    padding-bottom: 320px;
   }
   
   .balancegroup {
@@ -127,32 +128,54 @@
   
   .failed {
       background: #F16063;
+      font-size: 20px;
   }
   
   .success {
       background: #66CB9F;
+      font-size: 20px;
   }
   
   .processing {
       background: #F7936F;
+      font-size: 20px;
   }
   
   .failed, .success, .processing {
       color: #fff;
-      padding: 5px 20px;
+      /* padding: 5px 20px; */
       font-family: "archivo", sans-serif;
       text-align: center;
       font-weight: 400;
-      font-size: 0.45rem;
+      font-size: 12px;
       border-radius: 3px;
       text-transform: capitalize;
       display: inline-block;
       width: 90px;
   }
+  .tableContainer{
+    margin-top: 40px;
+
+  }
+  table{
+    width: 100%;
+    border-collapse: collapse;
+}
+td{
+    margin-bottom: 10px;
+}
+th{
+    padding-bottom: 5px;
+  }
+  table, tr, td, th{
+    /* border: 1px solid black; */
+    border-collapse:collapse;
+
+}
   @media screen and (max-width:768px) {
     .overview{
         width: 100%;
-        padding: 0px 0px 20px 0px;
+        padding: 0px 0px 150px 0px;
         margin-left: 0px;
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
@@ -182,5 +205,9 @@
     }
     .trans{
         flex-direction: column;
+    }
+    .tableContainer{
+        font-size: 12px;
+        padding-left: 10px;
     }
   }
