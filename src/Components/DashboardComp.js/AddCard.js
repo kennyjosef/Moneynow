@@ -20,7 +20,7 @@ function AddCard() {
           <Modal.Title></Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <form action="">
+            <form action="" className='modalform'>
               <div>
                 <label htmlFor="firstName">First Name</label>
                 <input type="text" name="firstName" id="firstName" placeholder='Enter Your First Name' />

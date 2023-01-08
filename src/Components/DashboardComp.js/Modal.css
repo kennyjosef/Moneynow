@@ -44,10 +44,12 @@
 }
 
 
-
+.modalform input{
+    height: 30px;
+}
 @media screen and (max-width:768px) {
     .down{
-        margin-top: 70px;
+        margin-top: 90px;
     }
     .downy{
         margin-top: 55px;
