@@ -99,6 +99,7 @@ button{
     .main{
         margin-left: 0px;
         padding: 20px;
+        background-color: white;
     }
     .content{
         width: 100%;
@@ -144,7 +145,11 @@ button{
         border:none;
         width: 100%;
         padding: 0px;
-        margin-bottom: 0px;
+        margin-bottom: 20px;
         margin-top: 10px;
+        flex-direction: column;
+        height: auto;
+
     }
+    
 }
