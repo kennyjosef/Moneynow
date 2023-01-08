@@ -11,7 +11,7 @@ import {FiShare} from 'react-icons/fi'
 import Button from '../Button/Button'
 import axios from 'axios'
 import RefPerformance from './RefPeformance'
-import { ToastContainer,toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 
@@ -40,7 +40,17 @@ const Referal = () => {
         setLoading(false)
       }, 3000)
   
-    },[])
+    },[]);
+    const success = () =>toast.success('Code generated. Copy and share!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
   //   const handleChange= (e)=>{
   //     const {name, value} =e.target
   //     setCodeValues(preVaule =>{
@@ -114,7 +124,7 @@ const Referal = () => {
                             </div>
                         </div>
                         <div className={classes.shareme}>
-                        <button onClick={handleClick} className={classes.forcode}>Get Code</button>
+                        <button onClick={()=>{handleClick(); success()}} className={classes.forcode}>Get Code</button>
                         <RefPerformance/>
                         </div>
                         {/* <button className={classes.view}>View Referral Performance</button> */}

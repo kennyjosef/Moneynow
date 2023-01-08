@@ -5,6 +5,7 @@ import MoonLoader from "react-spinners/MoonLoader";
 import classes from './Join.module.css'
 import Button from '../Button/Button'
 import axios from 'axios';
+import {toast } from 'react-toastify'
 
 
 const JoinGroup = () => {
@@ -23,13 +24,24 @@ const JoinGroup = () => {
         setLoading(false)
       }, 3000)
   
-    },[])
+    },[]);
+    const notify = () =>toast.success('Succefully joined', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
     const createGroup =()=>{
       // e.preventDefault()
       axios.get(url,
         {headers:{authorization:`Bearer ${token}`}})
       .then(res=>{
         console.log(res)
+        console.log(res.status)
       })
       .catch(error=>{
         console.log(error)
@@ -58,7 +70,7 @@ const JoinGroup = () => {
                         <li>Savings Target: N1,000,000</li>
                         <li>Savings Duration: 5 months</li>
                       </ul>
-                      <button  onClick={createGroup}className={classes.joinbtn}>JOIN</button>
+                      <button  onClick={()=>{createGroup(); notify()}} className={classes.joinbtn}>JOIN</button>
                     </div>
                     <div  className={classes.miniGroups}>
                       <h3>GOLD GROUP</h3>
@@ -67,7 +79,7 @@ const JoinGroup = () => {
                         <li>Savings Target: N5,000,000</li>
                         <li>Savings Duration: 5 months</li>
                       </ul>
-                      <button className={classes.joinbtn}>JOIN</button>
+                      <button onClick={()=>{createGroup(); notify()}} className={classes.joinbtn}>JOIN</button>
                     </div>
                     <div  className={classes.miniGroups}>
                     <h3>PLATINUM GROUP</h3>
@@ -76,7 +88,7 @@ const JoinGroup = () => {
                       <li>Savings Target: N5,000,000</li>
                       <li>Savings Duration: 5 months</li>
                     </ul>
-                    <button className={classes.joinbtn}>JOIN</button>
+                    <button onClick={()=>{createGroup(); notify()}} className={classes.joinbtn}>JOIN</button>
                     </div>
 
                   </div>
