@@ -175,7 +175,7 @@ th{
   @media screen and (max-width:768px) {
     .overview{
         width: 100%;
-        padding: 0px 0px 150px 0px;
+        padding: 0px 0px 100px 0px;
         margin-left: 0px;
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
@@ -209,5 +209,9 @@ th{
     .tableContainer{
         font-size: 12px;
         padding-left: 10px;
+    }
+    .failed, .success, .processing{
+        width: auto;
+        padding: 0px 4px;
     }
   }
