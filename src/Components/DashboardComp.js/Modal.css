@@ -1,8 +1,11 @@
 .down{
-    margin-top:100px;
+    margin-top:80px;
 }
 .downy{
     margin-top:40px;
+}
+.downbtn{
+    margin-top: 10px;
 }
 .selectOption{
     width: 427px;
@@ -44,7 +47,7 @@
 
 @media screen and (max-width:768px) {
     .down{
-        margin-top: 100px;
+        margin-top: 80px;
     }
     .downy{
         margin-top: 55px;

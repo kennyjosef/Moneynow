@@ -39,8 +39,8 @@ const Payment = () => {
                 <p>Add Your Preferred Payment Method</p>
               </div>
               <div className={classes.choose}>
-                <h4>Choose Your Primary Payment Method</h4>
-                <p>Please add your account’s primary payment method which will be used to pay for your contributions. <br /> Don’t worry, you can always change this later</p>
+                <h4>Choose Your Payment Method</h4>
+                <p>Please add your account’s payment method which will be used to pay for your contributions. <br /> Don’t worry, you can always change this later</p>
               </div>
               <div className={classes.payment}>
                 <h4>Select a Payment Method</h4>
@@ -48,8 +48,8 @@ const Payment = () => {
                   <div className={classes.boxContent}>
                   <img src={bank} alt="bank" />
                   <div>
-                  <p>Bank account <br />
-                  Pay via one-time bank transfer</p>
+                  <p>Make your monthly savings easy and seamless<br />
+                  by choosing a payment method</p>
                   </div>
                   </div>
                   <>
@@ -60,8 +60,8 @@ const Payment = () => {
                   <div className={classes.boxContent}>
                     <img src={card} alt="card" />
                   <div>
-                    <p>Credit or Debit Card <br />
-                    Pay via card</p>
+                    <p>You have reached your savings target! <br />
+                    Kindly update your payout method</p>
                   </div>
                   </div>
                   <>

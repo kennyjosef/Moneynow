@@ -24,27 +24,12 @@ function AddBank() {
               <div>
                 <input type="text" name="number" placeholder='Account Number' />
               </div>
-              {/* <div>
-                <label htmlFor="name">Card Holder Name</label>
-                <input type="text" name="userName" placeholder=' David Ade' />
-              </div>
-              <div>
-                <div>
-                  <label htmlFor="expiry">Expiry Date</label>
-                  <input type="text" name="expiry" placeholder='12/23' />
-                </div>
-                <div>
-                  <label htmlFor="cvv">CVV</label>
-                  <input type="number" name="cvv" placeholder='567' />
-                </div>
-              </div> */}
-              {/* <button>Add Card</button> */}
+              
+              <button className='downbtn'>Next</button>
             </form>
         </Modal.Body>
         <Modal.Footer>
-          <button onClick={handleClose}>
-            Add Card 
-          </button>
+      
         </Modal.Footer>
       </Modal>
     </div>
