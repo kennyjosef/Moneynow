@@ -30,6 +30,7 @@
     width: 40px;
     height: 40px;
     padding: 5px;
+    margin-bottom: 5px;
     border: 1px solid rgb(238, 88, 238);
 }
 .acc div{
@@ -42,7 +43,6 @@
         margin-left: 0px;
         padding: 20px;
         margin-top: 60px;
-        padding-bottom:125px;
 
     }
     .acc{
