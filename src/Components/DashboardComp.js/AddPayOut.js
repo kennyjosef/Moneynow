@@ -1,6 +1,7 @@
 import React from 'react'
 import './Modal.css'
 import Nav from './Nav'
+import ConfirmPayOut from './ConfirmPayOut'
 const AddPayOut = () => {
   return (
     <div>
@@ -10,7 +11,7 @@ const AddPayOut = () => {
         <form action="">
           <p>Kindly  Pick Your Bank</p>
           <select name="bank" id="bank">
-            <option value="access">Access Bank PLC</option>
+            <option value="access" selected>Access Bank PLC</option>
             <option value="ecobank">EcoBank Nigeria PLC</option>
             <option value="fidelity">Fidelity Bank PLC</option>
             <option value="gtb">Guarantee Trust Bank</option>
@@ -29,9 +30,12 @@ const AddPayOut = () => {
             <option value="zenith">Zenith Bank PLC</option>
           </select>
           <div className="addbtn">
-            <button>Continue</button>
+            <button>Submit</button>
           </div>
         </form>
+          <div>
+            <ConfirmPayOut/>
+          </div>
       </div>
     </div>
   )

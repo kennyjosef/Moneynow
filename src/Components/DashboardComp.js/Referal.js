@@ -51,13 +51,6 @@ const Referal = () => {
       progress: undefined,
       theme: "colored",
       });
-  //   const handleChange= (e)=>{
-  //     const {name, value} =e.target
-  //     setCodeValues(preVaule =>{
-  //       return {...preVaule,[name]:value}
-  //     })
-  //     console.log("first", codeValues)
-  // }
 
     const handleClick =()=>{
       // e.preventDefault()

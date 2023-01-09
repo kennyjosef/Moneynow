@@ -51,6 +51,19 @@ a{
     width: 300px;
 }
 
+.colorme{
+    color: rgb(246, 192, 246);
+    margin-top:15px;
+    border: 1px solid rgb(246, 192, 246);
+    border-radius: 50px; 
+     width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 200px;
+    cursor: pointer;
+}
+
 
 .modalform input{
     height: 30px;
@@ -81,7 +94,12 @@ select{
 
 }
 .addbtn{
-    margin-top: 270px;
+    margin-top: 240px;
+    text-align: center;
+}
+.thumb{
+    color: rgb(238, 88, 238);
+    font-size: 200px;
     text-align: center;
 }
 @media screen and (max-width:768px) {
@@ -112,5 +130,8 @@ select{
     }
     select{
         width: 100%;
+    }
+    .addbtn{
+        margin-top: 150px;
     }
 }

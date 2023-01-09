@@ -21,6 +21,7 @@ import Referal from "./Components/DashboardComp.js/Referal";
 import ProtectedLogin from "./Components/Login/ProtectedLogin";
 import More from "./Components/DashboardComp.js/More";
 import AddPayOut from "./Components/DashboardComp.js/AddPayOut";
+import PayoutPassword from "./Components/DashboardComp.js/PayoutPassword";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="referral" element={<Referal/>}/>
         <Route path="more"  element={<More/>}/>
         <Route path="addpayout" element={<AddPayOut/>}/>
+        <Route path="payoutpassword" element={<PayoutPassword/>}/>
       </Routes>
       <ToastContainer />
     </div>

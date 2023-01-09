@@ -13,6 +13,7 @@ const JoinGroup = () => {
     let [color, setColor] = useState(" rgb(238, 88, 238)");
     const token= localStorage.getItem("token")
     const url ="https://moneynow.onrender.com/group/allgroups"
+    const urlId =`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("userID")}`
     const override  = {
       display: "block",
       margin: "300px auto",
@@ -47,7 +48,18 @@ const JoinGroup = () => {
         console.log(error)
       })
     }
-    
+    const addParticipant=()=>{
+      axios.put(urlId)
+      .then(res=>{
+        console.log(res)
+      })
+      .catch(error=>{
+        console.log(error)
+        console.log(error.message)
+      })
+    }
+    // addParticipant()
+   
    console.log(token)
   return (
     <div>
@@ -88,7 +100,7 @@ const JoinGroup = () => {
                       <li>Savings Target: N5,000,000</li>
                       <li>Savings Duration: 5 months</li>
                     </ul>
-                    <button onClick={()=>{createGroup(); notify()}} className={classes.joinbtn}>JOIN</button>
+                    <button onClick={()=>{addParticipant()}} className={classes.joinbtn}>JOIN</button>
                     </div>
 
                   </div>

@@ -7,6 +7,7 @@ import axios from "axios";
 const Overview = () => {
   const [show, setShow]=useState(true)
   const [balance, setBalance]= useState("")
+  const [transactionEvent, setTransactionEvent]= useState()
   const url="https://moneynow.onrender.com/api/userbalance"
   const transaction ="https://moneynow.onrender.com/transaction/usertransaction"
   const token= localStorage.getItem("token")
@@ -21,19 +22,20 @@ const Overview = () => {
       console.log(error)
     })
   }
-  getUserBalance()
-  const getTransaction= ()=>{
-    axios.get(transaction,
-      {headers:{authorization:`Bearer ${token}`}})
-      .then(res=>{
-        console.log(res)
-      })
-      .catch(error=>{
-        console.log(error)
-      })
-  }
-  getTransaction()
-  // console.log(balance)
+  getUserBalance();
+  // const getTransaction= ()=>{
+  //   axios.get(transaction,
+  //     {headers:{authorization:`Bearer ${token}`}})
+  //     .then(res=>{
+  //       console.log(res)
+  //       setTransactionEvent(res.data)
+  //     })
+  //     .catch(error=>{
+  //       console.log(error)
+  //     })
+  // }
+  // getTransaction()
+  console.log(transactionEvent)
   return (
     <div className="overview back">
       <div className="balancegroup">
@@ -90,6 +92,7 @@ const Overview = () => {
         </tr>
       </table>
       </div>
+      {/* <button onClick={getTransaction}>get transaction</button> */}
     </div>
   );
 };
