@@ -26,7 +26,7 @@ function AddBank() {
                 <input type="text" name="number" placeholder='Account Number' />
               </div>
               <Link to="/addpayout"> 
-              <button className='downbtn'>Next</button>
+              <button className='downbtns'>Next</button>
               </Link>
             </form>
         </Modal.Body>
