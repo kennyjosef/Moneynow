@@ -3,7 +3,7 @@ import './Modal.css'
 import Nav from './Nav'
 const AddPayOut = () => {
   return (
-    <div className="mbert">
+    <div>
       <Nav/>
       <div className="containers">
         <h3>Add Bank</h3>
