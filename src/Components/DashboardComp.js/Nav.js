@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import Logo2 from "../../Assets/profile.svg"
 import Logo1 from "../../Assets/notification.svg"
 import Logo3 from "../../Assets/arrowdown.svg"
 import "./Nav.css";
@@ -10,6 +9,7 @@ import Atm from "../../Assets/atm.svg"
 import More from "../../Assets/more.svg"
 import Referral from "../../Assets/referral.svg"
 import logout from "../../Assets/logout.svg"
+import {BsFillPersonFill} from 'react-icons/bs'
 import axios from "axios";
 const Nav = () => {
   const [toggle, setToggle] = useState(true)
@@ -48,7 +48,7 @@ const Nav = () => {
       <div className="david">
         <img className='icon1' src={Logo1} alt="notification" />
         <span className='divider'></span>
-        <img className='icon2' src={Logo2} alt="profile" />
+        <BsFillPersonFill className="icon2"/>
         <h5>{myName}</h5>
         <img className='icon3' src={Logo3} alt="arrow-down" />
       </div>

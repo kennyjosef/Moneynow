@@ -41,7 +41,7 @@ const JoinGroup = () => {
         {headers:{authorization:`Bearer ${token}`}})
       .then(res=>{
         console.log(res)
-        console.log(res.status)
+        console.log(res.data.data)
       })
       .catch(error=>{
         console.log(error)

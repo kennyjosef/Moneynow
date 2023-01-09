@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { Link } from 'react-router-dom';
 import './Modal.css'
 function AddBank() {
   const [show, setShow] = useState(false);
@@ -24,8 +25,9 @@ function AddBank() {
               <div>
                 <input type="text" name="number" placeholder='Account Number' />
               </div>
-              
+              <Link to="/addpayout"> 
               <button className='downbtn'>Next</button>
+              </Link>
             </form>
         </Modal.Body>
         <Modal.Footer>
