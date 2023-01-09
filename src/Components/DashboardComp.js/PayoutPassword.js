@@ -16,7 +16,7 @@ const PayoutPassword = () => {
                 <button>Add Password</button>
                 </div>
             </form>
-            <div>
+            <div className="one">
             <PayoutSucc/>
             </div>
         </div>

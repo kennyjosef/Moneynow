@@ -61,8 +61,8 @@
     justify-content: space-around;
 }
 
-.mark img{
-    width: 150px;
+.mark{
+    margin: auto;
 }
 form p{
     padding-bottom: 10px;

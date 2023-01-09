@@ -33,7 +33,7 @@ const AddPayOut = () => {
             <button>Submit</button>
           </div>
         </form>
-          <div>
+          <div className="one">
             <ConfirmPayOut/>
           </div>
       </div>

@@ -28,7 +28,7 @@ function ConfirmPayOut() {
             <p>0123456789</p>
             <p>Access Bank</p>
             <Link to="/payoutpassword">
-            <button>Continue</button>
+            <button className="downbtns">Continue</button>
             </Link>
           </div>
            

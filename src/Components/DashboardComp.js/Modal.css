@@ -101,7 +101,14 @@ select{
     color: rgb(238, 88, 238);
     font-size: 200px;
     text-align: center;
+    max-width: 100%;
 }
+.moveme{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @media screen and (max-width:768px) {
     .down{
         margin-top: 84px;
@@ -133,5 +140,13 @@ select{
     }
     .addbtn{
         margin-top: 150px;
+    }
+    .one{
+        text-align: center;
+        width: 100px;
+        margin: auto;
+    }
+    .colorme{
+        margin-left: 0px;
     }
 }
