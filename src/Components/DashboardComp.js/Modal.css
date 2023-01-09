@@ -6,7 +6,7 @@
 }
 .downbtn{
     margin-top: 10px;
-    margin-left: 0px !important;
+    
 }
 .selectOption{
     width: 427px;
@@ -17,6 +17,9 @@
 .modalbtn{
     width: 200px;
 
+}
+a{
+    margin-left: 0px!important;
 }
 .view{
     display: inline;
@@ -83,6 +86,9 @@ select{
     }
     .downy{
         margin-top: 55px;
+    }
+    .downbtn{
+        margin-left: -130px;
     }
     .selectOption{
         width: 100%;
