@@ -12,7 +12,7 @@ function AddBank() {
   return (
     <div >
       <div>
-        <button onClick={handleShow} >Add Card</button>
+        <button onClick={handleShow} >Add Bank</button>
       </div>
 
       <Modal show={show} onHide={handleClose}  className="down">

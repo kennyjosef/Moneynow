@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from 'react'
+import { Link } from 'react-router-dom'
 import Nav from './Nav'
 import SideBar from './Sidebar'
 import gift from '../../Assets/gift.svg'
@@ -13,6 +14,7 @@ import axios from 'axios'
 import RefPerformance from './RefPeformance'
 import { toast } from 'react-toastify'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import SocialMedia from './SocialMedia'
 
 
 const Referal = () => {
@@ -113,14 +115,13 @@ const Referal = () => {
                               <CopyToClipboard text={codeValues}>
                                <RiFileCopyLine onClick={notify} className={classes.copy}/>
                               </CopyToClipboard>
-                            <FiShare className={classes.copy}/>
+                              <SocialMedia className={classes.copy}/>
                             </div>
                         </div>
                         <div className={classes.shareme}>
                         <button onClick={()=>{handleClick(); success()}} className={classes.forcode}>Get Code</button>
                         <RefPerformance/>
                         </div>
-                        {/* <button className={classes.view}>View Referral Performance</button> */}
                         </div>
                         </div>
                     </div>

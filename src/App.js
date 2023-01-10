@@ -22,6 +22,8 @@ import ProtectedLogin from "./Components/Login/ProtectedLogin";
 import More from "./Components/DashboardComp.js/More";
 import AddPayOut from "./Components/DashboardComp.js/AddPayOut";
 import PayoutPassword from "./Components/DashboardComp.js/PayoutPassword";
+import SocialMedia from "./Components/DashboardComp.js/SocialMedia";
+import FlutterPay from "./Components/DashboardComp.js/FlutterPay";
 
 function App() {
   return (
@@ -45,6 +47,8 @@ function App() {
         <Route path="more"  element={<More/>}/>
         <Route path="addpayout" element={<AddPayOut/>}/>
         <Route path="payoutpassword" element={<PayoutPassword/>}/>
+        <Route  path="media" element={<SocialMedia/>}/>
+        <Route path="flutterpay" element={<FlutterPay/>}/>
       </Routes>
       <ToastContainer />
     </div>

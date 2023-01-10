@@ -25,24 +25,22 @@ function RefPerformance() {
             <div>
                 <h5>Nicolas</h5>
                 <p>Referral Status: successful</p>
-                <button className='rewardBtn'>🏆 You've got a reward</button>
+                <button className='rewardBtn'>🏆 Claim your reward </button>
             </div>
             <div>
                 <h5>Vicoti</h5>
                 <p>Referral Status: successful</p>
-                <button className='rewardBtn'>🏆 You've got a reward</button>
+                <button className='rewardBtn'>🏆Claim your reward </button>
             </div>
             <div>
                 <h5>Santa</h5>
                 <p>Referral Status: successful</p>
-                <button className='rewardBtn'>🏆 You've got a reward</button>
+                <button className='rewardBtn'>🏆 Claim your reward </button>
             </div>
           </div>
         </Modal.Body>
         <Modal.Footer>
-          {/* <button onClick={handleClose}>
-            Add Card 
-          </button> */}
+         
         </Modal.Footer>
       </Modal>
     </div>

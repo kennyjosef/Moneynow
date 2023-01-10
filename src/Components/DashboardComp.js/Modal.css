@@ -108,7 +108,12 @@ select{
     flex-direction: column;
     align-items: center;
 }
-
+.sharenw{
+    display: flex;
+}
+.downnw{
+    margin-top:380px;
+}
 @media screen and (max-width:768px) {
     .down{
         margin-top: 84px;

@@ -49,7 +49,9 @@ const JoinGroup = () => {
       })
     }
     const addParticipant=()=>{
-      axios.put(urlId)
+      axios.put(`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("userID")}`)
+    // axios.put()
+      // {headers:{authorization:`Bearer ${token}`}})
       .then(res=>{
         console.log(res)
       })

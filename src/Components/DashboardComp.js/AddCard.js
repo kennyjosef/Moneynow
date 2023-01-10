@@ -2,29 +2,52 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 function AddCard() {
+  const token= localStorage.getItem("token")
+  const navigate = useNavigate()
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [initialValues, setInitialValues]=useState({firstName:"",amount: "",summary: "",phoneNumber: "",email: "",currency: ""})
-  const [formValues, setFormValues] = useState(initialValues)
-  const handleChange= (e)=>{
-    const {name, value} =e.target
-    setFormValues({...formValues, [name]:value})
-    console.log(formValues)
-}
-  const handleSubmit= (e)=>{
+  const [errorMessage, setErrorMessage] = useState({})
+  const [isSubmit, setIstSubmit] = useState (false)
+  const [data, setDate]=useState({
+    firstName:"",
+    amount:"",
+    phoneNumber:"",
+    currency:"",
+    email:"",
+    summary:""
+  })
+  function handle(e){
+    const newData={...data}
+    newData[e.target.id]=e.target.value
+    setDate(newData)
+    console.log(newData)
+  }
+  function submit (e){
     e.preventDefault()
-    axios.post("https://moneynow.onrender.com/transaction/save", formValues)
+    axios.post('https://moneynow.onrender.com/transaction/save',{
+      firstName: data.firstName,
+      amount: data.amount,
+      phoneNumber: data.phoneNumber,
+      currency: data.currency,
+      email: data.email,
+      summary: data.summary
+    },
+    {headers:{authorization:`Bearer ${token}`}})
+    
     .then(res=>{
       console.log(res)
-      // setFormValues(formValues)
+      localStorage.setItem("link", res.data.response.data.link)
+      navigate('/flutterpay')
     })
+   
     .catch(error=>{
       console.log(error)
     })
   }
-console.log("form inputs", formValues)
 
   return (
     <>
@@ -37,32 +60,32 @@ console.log("form inputs", formValues)
           <Modal.Title></Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <form action="" className='modalform'>
+            <form action="" className='modalform' onSubmit={(e)=> submit(e)}>
               <div>
                 <label htmlFor="firstName">First Name</label>
-                <input type="text" name="firstName"  onChange={handleChange}value={formValues.firstName} id="firstName" placeholder='Enter Your First Name' />
+                <input type="text" name="firstName"  onChange={(e)=>handle(e)} id="firstName" placeholder='Enter Your First Name' />
               </div>
               <div>
                 <label htmlFor="amount">Amount</label>
-                <input type="text" name="amount" id="amount" onChange={handleChange} value={formValues.amount} placeholder='Enter  amount e.g. 100' />
+                <input type="text" name="amount" id="amount" onChange={(e)=>handle(e)}  placeholder='Enter  amount e.g. 100' />
               </div>
               <div>
                 <label htmlFor="summary">Summary</label>
-                <input type="text" name="summary" id="summary" onChange={handleChange} value={formValues.summary} placeholder='Summarise payment e.g. Platinum summary' />
+                <input type="text" name="summary" id="summary" onChange={(e)=>handle(e)}  placeholder='Summarise payment e.g. Platinum summary' />
               </div>
               <div>
                 <label htmlFor="phoneNumber">Phone Number</label>
-                <input type="tel" name="phoneNumber" onChange={handleChange} value={formValues.phoneNumber} id="phoneNumber" placeholder='Enter Your Phone Number' />
+                <input type="tel" name="phoneNumber" onChange={(e)=>handle(e)}  id="phoneNumber" placeholder='Enter Your Phone Number' />
               </div>
               <div>
                 <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="email"onChange={handleChange}  value={formValues.email} placeholder="abc @gmail.com" />
+                <input type="email" name="email" id="email"onChange={(e)=>handle(e)}   placeholder="abc @gmail.com" />
               </div>
               <div>
                 <label htmlFor="currency">Currency</label>
-                <input type="tel" name="currency" id="currency" onChange={handleChange} value={formValues.currency} placeholder='Ngn' />
+                <input type="tel" name="currency" id="currency" onChange={(e)=>handle(e)} placeholder='Ngn' />
               </div>
-              <button  onClick={handleSubmit} className='downbtn'>Submit</button>
+              <button  className='downbtn'>Submit</button>
             </form>
         </Modal.Body>
         <Modal.Footer>
