@@ -83,7 +83,7 @@ function AddCard() {
               </div>
               <div>
                 <label htmlFor="currency">Currency</label>
-                <input type="tel" name="currency" id="currency" onChange={(e)=>handle(e)} placeholder='Ngn' />
+                <input type="text" name="currency" id="currency" onChange={(e)=>handle(e)} placeholder='Ngn' />
               </div>
               <button  className='downbtn'>Submit</button>
             </form>
