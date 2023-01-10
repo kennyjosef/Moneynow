@@ -209,7 +209,10 @@ th{
     }
     .tableContainer{
         font-size: 12px;
-        padding-left: 10px;
+        /* padding-left: 10px; */
+        width:90% ;
+        margin: auto;
+        margin-top: 20px;
     }
     .failed, .success, .processing{
         width: auto;
