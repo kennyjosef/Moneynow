@@ -13,7 +13,7 @@ const JoinGroup = () => {
     let [color, setColor] = useState(" rgb(238, 88, 238)");
     const token= localStorage.getItem("token")
     const url ="https://moneynow.onrender.com/group/allgroups"
-    const urlId =`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("userID")}`
+    const gTwo =`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("groupTwo")}`
     const override  = {
       display: "block",
       margin: "300px auto",
@@ -37,21 +37,25 @@ const JoinGroup = () => {
       theme: "colored",
       });
     const createGroup =()=>{
-      // e.preventDefault()
       axios.get(url,
         {headers:{authorization:`Bearer ${token}`}})
       .then(res=>{
-        console.log(res)
         console.log(res.data.data)
+        localStorage.setItem("groupOne", res.data.data[0]._id)
+        localStorage.setItem("groupTwo",res.data.data[1]._id)
+        console.log("sliver group id", localStorage.getItem("groupOne"))
+        console.log( "silverGold id is", localStorage.getItem("groupTwo"))
       })
       .catch(error=>{
         console.log(error)
       })
     }
+    createGroup()
+
     const addParticipant=()=>{
-      // axios.put(`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("userID")}`)
-    axios.put(urlId,
-      {headers:{authorization:`Bearer ${token}`}})
+    axios.put(gTwo,
+    {headers:{authorization:`Bearer ${token}`}}
+    )
       .then(res=>{
         console.log(res)
       })
@@ -60,8 +64,7 @@ const JoinGroup = () => {
         console.log(error.message)
       })
     }
-    addParticipant()
-   
+   addParticipant()
    console.log(token)
   return (
     <div>
@@ -102,7 +105,7 @@ const JoinGroup = () => {
                       <li>Savings Target: N5,000,000</li>
                       <li>Savings Duration: 5 months</li>
                     </ul>
-                    <button onClick={()=>{addParticipant()}} className={classes.joinbtn}>JOIN</button>
+                    <button onClick={(e)=>{addParticipant(e)}} className={classes.joinbtn}>JOIN</button>
                     </div>
 
                   </div>

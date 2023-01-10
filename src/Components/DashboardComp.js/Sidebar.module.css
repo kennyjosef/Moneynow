@@ -37,14 +37,18 @@
 .headers ul a:nth-child(1){
     margin-top: 0px;
 }
-.headers ul a:hover  {
+.headers a:hover {
     color: rgb(238, 88, 238)!important;
     transition: all 0.5s;
 }
-.link:active {
+.headers a:active {
     border-left: 2px solid rgb(238, 88, 238) !important;
     font-weight: 700;
 }
+.sidenav_active a {
+    color: #C867E2 !important;
+}
+
 
 @media screen and (max-width:768px) {
      ul{

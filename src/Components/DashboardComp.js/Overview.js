@@ -60,36 +60,12 @@ const Overview = () => {
           <th>Date & Time</th>
           <th>Status</th>
         </tr>
-        <tr>
+        {/* <tr>
           <td>Funding</td>
           <td>₦ 1000.00</td>
           <td>Dec. 20, 2021 7:30 AM</td>
           <td className="processing">Pending</td>
-        </tr>
-        <tr>
-          <td>Withdrawal</td>
-          <td>₦ 200.00</td>
-          <td>Dec. 20, 2021 7:30 AM</td>
-          <td className="success">Success</td>
-        </tr>
-        <tr>
-          <td>Withdrawal</td>
-          <td>₦ 300.00</td>
-          <td>Dec. 20, 2021 7:30 AM</td>
-          <td className="failed">Failed</td>
-        </tr>
-        <tr>
-          <td>Withdrawal</td>
-          <td>₦ 500.00</td>
-          <td>Dec. 20, 2021 7:30 AM</td>
-          <td className="success">Success</td>
-        </tr>
-        <tr>
-          <td>Funding</td>
-          <td>₦ 1000.00</td>
-          <td>Dec. 20, 2021 7:30 AM</td>
-          <td className="processing">Pending</td>
-        </tr>
+        </tr> */}
       </table>
       </div>
       {/* <button onClick={getTransaction}>get transaction</button> */}

@@ -21,11 +21,11 @@ const Nav = () => {
     const getUserName = () =>  {
       axios.get(`https://moneynow.onrender.com/api/username?id=${localStorage.getItem("userID")}`)
       .then(res => {
-        console.log(res)
+        // console.log(res)
         setMyName(res.data.fullName)
       })
       .catch(err => {
-        console.log(err)
+        // console.log(err)
       })
     }
     getUserName()

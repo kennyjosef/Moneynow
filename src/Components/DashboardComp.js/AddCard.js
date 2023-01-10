@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 function AddCard() {
   const token= localStorage.getItem("token")
   const navigate = useNavigate()
@@ -46,6 +47,10 @@ function AddCard() {
    
     .catch(error=>{
       console.log(error)
+      console.log(error.message)
+      if(error.message==="Request failed with status code 400"){
+        toast.error("Fill the form accurately")
+      }
     })
   }
 
