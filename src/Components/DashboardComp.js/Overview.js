@@ -8,6 +8,11 @@ const Overview = () => {
   const [show, setShow]=useState(true)
   const [balance, setBalance]= useState("")
   const [transactionEvent, setTransactionEvent]= useState()
+  const [transactType, setTransactType]=useState('')
+  const [amount, setAmount]= useState("")
+  const [status, setStatus]= useState("")
+  const [date, setDate]= useState("")
+  const [transactionMade, setTransactionMade] = useState("")
   const url="https://moneynow.onrender.com/api/userbalance"
   const transaction ="https://moneynow.onrender.com/transaction/usertransaction"
   const token= localStorage.getItem("token")
@@ -23,17 +28,17 @@ const Overview = () => {
     })
   }
   getUserBalance();
-  // const getTransaction= ()=>{
-  //   axios.get(transaction,
-  //     {headers:{authorization:`Bearer ${token}`}})
-  //     .then(res=>{
-  //       console.log(res)
-  //       setTransactionEvent(res.data)
-  //     })
-  //     .catch(error=>{
-  //       console.log(error)
-  //     })
-  // }
+  const getTransaction= ()=>{
+    axios.get(transaction,
+      {headers:{authorization:`Bearer ${token}`}})
+      .then(res=>{
+        console.log("Transacttion is", res)
+        setTransactionEvent(res.data)
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+  }
   // getTransaction()
   console.log(transactionEvent)
   return (

@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const SideBar = () => {
   return (
     <div className={classes.headers}>
-      <div className="logo">
+      <div className={classes.logo}>
         <img src={logo} alt="Moneynow" />
       </div>
       <ul className={classes.ul}>
@@ -21,7 +21,8 @@ const SideBar = () => {
          <Link  to="/payment"><img src={Atm} alt="atm" />Payment</Link>
          <Link  to="/referral"><img src={Referral} alt="referral" />Referral</Link>
          <Link  to="/more"><img src={More} alt="more" />More</Link>
-         <Link  to="#"><img src={logout} alt="out" />Sign out</Link>
+         {/* <button>Log out</button> */}
+         <Link  to="/signout"><img src={logout} alt="out" />Sign out</Link>
       </ul>
     </div>
   );

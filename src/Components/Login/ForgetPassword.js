@@ -30,7 +30,7 @@ const validate= Yup.object({
         onSubmit={values=>{
             console.log( "Email is", JSON.stringify(values))
             setLoading(true)
-            axios.put('https://moneynow.onrender.com/api/forgotpassword', values)
+            axios.put('https://moneynow.onrender.com/api/forgotpassword/user', values)
             .then(res=>{
                 setLoading(false)
                 localStorage.setItem('userEmail', values.email)

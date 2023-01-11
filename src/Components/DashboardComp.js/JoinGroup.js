@@ -14,6 +14,7 @@ const JoinGroup = () => {
     const token= localStorage.getItem("token")
     const url ="https://moneynow.onrender.com/group/allgroups"
     const gTwo =`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("groupTwo")}`
+    const gOne =`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("groupOne")}`
     const override  = {
       display: "block",
       margin: "300px auto",
@@ -53,8 +54,10 @@ const JoinGroup = () => {
     createGroup()
 
     const addParticipant=()=>{
-    axios.put(gTwo,
-    {headers:{authorization:`Bearer ${token}`}}
+    axios.put(`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("groupTwo")}`,
+    {headers:{
+      authorization:`Bearer ${token}`
+    }}
     )
       .then(res=>{
         console.log(res)

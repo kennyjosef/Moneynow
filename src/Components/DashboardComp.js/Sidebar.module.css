@@ -14,7 +14,7 @@
     position: fixed;
 }
 .logo{
-    margin-bottom: 20px;
+
 }
 .logo img{
     margin-left: 45px;
@@ -23,6 +23,10 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top:40px ;
+}
+.ul:nth-child(1){
+    border: 1px solid red;
 }
 .headers ul a{
     display: flex;

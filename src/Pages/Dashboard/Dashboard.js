@@ -1,8 +1,6 @@
 import React, { useEffect, useState, CSSProperties } from 'react'
-import { Link} from 'react-router-dom'
 import Nav from '../../Components/DashboardComp.js/Nav'
 import Overview from '../../Components/DashboardComp.js/Overview'
-import Payment from '../../Components/DashboardComp.js/Payment'
 import SideBar from '../../Components/DashboardComp.js/Sidebar'
 import classes from "./Dashboard.module.css"
 import MoonLoader from "react-spinners/MoonLoader";
@@ -19,7 +17,7 @@ const Dashboard = () => {
     setLoading(true)
     setTimeout(()=>{
       setLoading(false)
-    }, 5000)
+    }, 2000)
 
   },[])
   return (
