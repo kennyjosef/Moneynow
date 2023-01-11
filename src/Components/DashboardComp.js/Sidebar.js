@@ -22,7 +22,7 @@ const SideBar = () => {
          <Link  to="/referral"><img src={Referral} alt="referral" />Referral</Link>
          <Link  to="/more"><img src={More} alt="more" />More</Link>
          {/* <button>Log out</button> */}
-         <Link  to="/signout"><img src={logout} alt="out" />Sign out</Link>
+         <Link  to="#"><img src={logout} alt="out" />Sign out</Link>
       </ul>
     </div>
   );

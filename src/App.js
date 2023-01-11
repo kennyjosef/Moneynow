@@ -50,7 +50,7 @@ function App() {
         <Route path="payoutpassword" element={<PayoutPassword/>}/>
         <Route  path="media" element={<SocialMedia/>}/>
         <Route path="flutterpay" element={<FlutterPay/>}/>
-        <Route path= "signout" element={<SignOut/>}/>
+        {/* <Route path= "signout" element={<SignOut/>}/> */}
       </Routes>
       <ToastContainer />
     </div>
