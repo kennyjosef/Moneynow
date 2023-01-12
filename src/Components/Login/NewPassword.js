@@ -9,8 +9,15 @@ import {Formik, Form} from "formik"
 import TextField from './TextField'
 import * as Yup from "yup"
 import {toast } from 'react-toastify';
+import { Icon } from 'react-icons-kit'
+import {eye} from 'react-icons-kit/ionicons/eye'
+import {eyeDisabled} from 'react-icons-kit/ionicons/eyeDisabled'
 
 const NewPassword = () => {
+  const [type, setType]= useState("password")
+  const [icon, setIcon]= useState(eyeDisabled)
+  const [types, setTypes]= useState("password")
+  const [icons, setIcons]= useState(eyeDisabled)
   const [loading, setLoading] = useState(false)
   const style ={
     backgroundColor:"rgb(237, 162, 237)",
@@ -25,6 +32,26 @@ const NewPassword = () => {
     .oneOf([Yup.ref('password'), null], "Password must match")
     .required("Confirm pasword is required")
   })
+  const handleToggle=()=>{
+    if(type==="password"){
+        setIcon(eye);
+        setType("text")
+    }
+    else{
+      setIcon(eyeDisabled)
+      setType("password")  
+    }
+}
+const handleToggles=()=>{
+  if(types==="password"){
+      setIcons(eye);
+      setTypes("text")
+  }
+  else{
+    setIcons(eyeDisabled)
+    setTypes("password")  
+  }
+}
   return (
     <div className={classes.container}>
       <Formik 
@@ -65,11 +92,13 @@ const NewPassword = () => {
             <div className={classes.forform}>
               <Form className={classes.form}>
               {console.log("Values", formik.values)}
-              <div>
-                <TextField label="Password" name="password"  type="password" placeholder="Minimum of 8 Characters"/>
+              <div className={classes.eyeDisabled}>
+                <TextField label="Password" name="password"  type={types} placeholder="Minimum of 8 Characters"/>
+                <span onClick={handleToggles}><Icon icon={icons}  /></span>
               </div>
-              <div>
-                <TextField label="Confirm Password" name="confirmPassword" type="password" placeholder="Confirm your password"/>
+              <div className={classes.eyeDisabled}>
+                <TextField label="Confirm Password" name="confirmPassword" type={type} placeholder="Confirm your password"/>
+                <span onClick={handleToggle}><Icon icon={icon}  /></span>
               </div>
               <div>
                 {

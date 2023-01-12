@@ -6,10 +6,11 @@ import Atm from "../../Assets/atm.svg"
 import More from "../../Assets/more.svg"
 import Referral from "../../Assets/referral.svg"
 import logout from "../../Assets/logout.svg"
-
+// import { withRouter } from "react-router-dom";
 import logo from "../../Assets/moneylogo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const SideBar = () => {
+  const navigate = useNavigate()
   return (
     <div className={classes.headers}>
       <div className={classes.logo}>
@@ -22,12 +23,17 @@ const SideBar = () => {
          <Link  to="/referral"><img src={Referral} alt="referral" />Referral</Link>
          <Link  to="/more"><img src={More} alt="more" />More</Link>
          {/* <button>Log out</button> */}
-         <Link  to="#"><img src={logout} alt="out" />Sign out</Link>
+         <Link onClick={()=>{
+           if(localStorage.getItem("token")){
+             localStorage.removeItem("token")
+             navigate('/')
+          }
+         }}><img src={logout} alt="out" />Sign out</Link>
       </ul>
     </div>
   );
 };
 
-export default SideBar;
+export default  SideBar;
 
 

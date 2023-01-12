@@ -122,9 +122,31 @@
 .checkbox{
     background-color: rgb(238, 88, 238);
 }
+.eyeDisabled{
+    display: flex;
+    align-items: center;
+    width: 427px;
+}
+.eyeDisabled span{
+    position: relative;
+    right: 30px;
+    top: 15px;
+    cursor: pointer;
+}
+.eyeDisabled span:hover{
+    color:  rgb(238, 88, 238);
+}
 
 
 @media screen and (max-width:912px) {
+    .eyeDisabled{
+        width: 100%;
+        display: block;
+    }
+    .eyeDisabled span{
+        right: -180px;
+        top: -36px;
+    }
     .container{
         width: 100%;
         flex-direction: column;
@@ -174,5 +196,24 @@
     .para{
         padding: 0px;
         margin: 0;
+    }
+}
+@media screen and (max-width:800px) {
+    .eyeDisabled span{
+        right: -260px;
+    }
+}
+@media screen and (max-width:412px) {
+    
+    .eyeDisabled span{
+        right: -130px;
+    }
+}
+@media screen and (max-width:320px) {
+    .eyeDisabled span{
+        right: -100px;
+    }
+    input{
+        font-size: 10px;
     }
 }

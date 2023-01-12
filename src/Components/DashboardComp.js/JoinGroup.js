@@ -27,7 +27,7 @@ const JoinGroup = () => {
       }, 3000)
   
     },[]);
-    const notify = () =>toast.success('Succefully joined', {
+    const notify = () =>toast.success('Successfully joined', {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -37,21 +37,21 @@ const JoinGroup = () => {
       progress: undefined,
       theme: "colored",
       });
-    const createGroup =()=>{
-      axios.get(url,
-        {headers:{authorization:`Bearer ${token}`}})
-      .then(res=>{
-        console.log(res.data.data)
-        localStorage.setItem("groupOne", res.data.data[0]._id)
-        localStorage.setItem("groupTwo",res.data.data[1]._id)
+    // const createGroup =()=>{
+    //   axios.get(url,
+    //     {headers:{authorization:`Bearer ${token}`}})
+    //   .then(res=>{
+    //     console.log(res.data.data)
+    //     localStorage.setItem("groupOne", res.data.data[0]._id)
+    //     localStorage.setItem("groupTwo",res.data.data[1]._id)
         console.log("sliver group id", localStorage.getItem("groupOne"))
         console.log( "silverGold id is", localStorage.getItem("groupTwo"))
-      })
-      .catch(error=>{
-        console.log(error)
-      })
-    }
-    createGroup()
+    //   })
+    //   .catch(error=>{
+    //     console.log(error)
+    //   })
+    // }
+    // createGroup()
 
     const addParticipant=()=>{
     axios.put(`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("groupTwo")}`,
@@ -90,7 +90,8 @@ const JoinGroup = () => {
                         <li>Savings Target: N1,000,000</li>
                         <li>Savings Duration: 5 months</li>
                       </ul>
-                      <button  onClick={()=>{createGroup(); notify()}} className={classes.joinbtn}>JOIN</button>
+                      <button className={classes.joinbtn}>JOIN</button>
+                      {/* <button  onClick={()=>{createGroup(); notify()}} className={classes.joinbtn}>JOIN</button> */}
                     </div>
                     <div  className={classes.miniGroups}>
                       <h3>GOLD GROUP</h3>
@@ -99,7 +100,8 @@ const JoinGroup = () => {
                         <li>Savings Target: N5,000,000</li>
                         <li>Savings Duration: 5 months</li>
                       </ul>
-                      <button onClick={()=>{createGroup(); notify()}} className={classes.joinbtn}>JOIN</button>
+                      <button  className={classes.joinbtn}>JOIN</button>
+                      {/* <button onClick={()=>{createGroup(); notify()}} className={classes.joinbtn}>JOIN</button> */}
                     </div>
                     <div  className={classes.miniGroups}>
                     <h3>PLATINUM GROUP</h3>

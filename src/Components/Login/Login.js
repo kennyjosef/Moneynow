@@ -10,7 +10,12 @@ import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 import TextField from './TextField'
+import { Icon } from 'react-icons-kit'
+import {eye} from 'react-icons-kit/ionicons/eye'
+import {eyeDisabled} from 'react-icons-kit/ionicons/eyeDisabled'
 const Login = () => {
+    const [type, setType]= useState("password")
+    const [icon, setIcon]= useState(eyeDisabled)
   const [loading, setLoading] = useState(false)
   const style ={
     backgroundColor:"rgb(237, 162, 237)",
@@ -27,6 +32,16 @@ const Login = () => {
         .min(8)
         .required("Password is required"),
     })
+    const handleToggle=()=>{
+        if(type==="password"){
+            setIcon(eye);
+            setType("text")
+        }
+        else{
+          setIcon(eyeDisabled)
+          setType("password")  
+        }
+    }
   return (
     <div className={classes.container}>
         <Formik
@@ -76,8 +91,9 @@ const Login = () => {
                             <div>
                                 <TextField label="Email" name="email" placeholder="Type your e-mail" type="text"/>
                             </div>
-                            <div>
-                                <TextField label="Password" name="password" placeholder="Minimum of 8 characters" type="password"/>
+                            <div className={classes.eyeDisabled}>
+                                <TextField label="Password" name="password" placeholder="Minimum of 8 characters" type={type}/>
+                                <span onClick={handleToggle}><Icon icon={icon} /></span>
                             </div>
                             <div className={classes.remember}>
                                 <input type="checkbox" name="" id=""className={classes.check} />
