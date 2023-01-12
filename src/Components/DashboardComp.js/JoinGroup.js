@@ -37,21 +37,21 @@ const JoinGroup = () => {
       progress: undefined,
       theme: "colored",
       });
-    // const createGroup =()=>{
-    //   axios.get(url,
-    //     {headers:{authorization:`Bearer ${token}`}})
-    //   .then(res=>{
-    //     console.log(res.data.data)
-    //     localStorage.setItem("groupOne", res.data.data[0]._id)
-    //     localStorage.setItem("groupTwo",res.data.data[1]._id)
+    const createGroup =()=>{
+      axios.get(url,
+        {headers:{authorization:`Bearer ${token}`}})
+      .then(res=>{
+        console.log(res.data.data)
+        localStorage.setItem("groupOne", res.data.data[0]._id)
+        localStorage.setItem("groupTwo",res.data.data[1]._id)
         console.log("sliver group id", localStorage.getItem("groupOne"))
         console.log( "silverGold id is", localStorage.getItem("groupTwo"))
-    //   })
-    //   .catch(error=>{
-    //     console.log(error)
-    //   })
-    // }
-    // createGroup()
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+    }
+    createGroup()
 
     const addParticipant=()=>{
     axios.put(`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("groupTwo")}`,

@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import "./Overview.css";
 import eye from "../../Assets/eyeopened.svg";
 import axios from "axios";
+import AllGroup from "./AllGroup";
 
 
 const Overview = () => {
   const [show, setShow]=useState(true)
   const [balance, setBalance]= useState("")
-  const [transactionEvent, setTransactionEvent]= useState()
+  const [transactionEvent, setTransactionEvent]= useState("")
   const [transactType, setTransactType]=useState('')
   const [amount, setAmount]= useState("")
   const [status, setStatus]= useState("")
   const [date, setDate]= useState("")
-  const [transactionMade, setTransactionMade] = useState("")
+  const [transactionMade, setTransactionMade] = useState(0)
   const url="https://moneynow.onrender.com/api/userbalance"
   const transaction ="https://moneynow.onrender.com/transaction/usertransaction"
   const token= localStorage.getItem("token")
@@ -20,11 +21,11 @@ const Overview = () => {
     axios.get(url, 
       {headers:{authorization:`Bearer ${token}`}})
     .then(res=>{
-      console.log(res.data)
+      // console.log(res.data)
       setBalance(res.data.balance)
     })
     .catch(error=>{
-      console.log(error)
+      // console.log(error)
     })
   }
   getUserBalance();
@@ -33,14 +34,16 @@ const Overview = () => {
       {headers:{authorization:`Bearer ${token}`}})
       .then(res=>{
         console.log("Transacttion is", res)
-        setTransactionEvent(res.data)
+        setTransactionEvent(res.data.userTransactions)
+        setTransactionMade(res.data.allTransactions)
       })
       .catch(error=>{
         console.log(error)
       })
   }
-  // getTransaction()
-  console.log(transactionEvent)
+  getTransaction()
+  console.log("transaction event", transactionEvent)
+  // console.log(transactionMade)
   return (
     <div className="overview back">
       <div className="balancegroup">
@@ -57,7 +60,7 @@ const Overview = () => {
         </div>
       </div>
       <div className="tableContainer">
-      <p>Transaction History</p>
+      <p>Transaction History <span>{transactionMade}</span></p>
       <table>
         <tr>
           <th>Transaction Type</th>
@@ -65,12 +68,15 @@ const Overview = () => {
           <th>Date & Time</th>
           <th>Status</th>
         </tr>
-        {/* <tr>
-          <td>Funding</td>
-          <td>₦ 1000.00</td>
-          <td>Dec. 20, 2021 7:30 AM</td>
-          <td className="processing">Pending</td>
-        </tr> */}
+        <div>
+         
+          {/* {
+            transactionEvent.map(items=>{(
+              <AllGroup  amount={items.amount} status={items.transactionStatus} key={items.id}/>
+            )
+            })
+          } */}
+        </div>
       </table>
       </div>
       {/* <button onClick={getTransaction}>get transaction</button> */}
