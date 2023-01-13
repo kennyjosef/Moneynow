@@ -70,7 +70,16 @@ const Overview = () => {
           <h5>Total Balance</h5>
           <img onClick={()=>setShow(!show)}src={eye} alt="eye" />
           </div>
-          {show && <h2>{`₦ ${balance} .00`} </h2>}
+          <>
+          {
+            loading ?
+            <ScaleLoader color={color} loading={loading}size={50} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
+            :
+            <>
+            {show && <h2>{`₦ ${balance} .00`} </h2>}
+            </>
+          }
+          </>
         </div>
         <div className="group wrapper">
             <h5>Your Groups</h5>

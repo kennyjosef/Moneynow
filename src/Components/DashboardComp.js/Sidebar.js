@@ -24,10 +24,12 @@ const SideBar = () => {
          <Link  to="/more"><img src={More} alt="more" />More</Link>
          {/* <button>Log out</button> */}
          <Link onClick={()=>{
-           if(localStorage.getItem("token")){
-             localStorage.removeItem("token")
-             navigate('/')
-          }
+          window.localStorage.clear();
+          navigate('/')
+          //  if(localStorage.getItem("token")){
+          //    localStorage.removeItem("token")
+          //    navigate('/')
+          // }
          }}><img src={logout} alt="out" />Sign out</Link>
       </ul>
     </div>
