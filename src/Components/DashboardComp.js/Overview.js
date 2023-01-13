@@ -3,7 +3,6 @@ import "./Overview.css";
 import eye from "../../Assets/eyeopened.svg";
 import axios from "axios";
 import _ from 'lodash';
-import Transaction from "./Transaction";
 import ScaleLoader from 'react-spinners/ScaleLoader'
 
 const Overview = () => {
@@ -52,7 +51,6 @@ const Overview = () => {
         }
         getTransaction()
       },[])
-      console.log(localStorage.getItem("time"))
       const pageCount= transactionEvent?Math.ceil(transactionEvent.length/pageSize):0;
       const pages= _.range(1, pageCount+1)
       const pagination=(pageNo)=>{
@@ -73,7 +71,7 @@ const Overview = () => {
           <>
           {
             loading ?
-            <ScaleLoader color={color} loading={loading}size={50} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
+            <ScaleLoader color={color} loading={loading}size={40} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
             :
             <>
             {show && <h2>{`₦ ${balance} .00`} </h2>}
@@ -90,7 +88,7 @@ const Overview = () => {
       <p className="transme">Transaction History <span>{transactionMade}</span></p>
            {
             loading ?
-            <ScaleLoader color={color} loading={loading}size={50} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
+            <ScaleLoader color={color} loading={loading}size={40} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
             :
             <>
            <table className="table">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Sidebar.module.css";
 import Home from "../../Assets/home.svg"
 import Group from "../../Assets/lefticon.svg"
@@ -6,7 +6,6 @@ import Atm from "../../Assets/atm.svg"
 import More from "../../Assets/more.svg"
 import Referral from "../../Assets/referral.svg"
 import logout from "../../Assets/logout.svg"
-// import { withRouter } from "react-router-dom";
 import logo from "../../Assets/moneylogo.svg";
 import { Link, useNavigate } from "react-router-dom";
 const SideBar = () => {
@@ -22,14 +21,9 @@ const SideBar = () => {
          <Link  to="/payment"><img src={Atm} alt="atm" />Payment</Link>
          <Link  to="/referral"><img src={Referral} alt="referral" />Referral</Link>
          <Link  to="/more"><img src={More} alt="more" />More</Link>
-         {/* <button>Log out</button> */}
          <Link onClick={()=>{
           window.localStorage.clear();
           navigate('/')
-          //  if(localStorage.getItem("token")){
-          //    localStorage.removeItem("token")
-          //    navigate('/')
-          // }
          }}><img src={logout} alt="out" />Sign out</Link>
       </ul>
     </div>
