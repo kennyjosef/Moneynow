@@ -6,7 +6,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-left: 200px;
-    padding-bottom: 320px;
+    /* padding-bottom: 320px; */
   }
   
   .balancegroup {
@@ -63,20 +63,34 @@
     margin-top: 40px;
 
   }
+
+  .transme span{
+    background-color: red;
+    width: auto;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+  }
  
 .father{
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+}
+.father table{
+  width: 100%;
+  margin-bottom: 30px;
+}
+.father td{
+  padding-bottom: 5px;
 }
 .father p{
     width: 20%;
     font-weight: 600;
 }
+
   @media screen and (max-width:768px) {
     .overview{
         width: 100%;
-        padding: 0px 0px 100px 0px;
+        padding: 0px 0px 10px 0px;
         margin-left: 0px;
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
