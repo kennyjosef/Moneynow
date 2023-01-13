@@ -2,18 +2,17 @@ import React, { useEffect, useState } from "react";
 import "./Overview.css";
 import eye from "../../Assets/eyeopened.svg";
 import axios from "axios";
-import AllGroup from "./AllGroup";
+import Transaction from "./Transaction";
 
 
 const Overview = () => {
   const [show, setShow]=useState(true)
   const [balance, setBalance]= useState("")
-  const [transactionEvent, setTransactionEvent]= useState("")
-  const [transactType, setTransactType]=useState('')
-  const [amount, setAmount]= useState("")
-  const [status, setStatus]= useState("")
-  const [date, setDate]= useState("")
+  const [transactionEvent, setTransactionEvent]= useState([])
   const [transactionMade, setTransactionMade] = useState(0)
+  const [loading, setLoading]= useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(10)
   const url="https://moneynow.onrender.com/api/userbalance"
   const transaction ="https://moneynow.onrender.com/transaction/usertransaction"
   const token= localStorage.getItem("token")
@@ -21,27 +20,30 @@ const Overview = () => {
     axios.get(url, 
       {headers:{authorization:`Bearer ${token}`}})
     .then(res=>{
-      // console.log(res.data)
       setBalance(res.data.balance)
     })
     .catch(error=>{
-      // console.log(error)
+      console.log(error)
     })
   }
   getUserBalance();
+  useEffect(()=>{
   const getTransaction= ()=>{
+    setLoading(true)
     axios.get(transaction,
       {headers:{authorization:`Bearer ${token}`}})
       .then(res=>{
         console.log("Transacttion is", res)
         setTransactionEvent(res.data.userTransactions)
         setTransactionMade(res.data.allTransactions)
+        setLoading(false)
       })
       .catch(error=>{
         console.log(error)
       })
   }
-  getTransaction()
+    getTransaction()
+  },[])
   console.log("transaction event", transactionEvent)
   // console.log(transactionMade)
   return (
@@ -61,23 +63,25 @@ const Overview = () => {
       </div>
       <div className="tableContainer">
       <p>Transaction History <span>{transactionMade}</span></p>
-      <table>
-        <tr>
-          <th>Transaction Type</th>
-          <th>Amount</th>
-          <th>Date & Time</th>
-          <th>Status</th>
-        </tr>
+      <div className="father">
+          <p>Transaction Type</p>
+          <p>Amount</p>
+          <p>Date & Time</p>
+          <p>Status</p>
+      </div>
         <div>
          
-          {/* {
-            transactionEvent.map(items=>{(
-              <AllGroup  amount={items.amount} status={items.transactionStatus} key={items.id}/>
+          {
+            transactionEvent.map(items=>(
+              <Transaction  amount={items.amount.$numberDecimal} 
+              status={items.transactionStatus} 
+              date={items.createdAt}
+              type={items.purpose}
+              key={items.id}/>
             )
-            })
-          } */}
+            )
+          }
         </div>
-      </table>
       </div>
       {/* <button onClick={getTransaction}>get transaction</button> */}
     </div>
@@ -85,3 +89,4 @@ const Overview = () => {
 };
 
 export default Overview;
+

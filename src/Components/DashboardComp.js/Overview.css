@@ -58,119 +58,20 @@
     margin-left: 13px;
   }
   
-  .transaction-container {
-    background: #fff;
-    box-shadow: 0px 3px 8px rgba(41, 41, 41, 0.13);
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
-    overflow: auto;
-    width: 100%;
-    margin-top: 30px;
-  }
-  
-  .transaction-container::-webkit-scrollbar {
-      display: none;
-  }
-  
-  .trans {
-      display: flex;
-      padding: 10px 20px;
-      align-items: center;
-  }
-  
-  .tableheader {
-      text-transform: uppercase;
-      color: #5A626D;
-      display: flex;
-      padding: 10px 20px;
-      align-items: center;
-  }
-  
-  .trans {
-      border-top: 1px solid #EDF2F7;
-      font-size: 0.95rem;
-  }
-  
-  .funwit {
-      color: #353535;
-      font-weight: 500;
-  }
-  
-  .green {
-      color: #34AA44;
-  }
-  
-  .error {
-      color: #DA6060;
-  }
-  
-  .green, .error {
-      font-weight: 400;
-  }
-  
-  .dandt:not(first-child) {
-      color: #353535cc;;
-  }
-  
-  .ttype, .amount {
-      width: 20%;
-  }
-  
-  .dandt {
-      width: 35%;
-  }
-  
-  .status {
-      width: 15%;
-  }
-  
-  .failed {
-      background: #F16063;
-      font-size: 20px;
-  }
-  
-  .success {
-      background: #66CB9F;
-      font-size: 20px;
-  }
-  
-  .processing {
-      background: #F7936F;
-      font-size: 20px;
-  }
-  
-  .failed, .success, .processing {
-      color: #fff;
-      /* padding: 5px 20px; */
-      font-family: "archivo", sans-serif;
-      text-align: center;
-      font-weight: 400;
-      font-size: 12px;
-      border-radius: 3px;
-      text-transform: capitalize;
-      display: inline-block;
-      width: 90px;
-  }
+
   .tableContainer{
     margin-top: 40px;
 
   }
-  table{
+ 
+.father{
     width: 100%;
-    border-collapse: collapse;
+    display: flex;
+    justify-content: space-between;
 }
-td{
-    margin-bottom: 10px;
-}
-th{
-    padding-bottom: 5px;
-  }
-  table, tr, td, th{
-    /* border: 1px solid black; */
-    border-collapse:collapse;
-
+.father p{
+    width: 20%;
+    font-weight: 600;
 }
   @media screen and (max-width:768px) {
     .overview{
@@ -214,8 +115,7 @@ th{
         margin: auto;
         margin-top: 20px;
     }
-    .failed, .success, .processing{
-        width: auto;
-        padding: 0px 4px;
-    }
+   .father p{
+    font-size: 12px;
+   }
   }

@@ -1,0 +1,16 @@
+.father{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.father p{
+    width: 20%;
+}
+@media screen and (max-width:768px) {
+    .father p{
+        font-size: 12px;
+    }
+    .father{
+        width: 100%;
+    }
+}
