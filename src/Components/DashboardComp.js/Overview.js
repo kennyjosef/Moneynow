@@ -71,7 +71,7 @@ const Overview = () => {
           <>
           {
             loading ?
-            <ScaleLoader color={color} loading={loading}size={40} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
+            <ScaleLoader color={color} loading={loading}size={20} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
             :
             <>
             {show && <h2>{`₦ ${balance} .00`} </h2>}
@@ -88,7 +88,7 @@ const Overview = () => {
       <p className="transme">Transaction History <span>{transactionMade}</span></p>
            {
             loading ?
-            <ScaleLoader color={color} loading={loading}size={40} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
+            <ScaleLoader color={color} loading={loading}size={20} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
             :
             <>
            <table className="table">

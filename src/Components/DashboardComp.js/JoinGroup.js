@@ -11,10 +11,11 @@ import {toast } from 'react-toastify'
 const JoinGroup = () => {
     const [loading, setLoading]=useState(false)
     let [color, setColor] = useState(" rgb(238, 88, 238)");
+    const [groupOne, setGroupOne] =useState()
+    const [groupTwo, setGroupTwo] =useState()
     const token= localStorage.getItem("token")
-    const url ="https://moneynow.onrender.com/group/allgroups"
-    const gTwo =`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("groupTwo")}`
-    const gOne =`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("groupOne")}`
+    const url ="https://moneynow.onrender.com/group/allgroups";
+    const groupurl="https://moneynow.onrender.com/group/add/?id="
     const override  = {
       display: "block",
       margin: "300px auto",
@@ -37,38 +38,36 @@ const JoinGroup = () => {
       progress: undefined,
       theme: "colored",
       });
-    const createGroup =()=>{
-      axios.get(url,
-        {headers:{authorization:`Bearer ${token}`}})
-      .then(res=>{
-        console.log(res.data.data)
-        localStorage.setItem("groupOne", res.data.data[0]._id)
-        localStorage.setItem("groupTwo",res.data.data[1]._id)
-        console.log("sliver group id", localStorage.getItem("groupOne"))
-        console.log( "silverGold id is", localStorage.getItem("groupTwo"))
-      })
-      .catch(error=>{
-        console.log(error)
-      })
-    }
-    createGroup()
+    // runs when the page loads, and get all group id
+    useEffect(()=>{
 
-    const addParticipant=()=>{
-    axios.put(`https://moneynow.onrender.com/group/add/?id=${localStorage.getItem("groupTwo")}`,
-    {headers:{
-      authorization:`Bearer ${token}`
-    }}
-    )
-      .then(res=>{
-        console.log(res)
-      })
-      .catch(error=>{
+        const createAllGroup= async()=>{
+          try {
+            const res= await axios.get(url,
+              {headers:{authorization:`Bearer ${token}`}})
+              setGroupOne(res.data.data[0]._id)
+              setGroupTwo(res.data.data[1]._id)
+              console.log(res)
+          } catch (error) {
+            console.log(error)
+          }
+      
+        }
+        createAllGroup();
+    },[])
+ 
+
+  //  to add participant to group using the groupId and userToken
+  const addParticipant = async()=>{
+      try{
+          const resp = await axios.put(`https://moneynow.onrender.com/group/add/?id=${groupOne}`,
+          {headers:{authorization:`Bearer ${token}`}})
+          console.log(resp.data)
+      }catch (error){
         console.log(error)
-        console.log(error.message)
-      })
-    }
-   addParticipant()
-   console.log(token)
+
+      }
+  }
   return (
     <div>
         <Nav/>
@@ -100,7 +99,7 @@ const JoinGroup = () => {
                         <li>Savings Target: N5,000,000</li>
                         <li>Savings Duration: 5 months</li>
                       </ul>
-                      <button  className={classes.joinbtn}>JOIN</button>
+                      <button className={classes.joinbtn}>JOIN</button>
                       {/* <button onClick={()=>{createGroup(); notify()}} className={classes.joinbtn}>JOIN</button> */}
                     </div>
                     <div  className={classes.miniGroups}>
