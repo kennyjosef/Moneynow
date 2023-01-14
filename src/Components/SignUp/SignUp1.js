@@ -11,12 +11,15 @@ import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TextField from '../Login/TextField'
 import * as Yup from "yup"
+import ScaleLoader from 'react-spinners/ScaleLoader'
+
 const SignUp1 = () => {
     let [loading, setLoading] = useState(false);
-    const style ={
-        backgroundColor:"rgb(237, 162, 237)",
-
-    }
+    let [color, setColor] = useState('white');
+  const override  = {
+    display: "block",
+    borderColor: "rgb(238, 88, 238)",
+  };
     const navigate = useNavigate()
     const validate=Yup.object({
         email:Yup
@@ -69,7 +72,10 @@ const SignUp1 = () => {
                             <>
                                 {
                                     loading ?
-                                    <Button style={style} name="Loading..."/>:
+                                    <button>
+                                        <ScaleLoader color={color} loading={loading}size={20} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
+                                    </button>
+                                    :
                                     <Button name="Proceed" />
                                 }
                             </>

@@ -13,6 +13,8 @@ import TextField from './TextField'
 import { Icon } from 'react-icons-kit'
 import {eye} from 'react-icons-kit/ionicons/eye'
 import {eyeDisabled} from 'react-icons-kit/ionicons/eyeDisabled'
+import ScaleLoader from 'react-spinners/ScaleLoader'
+
 const Login = () => {
     const [type, setType]= useState("password")
     const [icon, setIcon]= useState(eyeDisabled)
@@ -21,6 +23,11 @@ const Login = () => {
     backgroundColor:"rgb(237, 162, 237)",
 
 }
+let [color, setColor] = useState('white');
+  const override  = {
+    display: "block",
+    borderColor: "rgb(238, 88, 238)",
+  };
   const navigate = useNavigate()
     const validate= Yup.object({
         email:Yup
@@ -102,7 +109,10 @@ const Login = () => {
                             <div>
                                 {
                                     loading?
-                                    <Button style={style} name="Loading..." />:
+                                    <button>
+                                        <ScaleLoader color={color} loading={loading}size={20} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
+                                    </button>
+                                    :
                                     <Button name="Proceed" />
                                 }
                             </div>

@@ -10,11 +10,18 @@ import { useNavigate } from 'react-router-dom'
 import TextField from '../Login/TextField'
 import * as Yup from "yup"
 import { toast } from 'react-toastify'
+import ScaleLoader from 'react-spinners/ScaleLoader'
 
 
 const Details = () => {
     const [loading, setLoading] = useState(false)
     const style ={backgroundColor:"rgb(237, 162, 237)",}
+  let [color, setColor] = useState('white');
+    const override  = {
+      display: "block",
+      borderColor: "rgb(238, 88, 238)",
+    };
+
     const navigate = useNavigate()
     const validate=Yup.object({
         firstName:Yup
@@ -93,7 +100,9 @@ const Details = () => {
                             <div>
                                 {
                                     loading ?
-                                    <Button style={style} name="Loading..."/>
+                                    <button>
+                                        <ScaleLoader color={color} loading={loading}size={20} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
+                                    </button>
                                     :
                                     <Button name="Proceed"/>
                                 }

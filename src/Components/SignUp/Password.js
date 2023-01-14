@@ -11,7 +11,15 @@ import * as Yup from "yup"
 import { Icon } from 'react-icons-kit'
 import {eye} from 'react-icons-kit/ionicons/eye'
 import {eyeDisabled} from 'react-icons-kit/ionicons/eyeDisabled'
+import ScaleLoader from 'react-spinners/ScaleLoader'
+
 const Password = () => {
+  const [loading, setLoading] = useState(false)
+  let [color, setColor] = useState('white');
+  const override  = {
+    display: "block",
+    borderColor: "rgb(238, 88, 238)",
+  };
   const [type, setType]= useState("password")
   const [icon, setIcon]= useState(eyeDisabled)
   const [types, setTypes]= useState("password")
@@ -86,7 +94,14 @@ const handleToggles=()=>{
                     <span onClick={handleToggle}><Icon icon={icon}  /></span>
                   </div>
                   <div>
+                    {
+                      loading?
+                      <button>
+                        <ScaleLoader color={color} loading={loading}size={20} cssOverride={override} aria-label="Loading Spinner" data-testid="loader"/>
+                      </button>
+                      :
                     <Button name="Proceed"/>
+                    }
                   </div>
                 </Form>
               </div>
